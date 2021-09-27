@@ -14,7 +14,7 @@ physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 _die_side_scene = ExtResource( 2 )
 _die_radius = 0.2
-_side_scale = 1.04
+_side_scale = 1.05
 _ray_cast_length = 0.42
 
 [node name="Tween" type="Tween" parent="."]
