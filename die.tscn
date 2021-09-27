@@ -4,7 +4,7 @@
 [ext_resource path="res://die_side.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
-bounce = 0.2
+bounce = 0.5
 
 [node name="Die" type="RigidBody" groups=[
 "Dice",
@@ -13,5 +13,10 @@ collision_layer = 2
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 _die_side_scene = ExtResource( 2 )
-_side_scale = 0.52
-_ray_cast_length = 0.4
+_die_radius = 0.2
+_side_scale = 1.04
+_ray_cast_length = 0.42
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

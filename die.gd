@@ -27,6 +27,11 @@ export var _ray_cast_length := 0.55
 
 var side_up := NONE
 
+var _sides := [ ]
+
+
+onready var _tween: Tween = $Tween
+
 
 
 func _enter_tree() -> void:
@@ -57,21 +62,25 @@ func _ready() -> void:
 				die_side.transform = rotate_around(die_side.transform, Vector3.ZERO, Vector3.UP, PI)
 				#die_side.transform = rotate_around(die_side.transform, Vector3.ZERO, Vector3.UP, (float(index) / number_of_sides) * TAU)
 		
+		_sides.append(die_side)
 		add_child(die_side)
 	
-	for die_side in get_children():
-		die_side.set_exceptions(get_children())
+	for die_side in _sides:
+		die_side.set_exceptions(_sides)
 	
 	transform.basis = random_vector3()
 	
-	apply_torque_impulse(random_vector3() * 0.2)
-	apply_central_impulse(random_vector3() * 2.0)
+	apply_torque_impulse(random_vector3() * 0.5)
+	apply_central_impulse(random_vector3() * 4.0)
 
 
 func _physics_process(_delta: float) -> void:
 	if side_up == NONE and linear_velocity.abs().length_squared() < 0.01:
 		side_up = _get_face_up()
 		emit_signal("side_changed", self, side_up)
+		
+		if not side_up == NONE:
+			sleeping = true
 
 
 
@@ -95,7 +104,7 @@ func rotate_around(transform_to_rotate: Transform, point: Vector3, axis: Vector3
 
 
 func _get_face_up() -> int:
-	for child in get_children():
+	for child in _sides:
 		var die_side: DieSide = child as DieSide
 		
 		if die_side.check_for_collision():
@@ -110,3 +119,25 @@ func _new_die_side() -> DieSide:
 	die_side.cast_to = Vector3(0.0, 0.0, -_ray_cast_length)
 	
 	return die_side
+
+
+func _on_sleeping_state_changed() -> void:
+	if not sleeping:
+		return
+	
+	var to_rotate := 0.0
+	match(side_up):
+		1, 4:
+			pass
+		
+		2:
+			to_rotate = -90.0
+		
+		3, 6:
+			to_rotate = 180.0
+		
+		5:
+			to_rotate = 90.0
+	
+	_tween.interpolate_property(self, "rotation_degrees:y", null, to_rotate, 0.3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	_tween.start()

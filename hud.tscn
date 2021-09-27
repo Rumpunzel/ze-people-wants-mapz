@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/default_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://dice_results.gd" type="Script" id=3]
+[ext_resource path="res://total.gd" type="Script" id=4]
+[ext_resource path="res://dice_spawner.gd" type="Script" id=5]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+layer = 100
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control"]
+margin_right = 395.0
+margin_bottom = 118.0
+grow_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 388.0
+margin_bottom = 111.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 12
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer2/MarginContainer"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 365.0
+margin_bottom = 92.0
+custom_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/PanelContainer2/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 95.0
+margin_bottom = 75.0
+text = "Roll:"
+
+[node name="LineEdit" type="LineEdit" parent="Control/PanelContainer2/MarginContainer/HBoxContainer"]
+margin_left = 111.0
+margin_right = 349.0
+margin_bottom = 80.0
+expand_to_text_length = true
+script = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 3833.0
+margin_bottom = 101.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 12
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 3810.0
+margin_bottom = 82.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
+margin_right = 169.0
+margin_bottom = 70.0
+text = "Total: 0"
+script = ExtResource( 4 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
+margin_left = 201.0
+margin_top = 35.0
+margin_right = 3794.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+follow_focus = true
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceResults" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer"]
+size_flags_vertical = 4
+custom_constants/separation = 32
+script = ExtResource( 3 )
+
+[connection signal="text_entered" from="Control/PanelContainer2/MarginContainer/HBoxContainer/LineEdit" to="Control/PanelContainer2/MarginContainer/HBoxContainer/LineEdit" method="_spawn_dice"]

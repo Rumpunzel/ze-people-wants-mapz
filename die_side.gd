@@ -26,10 +26,6 @@ func _set_digit(new_digit: int) -> void:
 	digit = new_digit
 	var texture: ImageTexture = NumberViewport.get_die_side("%d" % digit)
 	$Sprite3D.texture = texture
-	
-	var material: SpatialMaterial = $Sprite3D.material_override.duplicate()
-	material.albedo_texture = texture
-	$Sprite3D.material_override = material
 
 func _set_cast_to(new_cast_to: Vector3) -> void:
 	cast_to = new_cast_to
