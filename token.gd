@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _process(_delta: float):
 	if _being_dragged:
-		var mouse_position := get_viewport().get_mouse_position()
+		var mouse_position := get_global_mouse_position()
 		var raster_position := Vector2(
 			stepify(mouse_position.x, 256.0),
 			stepify(mouse_position.y, 256.0)

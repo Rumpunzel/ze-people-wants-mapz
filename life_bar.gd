@@ -1,8 +1,8 @@
 extends ProgressBar
 
 
-onready var _current: Label = get_node("../HBoxContainer/Current")
-onready var _max: Label = get_node("../HBoxContainer/Max")
+onready var _current: Label = $LifeDisplay/Current
+onready var _max: Label = $LifeDisplay/Max
 
 
 func _ready() -> void:

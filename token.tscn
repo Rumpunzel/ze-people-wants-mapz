@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/grung.jpg" type="Texture" id=1]
 [ext_resource path="res://images/token_mask_3.png" type="Texture" id=2]
@@ -16,6 +16,15 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.431373, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color( 0, 0.25098, 0, 1 )
+border_blend = true
 
 [node name="Token" type="KinematicBody2D"]
 input_pickable = true
@@ -75,6 +84,7 @@ margin_top = -64.0
 margin_right = 256.0
 margin_bottom = -11.0
 size_flags_vertical = 1
+custom_styles/fg = SubResource( 5 )
 value = 50.0
 percent_visible = false
 script = ExtResource( 5 )
@@ -82,15 +92,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer2"]
-margin_top = -64.0
+[node name="LifeDisplay" type="HBoxContainer" parent="Background/MarginContainer2/LifeBar"]
 margin_right = 256.0
-margin_bottom = -11.0
+margin_bottom = 53.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Current" type="Label" parent="Background/MarginContainer2/HBoxContainer"]
+[node name="Current" type="Label" parent="Background/MarginContainer2/LifeBar/LifeDisplay"]
 margin_right = 117.0
 margin_bottom = 53.0
 size_flags_horizontal = 3
@@ -98,7 +107,7 @@ size_flags_vertical = 1
 align = 2
 valign = 1
 
-[node name="Of" type="Label" parent="Background/MarginContainer2/HBoxContainer"]
+[node name="Of" type="Label" parent="Background/MarginContainer2/LifeBar/LifeDisplay"]
 margin_left = 121.0
 margin_right = 134.0
 margin_bottom = 53.0
@@ -107,7 +116,7 @@ text = "/"
 align = 1
 valign = 1
 
-[node name="Max" type="Label" parent="Background/MarginContainer2/HBoxContainer"]
+[node name="Max" type="Label" parent="Background/MarginContainer2/LifeBar/LifeDisplay"]
 margin_left = 138.0
 margin_right = 256.0
 margin_bottom = 53.0
