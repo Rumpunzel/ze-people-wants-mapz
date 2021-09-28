@@ -8,7 +8,7 @@ var _being_dragged := false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT:
+		if event.button_index == BUTTON_LEFT or event.button_index == BUTTON_MIDDLE:
 			_being_dragged = event.pressed
 		
 		elif event.button_index == BUTTON_WHEEL_UP:

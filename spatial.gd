@@ -15,7 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if ShittySingleton.left_to_spawn > 0:
 		var new_die := die_scene.instance() as Die
-		var spawn_position = Die.random_vector3() * 2.0
+		var spawn_position = Die.random_vector3()
 		
 		spawn_position.y = 3.0 + randf() * 10.0
 		new_die.transform.origin = spawn_position

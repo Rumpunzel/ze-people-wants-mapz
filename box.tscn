@@ -20,26 +20,26 @@ shape = SubResource( 6 )
 [node name="StaticBody2" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 10, 0 )
 shape = SubResource( 7 )
 
 [node name="StaticBody3" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 10, 0 )
 shape = SubResource( 5 )
 
 [node name="StaticBody4" type="StaticBody" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 10, 0 )
 shape = SubResource( 7 )
 
 [node name="StaticBody5" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 10, 0 )
 shape = SubResource( 5 )
