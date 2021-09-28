@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://tokens/token.gd" type="Script" id=2]
+[ext_resource path="res://tokens/trail.gd" type="Script" id=3]
+[ext_resource path="res://tokens/life_bar.gd" type="Script" id=4]
+[ext_resource path="res://tokens/images/portraits/grung.jpg" type="Texture" id=5]
+[ext_resource path="res://tokens/images/token_background.png" type="Texture" id=6]
+[ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 128.0
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0.431373, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color( 0, 0.25098, 0, 1 )
+border_blend = true
+
+[node name="Token" type="Area2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Trail" type="Line2D" parent="Node"]
+z_index = -10
+width = 240.0
+width_curve = SubResource( 2 )
+default_color = Color( 1, 1, 1, 1 )
+gradient = SubResource( 3 )
+joint_mode = 2
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="Image" type="TextureRect" parent="Background"]
+material = ExtResource( 7 )
+margin_left = -128.0
+margin_top = -128.0
+margin_right = 128.0
+margin_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+anchor_right = 1.0
+margin_left = -128.0
+margin_top = -128.0
+margin_right = -128.0
+margin_bottom = -126.0
+theme = SubResource( 7 )
+custom_constants/margin_top = -64
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar" type="ProgressBar" parent="Background/MarginContainer"]
+margin_top = -64.0
+margin_right = 256.0
+margin_bottom = -14.0
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 8 )
+value = 50.0
+percent_visible = false
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeDisplay" type="HBoxContainer" parent="Background/MarginContainer/LifeBar"]
+margin_right = 256.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Current" type="Label" parent="Background/MarginContainer/LifeBar/LifeDisplay"]
+margin_right = 117.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 2
+valign = 1
+
+[node name="Of" type="Label" parent="Background/MarginContainer/LifeBar/LifeDisplay"]
+margin_left = 121.0
+margin_right = 134.0
+margin_bottom = 53.0
+size_flags_vertical = 1
+text = "/"
+align = 1
+valign = 1
+
+[node name="Max" type="Label" parent="Background/MarginContainer/LifeBar/LifeDisplay"]
+margin_left = 138.0
+margin_right = 256.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+valign = 1
+
+[node name="GhostTween" type="Tween" parent="."]
+
+[node name="MovementTween" type="Tween" parent="."]
+
+[connection signal="changed" from="Background/MarginContainer/LifeBar" to="Background/MarginContainer/LifeBar" method="_on_changed"]
+[connection signal="value_changed" from="Background/MarginContainer/LifeBar" to="Background/MarginContainer/LifeBar" method="_on_value_changed"]

@@ -1,26 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://spatial.gd" type="Script" id=2]
 [ext_resource path="res://die.tscn" type="PackedScene" id=3]
 
-[node name="3D" type="CanvasLayer"]
-layer = 10
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 32, 18 )
 
-[node name="DiceRoller" type="Spatial" parent="."]
-script = ExtResource( 2 )
-die_scene = ExtResource( 3 )
+[node name="3D" type="Spatial"]
 
-[node name="Camera" type="Camera" parent="DiceRoller"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0.5 )
-current = true
-fov = 30.0
-
-[node name="MeshInstance" parent="DiceRoller" instance=ExtResource( 1 )]
-
-[node name="SpotLight" type="SpotLight" parent="DiceRoller"]
-transform = Transform( 0.857337, -0.388316, 0.33791, -0.20956, 0.336291, 0.918146, -0.470168, -0.857974, 0.206939, 14.641, 29.3987, 6.94207 )
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.857337, -0.388317, 0.33791, -0.20956, 0.336291, 0.918146, -0.470168, -0.857973, 0.206939, 14.641, 29.3987, 6.94207 )
 light_color = Color( 1, 0.878431, 0.709804, 1 )
 shadow_enabled = true
 spot_range = 60.0
 spot_angle = 30.0
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0.5 )
+current = true
+fov = 30.0
+
+[node name="Plane" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Box" parent="." instance=ExtResource( 1 )]
+
+[node name="DiceRoller" type="Spatial" parent="."]
+script = ExtResource( 2 )
+die_scene = ExtResource( 3 )

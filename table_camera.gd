@@ -6,9 +6,9 @@ export var _zoom_factor := 0.1
 var _being_dragged := false
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_MIDDLE:
+		if event.button_index == BUTTON_LEFT:
 			_being_dragged = event.pressed
 		
 		elif event.button_index == BUTTON_WHEEL_UP:
