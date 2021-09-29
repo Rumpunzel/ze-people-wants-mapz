@@ -23,6 +23,7 @@ func _process(_delta: float):
 	if _being_dragged:
 		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		_ghost_tween.start()
+		ShittySingleton.emit_signal("ruler_ended", _ghost.global_position)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -62,10 +63,12 @@ func _set_being_dragged(new_status: bool) -> void:
 		if not _ghost.visible:
 			_ghost.global_position = global_position
 			_ghost.visible = true
+			ShittySingleton.emit_signal("ruler_started", _ghost.global_position)
 	else:
 		if _ghost.visible:
 			_ghost.visible = false
 			_ghost.global_position = _mouse_as_coordinate()
+			ShittySingleton.emit_signal("ruler_dismissed")
 			
 			var travel_time := min(global_position.distance_to(_ghost.global_position) / (_move_speed * 512.0) , _max_travel_time)
 			_movement_tween.interpolate_property(self, "global_position", null, _ghost.global_position, travel_time, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
