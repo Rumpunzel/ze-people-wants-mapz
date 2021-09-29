@@ -53,4 +53,4 @@ position = Vector2( 768, -256 )
 position = Vector2( -256, -256 )
 
 [node name="WizzKrall" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -768, 256 )
+position = Vector2( -896, 384 )

@@ -4,6 +4,7 @@
 [ext_resource path="res://tokens/images/portraits/wizzkrall.png" type="Texture" id=2]
 
 [node name="WizzKrall" instance=ExtResource( 1 )]
+_size = 8
 
 [node name="Image" parent="Background" index="0"]
 texture = ExtResource( 2 )
