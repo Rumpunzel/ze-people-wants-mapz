@@ -12,7 +12,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_being_dragged = event.pressed
 		
 		elif event.button_index == BUTTON_WHEEL_UP:
-			zoom -= Vector2(_zoom_factor, _zoom_factor)
+			zoom = Vector2(max(zoom.x - _zoom_factor, _zoom_factor), max(zoom.y - _zoom_factor, _zoom_factor))
 		elif event.button_index == BUTTON_WHEEL_DOWN:
 			zoom += Vector2(_zoom_factor, _zoom_factor)
 	
