@@ -47,12 +47,12 @@ func _input(event: InputEvent) -> void:
 
 
 
-func _mouse_as_coordinate() -> Vector2:
+func _mouse_as_coordinate(snap_to_grid := true) -> Vector2:
 	var mouse_position := get_global_mouse_position()
 	return Vector2(
 		stepify(mouse_position.x, 256.0),
 		stepify(mouse_position.y, 256.0)
-	)
+	) if snap_to_grid else mouse_position
 
 
 

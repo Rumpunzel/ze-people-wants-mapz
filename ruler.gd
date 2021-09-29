@@ -1,5 +1,6 @@
 extends Line2D
 
+var _used_manually := false
 
 onready var _label:Label = $Node2D/Label
 
@@ -14,10 +15,27 @@ func _ready() -> void:
 	
 	_label.add_color_override("font_color", default_color)
 
+func _process(delta: float) -> void:
+	if _used_manually:
+			_on_ruler_ended(_mouse_as_coordinate(Input.is_key_pressed(KEY_CONTROL)))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_RIGHT:
+			if event.pressed:
+				_used_manually = true
+				_on_ruler_started(_mouse_as_coordinate(Input.is_key_pressed(KEY_CONTROL)))
+			else:
+				_used_manually = false
+				_on_ruler_dismissed()
+
+
+func _mouse_as_coordinate(snap_to_grid := true) -> Vector2:
+	var mouse_position := get_global_mouse_position()
+	return Vector2(
+		stepify(mouse_position.x, 256.0),
+		stepify(mouse_position.y, 256.0)
+	) if snap_to_grid else mouse_position
 
 
 func _on_ruler_started(start_position: Vector2) -> void:
