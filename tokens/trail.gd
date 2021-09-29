@@ -1,9 +1,7 @@
 extends Line2D
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+onready var _default_width := width
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	width = (owner.scale.x / 1.0) * _default_width
 	add_point(owner.position)
 	if points.size() > 20:
 		remove_point(0)

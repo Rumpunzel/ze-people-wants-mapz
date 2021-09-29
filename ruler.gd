@@ -2,7 +2,7 @@ extends Line2D
 
 var _used_manually := false
 
-onready var _label:Label = $Node2D/Label
+onready var _label:Label = $CanvasLayer/Label
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,13 +41,20 @@ func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
 func _on_ruler_started(start_position: Vector2) -> void:
 	points[0] = start_position
 	visible = true
+	_label.visible = visible
 
 func _on_ruler_ended(end_position: Vector2) -> void:
 	points[1] = end_position
 	_label.text = "%0.1f ft" % [ points[0].distance_to(points[1]) / 256.0 * 5.0 ]
 	_label.rect_pivot_offset = _label.rect_size * 0.5
-	_label.rect_position = (points[0] + points[1]) * 0.5 - _label.rect_pivot_offset
+	
+	var current_camera: Camera2D = get_tree().get_nodes_in_group("Camera2D").front()
+	var viewport_offset: Vector2 = get_viewport().size * 0.5
+	_label.rect_position = ((points[0] + points[1]) * 0.5 - current_camera.position) / current_camera.zoom.x + viewport_offset - _label.rect_pivot_offset
+	
 	visible = true
+	_label.visible = visible
 
 func _on_ruler_dismissed() -> void:
 	visible = false
+	_label.visible = visible

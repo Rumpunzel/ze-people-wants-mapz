@@ -17,14 +17,14 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=7]
-default_font = SubResource( 6 )
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0, 0.431373, 0, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -46,7 +46,6 @@ shape = SubResource( 1 )
 z_index = -10
 width = 240.0
 width_curve = SubResource( 2 )
-default_color = Color( 1, 1, 1, 1 )
 gradient = SubResource( 3 )
 joint_mode = 2
 script = ExtResource( 3 )
@@ -74,7 +73,7 @@ margin_left = -128.0
 margin_top = -128.0
 margin_right = -128.0
 margin_bottom = -126.0
-theme = SubResource( 7 )
+theme = SubResource( 5 )
 custom_constants/margin_top = -64
 custom_constants/margin_bottom = 16
 __meta__ = {
@@ -86,7 +85,7 @@ margin_top = -64.0
 margin_right = 256.0
 margin_bottom = -14.0
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 8 )
+custom_styles/fg = SubResource( 6 )
 value = 50.0
 percent_visible = false
 script = ExtResource( 4 )
