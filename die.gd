@@ -90,6 +90,17 @@ static func random_vector3() -> Vector3:
 static func random_float_in_range(lower_bound := -1.0, upper_bound := 1.0) -> float:
 	return lower_bound + randf() * (upper_bound - lower_bound)
 
+static func roll(dice_number: int, die_type: int, use_expected_result := false) -> int:
+	var result := 0
+	
+	if use_expected_result:
+		result = int(dice_number * (die_type + 1) * 0.5)
+	else:
+		for _i in range(dice_number):
+			result += randi() % die_type
+	
+	return result
+
 
 func rotate_around(transform_to_rotate: Transform, point: Vector3, axis: Vector3, angle: float):
 	# Rotate its basis
