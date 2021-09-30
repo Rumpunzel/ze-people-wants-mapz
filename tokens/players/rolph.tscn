@@ -11,5 +11,5 @@ default_color = Color( 0.647059, 0, 0, 1 )
 [node name="Image" parent="." index="3"]
 texture = ExtResource( 2 )
 
-[node name="HUDMargin" parent="CanvasLayer" index="0"]
+[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
 visible = false

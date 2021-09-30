@@ -11,7 +11,6 @@ _size = 2
 texture = ExtResource( 2 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
-visible = false
 margin_left = -64.0
 margin_top = -64.0
 margin_right = -3776.0
@@ -19,4 +18,9 @@ margin_bottom = -64.0
 rect_pivot_offset = Vector2( 64, 0 )
 
 [node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
+visible = false
+margin_right = 128.0
+margin_bottom = -4.0
+
+[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
 margin_right = 128.0

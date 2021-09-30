@@ -1,14 +1,40 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/players/wizzkrall.png" type="Texture" id=2]
+[ext_resource path="res://attributes.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+level = 1
+hit_die = 8
+roll_hit_points = true
+armor_class = 15
+strength = 10
+dexterity = 10
+constitution = 10
+intelligence = 10
+wisdom = 10
+charisma = 10
 
 [node name="WizzKrall" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
 _size = 8
+_attributes = SubResource( 1 )
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource( 2 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
+margin_left = -256.0
+margin_top = -257.5
+margin_right = -3584.0
+margin_bottom = -254.5
+rect_pivot_offset = Vector2( 256, 1.5 )
+
+[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
 visible = false
+margin_right = 512.0
+
+[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
+margin_right = 512.0

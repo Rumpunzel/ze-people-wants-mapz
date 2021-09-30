@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grung.jpg-2acb8b854316db6f25124a99ebe80266.stex"
+path="res://.import/death_skull.png-4ab098736bc2d8422781b8f874ff2b50.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/players/grung.jpg"
-dest_files=[ "res://.import/grung.jpg-2acb8b854316db6f25124a99ebe80266.stex" ]
+source_file="res://hud/initiative_tracker/icons/death_skull.png"
+dest_files=[ "res://.import/death_skull.png-4ab098736bc2d8422781b8f874ff2b50.stex" ]
 
 [params]
 

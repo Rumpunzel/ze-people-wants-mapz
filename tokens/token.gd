@@ -41,6 +41,11 @@ onready var _ghost: Node2D = Node2D.new()
 func _ready() -> void:
 	_set_size(_size)
 	
+	emit_signal("maximum_hit_points_changed", _attributes.calculate_hit_points())
+	
+	if Engine.editor_hint:
+		return
+	
 	var ghost_background := _background.duplicate()
 	ghost_background.visible = _background.visible
 	_ghost.add_child(ghost_background)
@@ -53,11 +58,12 @@ func _ready() -> void:
 	_ghost.z_index = 5
 	
 	add_child(_ghost)
-	
-	emit_signal("maximum_hit_points_changed", _attributes.calculate_hit_points())
 
 
 func _process(_delta: float):
+	if Engine.editor_hint:
+		return
+	
 	if _being_dragged:
 		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(128.0 if _size == Size.TINY else 256.0), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		_ghost_tween.start()
@@ -65,6 +71,9 @@ func _process(_delta: float):
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Engine.editor_hint:
+		return
+	
 	if event is InputEventMouseButton:
 		if get_global_mouse_position().distance_to(global_position) > ($CollisionShape2D.shape as CircleShape2D).radius * scale.x:
 			return
@@ -78,6 +87,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if Engine.editor_hint:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and not event.pressed:
 			_set_being_dragged(false)

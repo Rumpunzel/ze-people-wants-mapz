@@ -1,7 +1,7 @@
 extends Node2D
 
 export var grid_size := 256.0
-export var grid_color := Color("9b0000")
+export var grid_color := Color("c89b0000")
 export var line_thickness := 5.0
 
 

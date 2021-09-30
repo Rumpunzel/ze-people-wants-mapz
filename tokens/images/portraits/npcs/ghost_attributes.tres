@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://attributes.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+level = 10
+hit_die = 8
+roll_hit_points = false
+armor_class = 11
+strength = 7
+dexterity = 13
+constitution = 10
+intelligence = 10
+wisdom = 12
+charisma = 17

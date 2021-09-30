@@ -1,31 +1,47 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
 [ext_resource path="res://tokens/trail.gd" type="Script" id=3]
 [ext_resource path="res://tokens/life_bar.gd" type="Script" id=4]
-[ext_resource path="res://tokens/images/portraits/players/grung.jpg" type="Texture" id=5]
+[ext_resource path="res://tokens/images/portraits/grung.jpg" type="Texture" id=5]
 [ext_resource path="res://tokens/images/token_background.png" type="Texture" id=6]
 [ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=7]
 [ext_resource path="res://tokens/hud_margin.gd" type="Script" id=8]
+[ext_resource path="res://attributes.gd" type="Script" id=9]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="Resource" id=1]
+script = ExtResource( 9 )
+level = 1
+hit_die = 8
+roll_hit_points = true
+armor_class = 15
+strength = 10
+dexterity = 10
+constitution = 10
+intelligence = 10
+wisdom = 10
+charisma = 10
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 128.0
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=5]
-default_font = SubResource( 4 )
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0.431373, 0, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -34,20 +50,23 @@ border_width_bottom = 4
 border_color = Color( 0, 0.25098, 0, 1 )
 border_blend = true
 
-[node name="Token" type="Area2D"]
+[node name="Token" type="Area2D" groups=[
+"Token",
+]]
 collision_layer = 2
 script = ExtResource( 2 )
+_attributes = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Node" type="Node" parent="."]
 
 [node name="Trail" type="Line2D" parent="Node"]
 z_index = -10
 width = 240.0
-width_curve = SubResource( 2 )
-gradient = SubResource( 3 )
+width_curve = SubResource( 3 )
+gradient = SubResource( 4 )
 joint_mode = 2
 script = ExtResource( 3 )
 
@@ -77,13 +96,13 @@ __meta__ = {
 [node name="HUDMargin" type="MarginContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 margin_left = -128.0
-margin_top = -131.0
+margin_top = -129.5
 margin_right = 128.0
-margin_bottom = -128.0
+margin_bottom = -126.5
 grow_horizontal = 2
 grow_vertical = 0
 rect_pivot_offset = Vector2( 128, 1.5 )
-theme = SubResource( 5 )
+theme = SubResource( 6 )
 custom_constants/margin_top = -36
 custom_constants/margin_bottom = 4
 script = ExtResource( 8 )
@@ -96,7 +115,7 @@ margin_top = -36.0
 margin_right = 4096.0
 margin_bottom = -1.0
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 6 )
+custom_styles/fg = SubResource( 7 )
 value = 50.0
 percent_visible = false
 script = ExtResource( 4 )
