@@ -17,25 +17,25 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if _used_manually:
-			_on_ruler_ended(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 256.0))
+			_on_ruler_ended(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_RIGHT:
 			if event.pressed:
 				_used_manually = true
-				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 256.0))
+				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
 			else:
 				_used_manually = false
 				_on_ruler_dismissed()
 
 
-func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
-	var mouse_position := get_global_mouse_position()
+func _mouse_as_coordinate(grid_snapping := 128.0) -> Vector2:
+	var mouse_position := get_global_mouse_position() - Vector2(128.0, 128.0)
 	return Vector2(
 		stepify(mouse_position.x, grid_snapping),
 		stepify(mouse_position.y, grid_snapping)
-	)
+	) + Vector2(128.0, 128.0)
 
 
 func _on_ruler_started(start_position: Vector2) -> void:

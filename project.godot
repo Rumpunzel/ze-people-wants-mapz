@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "Attributes",
+"language": "GDScript",
+"path": "res://attributes.gd"
+}, {
+"base": "ImageTexture",
+"class": "CustomGradientTexture",
+"language": "GDScript",
+"path": "res://assets/maujoe.custom_gradient_texture/custom_gradient_texture.gd"
+}, {
 "base": "RigidBody",
 "class": "Die",
 "language": "GDScript",
@@ -18,10 +28,18 @@ _global_script_classes=[ {
 "class": "DieSide",
 "language": "GDScript",
 "path": "res://die_side.gd"
+}, {
+"base": "Area2D",
+"class": "Token",
+"language": "GDScript",
+"path": "res://tokens/token.gd"
 } ]
 _global_script_class_icons={
+"Attributes": "",
+"CustomGradientTexture": "",
 "Die": "",
-"DieSide": ""
+"DieSide": "",
+"Token": ""
 }
 
 [application]

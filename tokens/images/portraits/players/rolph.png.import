@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wizzkrall.jpeg-608e870ec905cc0f35851d370530ca34.stex"
+path="res://.import/rolph.png-c84cfe1cbc9438285519872481fd4882.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/raw/wizzkrall.jpeg"
-dest_files=[ "res://.import/wizzkrall.jpeg-608e870ec905cc0f35851d370530ca34.stex" ]
+source_file="res://tokens/images/portraits/players/rolph.png"
+dest_files=[ "res://.import/rolph.png-c84cfe1cbc9438285519872481fd4882.stex" ]
 
 [params]
 

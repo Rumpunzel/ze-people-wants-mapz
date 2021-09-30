@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tokens/monsters/corpse_flower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=9]
+
+[sub_resource type="ProceduralSky" id=2]
+sky_top_color = Color( 0.423529, 0.341176, 0.054902, 1 )
+sky_horizon_color = Color( 0.0784314, 0.333333, 0.0431373, 1 )
+sun_color = Color( 0.0627451, 0.411765, 0.0901961, 1 )
+
+[sub_resource type="Environment" id=1]
+background_mode = 2
+background_sky = SubResource( 2 )
+
+[node name="Monsters" type="YSort"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 1, 0.929412, 0.796078, 1 )
+
+[node name="CorpseFlower" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1024, -256 )
+
+[node name="Will-o-Wisp" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1472, 192 )
+
+[node name="Will-o-Wisp2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1216, 576 )
+
+[node name="Will-o-Wisp3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -832, -832 )
+
+[node name="Will-o-Wisp4" parent="." instance=ExtResource( 9 )]
+position = Vector2( -832, 448 )
+
+[node name="Will-o-Wisp5" parent="." instance=ExtResource( 9 )]
+position = Vector2( -320, -704 )
+
+[node name="Will-o-Wisp6" parent="." instance=ExtResource( 9 )]
+position = Vector2( -320, 320 )

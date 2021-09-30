@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rolph.png-bb71fd286178cbfcf7915aadff13ffc9.stex"
+path="res://.import/gibs.jpg-041098a348a0490b3d129d3b1c8b6b9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/rolph.png"
-dest_files=[ "res://.import/rolph.png-bb71fd286178cbfcf7915aadff13ffc9.stex" ]
+source_file="res://tokens/images/portraits/players/raw/gibs.jpg"
+dest_files=[ "res://.import/gibs.jpg-041098a348a0490b3d129d3b1c8b6b9a.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gibs.png-b038ad86c152ce23144fb748aee660cf.stex"
+path="res://.import/wizzkrall.jpeg-14f0e007980b08cd29ca70c4d936052e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/gibs.png"
-dest_files=[ "res://.import/gibs.png-b038ad86c152ce23144fb748aee660cf.stex" ]
+source_file="res://tokens/images/portraits/players/raw/wizzkrall.jpeg"
+dest_files=[ "res://.import/wizzkrall.jpeg-14f0e007980b08cd29ca70c4d936052e.stex" ]
 
 [params]
 

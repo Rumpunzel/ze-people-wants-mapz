@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grung.jpg-5b662c158d2e6befba9b0eb593a9fa91.stex"
+path="res://.import/rolph.jpg-4db2ed60390145ef3872e08f143aa46a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/grung.jpg"
-dest_files=[ "res://.import/grung.jpg-5b662c158d2e6befba9b0eb593a9fa91.stex" ]
+source_file="res://tokens/images/portraits/players/raw/rolph.jpg"
+dest_files=[ "res://.import/rolph.jpg-4db2ed60390145ef3872e08f143aa46a.stex" ]
 
 [params]
 

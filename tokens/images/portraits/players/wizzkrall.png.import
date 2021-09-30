@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/osmund.jpg-fe5e051d0acddc06d6fd69941a3763ac.stex"
+path="res://.import/wizzkrall.png-3dd763957c7dcedb03ec1bc972db157a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/raw/osmund.jpg"
-dest_files=[ "res://.import/osmund.jpg-fe5e051d0acddc06d6fd69941a3763ac.stex" ]
+source_file="res://tokens/images/portraits/players/wizzkrall.png"
+dest_files=[ "res://.import/wizzkrall.png-3dd763957c7dcedb03ec1bc972db157a.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gibs.jpg-66f90f0d21551ec96eae983d71ab6cac.stex"
+path="res://.import/osmund.jpg-40542d44c23354e344e46db4e31c8974.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/raw/gibs.jpg"
-dest_files=[ "res://.import/gibs.jpg-66f90f0d21551ec96eae983d71ab6cac.stex" ]
+source_file="res://tokens/images/portraits/players/raw/osmund.jpg"
+dest_files=[ "res://.import/osmund.jpg-40542d44c23354e344e46db4e31c8974.stex" ]
 
 [params]
 

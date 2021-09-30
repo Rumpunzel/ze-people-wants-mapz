@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/osmund.png-e9b153dee37abf98e1b965ed2dc47360.stex"
+path="res://.import/will_o_wisp.png-179180cc9bd184cee9d24a52f67cccce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/osmund.png"
-dest_files=[ "res://.import/osmund.png-e9b153dee37abf98e1b965ed2dc47360.stex" ]
+source_file="res://tokens/images/portraits/monsters/will_o_wisp.png"
+dest_files=[ "res://.import/will_o_wisp.png-179180cc9bd184cee9d24a52f67cccce.stex" ]
 
 [params]
 

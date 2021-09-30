@@ -9,10 +9,13 @@ size = Vector2( 32, 18 )
 
 [node name="3D" type="Spatial"]
 
+[node name="Plane" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.857337, -0.388317, 0.33791, -0.20956, 0.336291, 0.918146, -0.470168, -0.857973, 0.206939, 14.641, 29.3987, 6.94207 )
-light_color = Color( 0.988235, 0.721569, 0.352941, 1 )
-light_energy = 2.29
+light_energy = 2.0
 shadow_enabled = true
 spot_range = 60.0
 spot_angle = 30.0
@@ -21,10 +24,6 @@ spot_angle = 30.0
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0 )
 current = true
 fov = 30.0
-
-[node name="Plane" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = null
 
 [node name="Box" parent="." instance=ExtResource( 1 )]
 

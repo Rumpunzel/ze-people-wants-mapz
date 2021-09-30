@@ -30,8 +30,8 @@ func _draw_grid(current_camera: Camera2D, cell_size: Vector2, line_color: Color,
 	var end_of_colomns := int((size.x + camera_position.x) / cell_size.x) + 1
 	for i in range(begin_of_colomns, end_of_colomns):
 		draw_line(
-			Vector2(i * cell_size.y + grid_size * 0.5, camera_position.y + size.y),
-			Vector2(i * cell_size.y + grid_size * 0.5, camera_position.y - size.y),
+			Vector2(i * cell_size.y, camera_position.y + size.y),
+			Vector2(i * cell_size.y, camera_position.y - size.y),
 			line_color,
 			line_width
 		)
@@ -40,8 +40,8 @@ func _draw_grid(current_camera: Camera2D, cell_size: Vector2, line_color: Color,
 	var end_of_rows := int((size.y + camera_position.y) / cell_size.y) + 1
 	for i in range(begin_of_rows, end_of_rows):
 		draw_line(
-			Vector2(camera_position.x + size.x, i * cell_size.x + grid_size * 0.5),
-			Vector2(camera_position.x - size.x, i * cell_size.x + grid_size * 0.5),
+			Vector2(camera_position.x + size.x, i * cell_size.x),
+			Vector2(camera_position.x - size.x, i * cell_size.x),
 			line_color,
 			line_width
 		)

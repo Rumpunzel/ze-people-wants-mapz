@@ -1,3 +1,5 @@
+tool
+class_name Token
 extends Area2D
 
 enum Size {
@@ -10,31 +12,49 @@ enum Size {
 }
 
 
-const _SCALE_FACTOR := 0.25
+const SCALE_FACTOR := 0.25
+
+
+signal size_changed(new_size)
+signal maximum_hit_points_changed(new_hit_points)
 
 
 export var _move_speed := 2.0
 export var _max_travel_time = 0.6
 
 export(Size) var _size := Size.MEDIUM setget _set_size
+export(Resource) var _attributes = Attributes.new()
 
 
 var _being_dragged := false setget _set_being_dragged
 var _token_offset := Vector2.ZERO
 
-
-onready var _ghost: Sprite = $Background.duplicate()
+onready var _background: Sprite = $Background
+onready var _image: TextureRect = $Image
 onready var _ghost_tween: Tween = $GhostTween
 onready var _movement_tween: Tween = $MovementTween
+
+onready var _ghost: Node2D = Node2D.new()
 
 
 
 func _ready() -> void:
+	_set_size(_size)
+	
+	var ghost_background := _background.duplicate()
+	ghost_background.visible = _background.visible
+	_ghost.add_child(ghost_background)
+	
+	var ghost_image := _image.duplicate()
+	_ghost.add_child(ghost_image)
+	
 	_ghost.modulate.a = 0.5
 	_ghost.visible = false
 	_ghost.z_index = 5
 	
 	add_child(_ghost)
+	
+	emit_signal("maximum_hit_points_changed", _attributes.calculate_hit_points())
 
 
 func _process(_delta: float):
@@ -75,14 +95,17 @@ func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
 
 func _set_size(new_size: int) -> void:
 	_size = new_size
-	scale = Vector2.ONE * _size * _SCALE_FACTOR
+	scale = Vector2.ONE * _size * SCALE_FACTOR
+	
 	match _size:
 		Size.TINY:
 			_token_offset = -Vector2(64.0, 64.0)
-		Size.LARGE, Size.GARGANTUAN:
+		Size.SMALL, Size.MEDIUM, Size.HUGE:
 			_token_offset = Vector2(128.0, 128.0)
-		_:
+		Size.LARGE, Size.GARGANTUAN:
 			_token_offset = Vector2.ZERO
+	
+	emit_signal("size_changed", _size)
 
 
 func _set_being_dragged(new_status: bool) -> void:

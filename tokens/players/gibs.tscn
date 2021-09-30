@@ -1,13 +1,22 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tokens/images/portraits/gibs.png" type="Texture" id=2]
+[ext_resource path="res://tokens/images/portraits/players/gibs.png" type="Texture" id=2]
 
 [node name="Gibs" instance=ExtResource( 1 )]
+scale = Vector2( 0.5, 0.5 )
 _size = 2
 
-[node name="Image" parent="Background" index="0"]
+[node name="Image" parent="." index="3"]
 texture = ExtResource( 2 )
 
-[node name="MarginContainer" parent="Background" index="1"]
+[node name="HUDMargin" parent="CanvasLayer" index="0"]
 visible = false
+margin_left = -64.0
+margin_top = -64.0
+margin_right = -3776.0
+margin_bottom = -64.0
+rect_pivot_offset = Vector2( 64, 0 )
+
+[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
+margin_right = 128.0
