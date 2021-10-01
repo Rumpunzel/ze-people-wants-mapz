@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://spatial.gd" type="Script" id=2]
-[ext_resource path="res://die.tscn" type="PackedScene" id=3]
+[ext_resource path="res://3d_dice/d6.tscn" type="PackedScene" id=3]
 [ext_resource path="res://spot_light.gd" type="Script" id=4]
+[ext_resource path="res://3d_dice/d100.tscn" type="PackedScene" id=5]
+[ext_resource path="res://3d_dice/d20.tscn" type="PackedScene" id=6]
+[ext_resource path="res://3d_dice/d10.tscn" type="PackedScene" id=7]
+[ext_resource path="res://3d_dice/d8.tscn" type="PackedScene" id=8]
+[ext_resource path="res://3d_dice/d4.tscn" type="PackedScene" id=9]
+[ext_resource path="res://3d_dice/d12.tscn" type="PackedScene" id=10]
 
 [sub_resource type="PlaneMesh" id=1]
-size = Vector2( 32, 18 )
+size = Vector2( 48, 32 )
 
 [node name="3D" type="Spatial"]
 
@@ -15,15 +21,15 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 0.857337, -0.388317, 0.33791, -0.20956, 0.336291, 0.918146, -0.470168, -0.857973, 0.206939, 14.641, 29.3987, 6.94207 )
+transform = Transform( 0.857337, -0.388317, 0.33791, -0.20956, 0.336291, 0.918146, -0.470168, -0.857973, 0.206939, 20.9215, 41.875, 11.9332 )
 light_energy = 2.0
 shadow_enabled = true
-spot_range = 60.0
-spot_angle = 30.0
+spot_range = 80.0
+spot_angle = 40.0
 script = ExtResource( 4 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 0 )
 current = true
 fov = 30.0
 
@@ -31,4 +37,10 @@ fov = 30.0
 
 [node name="DiceRoller" type="Spatial" parent="."]
 script = ExtResource( 2 )
-die_scene = ExtResource( 3 )
+d4_scene = ExtResource( 9 )
+d6_scene = ExtResource( 3 )
+d8_scene = ExtResource( 8 )
+d10_scene = ExtResource( 7 )
+d12_scene = ExtResource( 10 )
+d20_scene = ExtResource( 6 )
+d100_scene = ExtResource( 5 )

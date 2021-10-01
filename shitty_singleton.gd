@@ -7,7 +7,7 @@ signal ruler_ended(position)
 signal ruler_dismissed()
 
 
-var left_to_spawn := 0
+var left_to_spawn := [ ]
 
 
 func display_result(die: Die, result: int) -> void:

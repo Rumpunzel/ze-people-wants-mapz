@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/K10_DiceSet_01.obj-f1772c1f1655fe7e2e136cbd0ba8108e.mesh"
+
+[deps]
+
+files=[ "res://.import/K10_DiceSet_01.obj-f1772c1f1655fe7e2e136cbd0ba8108e.mesh" ]
+
+source_file="res://models/K10_DiceSet_01.obj"
+dest_files=[ "res://.import/K10_DiceSet_01.obj-f1772c1f1655fe7e2e136cbd0ba8108e.mesh", "res://.import/K10_DiceSet_01.obj-f1772c1f1655fe7e2e136cbd0ba8108e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

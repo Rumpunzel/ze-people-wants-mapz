@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://3d_dice/dice_physics_material.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://die.gd" type="Script" id=3]
+
+[node name="DieBlueprint" type="RigidBody" groups=[
+"Dice",
+]]
+physics_material_override = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Sides" type="Spatial" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

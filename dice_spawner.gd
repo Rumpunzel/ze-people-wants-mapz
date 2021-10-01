@@ -3,4 +3,6 @@ extends LineEdit
 
 func _spawn_dice(new_text: String) -> void:
 	var commands := new_text.split("d")
-	ShittySingleton.left_to_spawn += int(commands[0])
+	
+	for _i in range(int(max(int(commands[0]), 1))):
+		ShittySingleton.left_to_spawn.append(int(commands[1]))
