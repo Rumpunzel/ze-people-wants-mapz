@@ -22,6 +22,12 @@ constitution = 10
 intelligence = 10
 wisdom = 10
 charisma = 10
+strength_saving_throw_bonus = 0
+dexterity_saving_throw_bonus = 0
+constitution_saving_throw_bonus = 0
+intelligence_saving_throw_bonus = 0
+wisdom_saving_throw_bonus = 0
+charisma_saving_throw_bonus = 0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 128.0
@@ -70,7 +76,9 @@ gradient = SubResource( 4 )
 joint_mode = 2
 script = ExtResource( 3 )
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Token" type="Sprite" parent="Background"]
 texture = ExtResource( 6 )
 
 [node name="Image" type="TextureRect" parent="."]
@@ -83,6 +91,7 @@ margin_left = -128.0
 margin_top = -128.0
 margin_right = 128.0
 margin_bottom = 128.0
+rect_pivot_offset = Vector2( 128, 128 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
@@ -97,7 +106,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_left = -128.0
 margin_top = -129.5
-margin_right = 128.0
+margin_right = -3712.0
 margin_bottom = -126.5
 grow_horizontal = 2
 grow_vertical = 0
@@ -112,7 +121,7 @@ __meta__ = {
 
 [node name="LifeBar" type="ProgressBar" parent="CanvasLayer/HUDMargin"]
 margin_top = -36.0
-margin_right = 4096.0
+margin_right = 256.0
 margin_bottom = -1.0
 size_flags_vertical = 1
 custom_styles/fg = SubResource( 7 )
@@ -126,7 +135,7 @@ __meta__ = {
 [node name="LifeDisplay" type="HBoxContainer" parent="CanvasLayer/HUDMargin"]
 visible = false
 margin_top = -36.0
-margin_right = 4096.0
+margin_right = 256.0
 margin_bottom = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -162,6 +171,8 @@ valign = 1
 [node name="GhostTween" type="Tween" parent="."]
 
 [node name="MovementTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="maximum_hit_points_changed" from="." to="CanvasLayer/HUDMargin/LifeBar" method="_on_maximum_hit_points_changed"]
 [connection signal="size_changed" from="." to="CanvasLayer/HUDMargin" method="_on_size_changed"]

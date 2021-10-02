@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://canvas_modulate.gd" type="Script" id=1]
+[ext_resource path="res://tokens/monsters/stench_zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tokens/monsters/corpse_flower.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=9]
 
@@ -27,7 +28,7 @@ position = Vector2( -960, -704 )
 position = Vector2( -576, 64 )
 
 [node name="Will-o-Wisp3" parent="." instance=ExtResource( 9 )]
-position = Vector2( -832, 192 )
+position = Vector2( -1344, -704 )
 
 [node name="Will-o-Wisp4" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1344, 192 )
@@ -36,7 +37,13 @@ position = Vector2( -1344, 192 )
 position = Vector2( -576, -576 )
 
 [node name="Will-o-Wisp6" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1472, -64 )
+position = Vector2( -1472, -320 )
 
 [node name="CorpseFlower" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1024, -256 )
+
+[node name="StenchZombie" parent="." instance=ExtResource( 2 )]
+position = Vector2( -384, -384 )
+
+[node name="StenchZombie2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -896, 384 )

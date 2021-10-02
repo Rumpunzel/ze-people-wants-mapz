@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/monsters/corpse_flower.png" type="Texture" id=2]
 [ext_resource path="res://tokens/images/portraits/monsters/corpse_flower_attributes.tres" type="Resource" id=3]
 [ext_resource path="res://tokens/particles/stench_of_death.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tokens/particles/stench_of_death_material.tres" type="Material" id=5]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.439216, 0.266667, 0.0784314, 0, 0.439216, 0.266667, 0.0784314, 1 )
 
 [node name="CorpseFlower" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
@@ -13,8 +17,12 @@ _color = Color( 0.439216, 0.266667, 0.0784314, 1 )
 
 [node name="Trail" parent="Node" index="0"]
 width = 80.0
+gradient = SubResource( 1 )
 
 [node name="Background" parent="." index="2"]
+self_modulate = Color( 0.439216, 0.266667, 0.0784314, 1 )
+
+[node name="Token" parent="Background" index="0"]
 visible = false
 
 [node name="Image" parent="." index="3"]
@@ -22,11 +30,12 @@ material = null
 texture = ExtResource( 2 )
 
 [node name="StenchOfDeath" parent="." index="4" instance=ExtResource( 4 )]
+process_material = ExtResource( 5 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
 margin_left = -256.0
 margin_top = -257.5
-margin_right = -3584.0
+margin_right = 256.0
 margin_bottom = -254.5
 rect_pivot_offset = Vector2( 256, 1.5 )
 

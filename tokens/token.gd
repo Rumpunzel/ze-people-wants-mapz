@@ -31,7 +31,7 @@ var _being_dragged := false setget _set_being_dragged
 var _token_offset := Vector2.ZERO
 
 var _trail: Trail
-var _background: Sprite
+var _background: Node2D
 var _image: TextureRect
 var _ghost_tween: Tween
 var _movement_tween: Tween
@@ -58,7 +58,11 @@ func _ready() -> void:
 		return
 	
 	var ghost_background := _background.duplicate()
-	ghost_background.visible = _background.visible
+	ghost_background.get_node("Token").visible = _background.get_node("Token").visible
+	var ghost_light: Light2D = ghost_background.get_node_or_null("Light2D")
+	if ghost_light:
+		ghost_light.visible = false
+	
 	_ghost.add_child(ghost_background)
 	
 	var ghost_image := _image.duplicate()

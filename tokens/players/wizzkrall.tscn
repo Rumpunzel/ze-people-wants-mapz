@@ -16,6 +16,12 @@ constitution = 10
 intelligence = 10
 wisdom = 10
 charisma = 10
+strength_saving_throw_bonus = 0
+dexterity_saving_throw_bonus = 0
+constitution_saving_throw_bonus = 0
+intelligence_saving_throw_bonus = 0
+wisdom_saving_throw_bonus = 0
+charisma_saving_throw_bonus = 0
 
 [node name="WizzKrall" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )

@@ -1,0 +1,20 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tokens/images/portraits/monsters/zombie_attributes.tres" type="Resource" id=2]
+[ext_resource path="res://tokens/image.gd" type="Script" id=3]
+[ext_resource path="res://tokens/images/portraits/monsters/zombies/zombie_3.png" type="Texture" id=5]
+[ext_resource path="res://tokens/images/portraits/monsters/zombies/zombie_5.png" type="Texture" id=6]
+[ext_resource path="res://tokens/images/portraits/monsters/zombies/zombie_2.png" type="Texture" id=7]
+[ext_resource path="res://tokens/images/portraits/monsters/zombies/zombie_4.png" type="Texture" id=8]
+
+[node name="Zombie" instance=ExtResource( 1 )]
+_attributes = ExtResource( 2 )
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource( 7 )
+script = ExtResource( 3 )
+_additional_images = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ) ]
+
+[node name="HUDMargin" parent="CanvasLayer" index="0"]
+margin_right = -3712.0

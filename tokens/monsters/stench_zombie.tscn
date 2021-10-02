@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://tokens/monsters/zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tokens/particles/stench_of_death.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0.431373, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color( 0, 0.25098, 0, 1 )
+border_blend = true
+
+[node name="StenchZombie" instance=ExtResource( 2 )]
+
+[node name="Image" parent="." index="3"]
+rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="StenchOfDeath" parent="." index="4" instance=ExtResource( 3 )]
+
+[node name="HUDMargin" parent="CanvasLayer" index="0"]
+theme = SubResource( 2 )
+
+[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
+custom_styles/fg = SubResource( 3 )
