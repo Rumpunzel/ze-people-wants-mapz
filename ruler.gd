@@ -9,20 +9,24 @@ onready var _label:Label = $CanvasLayer/Label
 func _ready() -> void:
 	_on_ruler_dismissed()
 	
+	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("ruler_started", self, "_on_ruler_started")
+	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("ruler_ended", self, "_on_ruler_ended")
+	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("ruler_dismissed", self, "_on_ruler_dismissed")
 	
 	_label.add_color_override("font_color", default_color)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _used_manually:
 			_on_ruler_ended(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_RIGHT:
-			if event.pressed:
+		var mouse_event := event as InputEventMouseButton
+		if mouse_event.button_index == BUTTON_RIGHT:
+			if mouse_event.pressed:
 				_used_manually = true
 				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
 			else:

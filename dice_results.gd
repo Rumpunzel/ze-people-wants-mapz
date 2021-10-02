@@ -2,6 +2,7 @@ extends HBoxContainer
 
 
 func _enter_tree() -> void:
+	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("new_result", self, "_display_result")
 
 func _unhandled_input(event: InputEvent) -> void:

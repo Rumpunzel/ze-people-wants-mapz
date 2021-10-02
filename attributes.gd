@@ -1,7 +1,7 @@
 class_name Attributes
 extends Resource
 
-
+# warning-ignore-all:unused_class_variable
 export var level := 1
 export var hit_die := 8
 export var roll_hit_points := true

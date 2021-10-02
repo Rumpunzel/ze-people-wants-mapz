@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://canvas_modulate.gd" type="Script" id=1]
 [ext_resource path="res://tokens/monsters/stench_zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://monsters.gd" type="Script" id=3]
 [ext_resource path="res://tokens/monsters/corpse_flower.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=9]
 
@@ -14,6 +15,7 @@ background_mode = 2
 background_sky = SubResource( 1 )
 
 [node name="Monsters" type="YSort"]
+script = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )

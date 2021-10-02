@@ -1,5 +1,6 @@
 extends Node
 
+# warning-ignore-all:unused_signal
 signal new_result(die, new_result)
 
 signal ruler_started(position)
@@ -7,6 +8,7 @@ signal ruler_ended(position)
 signal ruler_dismissed()
 
 
+# warning-ignore:unused_class_variable
 var left_to_spawn := [ ]
 
 

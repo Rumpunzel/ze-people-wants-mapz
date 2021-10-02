@@ -103,10 +103,9 @@ __meta__ = {
 [node name="CanvasLayer" type="Node" parent="."]
 
 [node name="HUDMargin" type="MarginContainer" parent="CanvasLayer"]
-anchor_right = 1.0
 margin_left = -128.0
 margin_top = -129.5
-margin_right = -3712.0
+margin_right = 128.0
 margin_bottom = -126.5
 grow_horizontal = 2
 grow_vertical = 0

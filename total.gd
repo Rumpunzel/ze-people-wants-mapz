@@ -5,6 +5,7 @@ var total := 0
 
 
 func _enter_tree() -> void:
+	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("new_result", self, "_count_result")
 
 func _unhandled_input(event: InputEvent) -> void:

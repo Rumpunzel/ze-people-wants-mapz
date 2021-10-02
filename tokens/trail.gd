@@ -11,8 +11,9 @@ func _process(_delta: float) -> void:
 	if Engine.editor_hint:
 		return
 	
-	width = (owner.scale.x / 1.0) * _default_width
-	add_point(owner.position)
+	var token: Node2D = owner
+	width = (token.scale.x / 1.0) * _default_width
+	add_point(token.position)
 	if points.size() > 20:
 		remove_point(0)
 

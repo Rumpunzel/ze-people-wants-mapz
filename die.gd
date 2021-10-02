@@ -28,6 +28,7 @@ onready var _tween: Tween = $Tween
 
 
 func _enter_tree() -> void:
+	# warning-ignore:return_value_discarded
 	connect("side_changed", ShittySingleton, "display_result")
 
 
@@ -107,5 +108,7 @@ func _on_sleeping_state_changed() -> void:
 		_:
 			pass
 	
+	# warning-ignore:return_value_discarded
 	_tween.interpolate_property(self, "transform:basis", null, to_rotate, 0.3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	# warning-ignore:return_value_discarded
 	_tween.start()

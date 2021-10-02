@@ -12,9 +12,6 @@
 _attributes = ExtResource( 2 )
 
 [node name="Image" parent="." index="3"]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 script = ExtResource( 3 )
 _additional_images = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ) ]
-
-[node name="HUDMargin" parent="CanvasLayer" index="0"]
-margin_right = -3712.0

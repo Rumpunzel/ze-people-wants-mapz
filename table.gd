@@ -17,7 +17,7 @@ func _draw() -> void:
 		_draw_grid(current_camera, Vector2(grid_size, grid_size) * factor, grid_color, line_thickness * factor)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update()
 
 

@@ -8,14 +8,16 @@ var _being_dragged := false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT or event.button_index == BUTTON_MIDDLE:
-			_being_dragged = event.pressed
+		var mouse_event := event as InputEventMouseButton
+		if mouse_event.button_index == BUTTON_LEFT or mouse_event.button_index == BUTTON_MIDDLE:
+			_being_dragged = mouse_event.pressed
 		
-		elif event.button_index == BUTTON_WHEEL_UP:
+		elif mouse_event.button_index == BUTTON_WHEEL_UP:
 			zoom = Vector2(max(zoom.x - _zoom_factor, _zoom_factor), max(zoom.y - _zoom_factor, _zoom_factor))
-		elif event.button_index == BUTTON_WHEEL_DOWN:
+		elif mouse_event.button_index == BUTTON_WHEEL_DOWN:
 			zoom += Vector2(_zoom_factor, _zoom_factor)
 	
 	elif event is InputEventMouseMotion:
+		var motion_event := event as InputEventMouseMotion
 		if _being_dragged:
-			position += event.relative * (1.0 if _inverted else -1.0) * zoom.length()
+			position += motion_event.relative * (1.0 if _inverted else -1.0) * zoom.length()

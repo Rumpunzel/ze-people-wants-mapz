@@ -12,8 +12,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	visible = owner.is_visible_in_tree()
-	rect_position = owner.global_position - rect_pivot_offset - Vector2(0.0, _vertical_offset)
+	var token: Node2D = owner
+	visible = token.is_visible_in_tree()
+	rect_position = token.global_position - rect_pivot_offset - Vector2(0.0, _vertical_offset)
 
 
 func _on_size_changed(new_size: int) -> void:
