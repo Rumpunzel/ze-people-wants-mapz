@@ -28,7 +28,7 @@ texture = ExtResource( 2 )
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
 margin_left = -256.0
 margin_top = -257.5
-margin_right = -3584.0
+margin_right = 256.0
 margin_bottom = -254.5
 rect_pivot_offset = Vector2( 256, 1.5 )
 

@@ -7,20 +7,7 @@
 [ext_resource path="res://tokens/players/osmund.tscn" type="PackedScene" id=5]
 [ext_resource path="res://attributes.gd" type="Script" id=7]
 
-[sub_resource type="Resource" id=4]
-script = ExtResource( 7 )
-level = 1
-hit_die = 8
-roll_hit_points = true
-armor_class = 15
-strength = 10
-dexterity = 10
-constitution = 10
-intelligence = 10
-wisdom = 10
-charisma = 10
-
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
 level = 1
 hit_die = 8
@@ -46,7 +33,20 @@ intelligence = 10
 wisdom = 10
 charisma = 10
 
-[sub_resource type="Resource" id=1]
+[sub_resource type="Resource" id=3]
+script = ExtResource( 7 )
+level = 1
+hit_die = 8
+roll_hit_points = true
+armor_class = 15
+strength = 10
+dexterity = 10
+constitution = 10
+intelligence = 10
+wisdom = 10
+charisma = 10
+
+[sub_resource type="Resource" id=4]
 script = ExtResource( 7 )
 level = 1
 hit_die = 8
@@ -63,19 +63,20 @@ charisma = 10
 
 [node name="WizzKrall" parent="." instance=ExtResource( 3 )]
 position = Vector2( 256, -512 )
-_attributes = SubResource( 4 )
+_attributes = SubResource( 1 )
 
 [node name="Rolph" parent="." instance=ExtResource( 4 )]
 position = Vector2( -128, -128 )
-_attributes = SubResource( 3 )
+_attributes = SubResource( 2 )
+_color = Color( 1, 1, 1, 0 )
 
 [node name="Osmund" parent="." instance=ExtResource( 5 )]
 position = Vector2( 384, 384 )
-_attributes = SubResource( 2 )
+_attributes = SubResource( 3 )
 
 [node name="Pete" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 128 )
 
 [node name="Gibs" parent="." instance=ExtResource( 2 )]
 position = Vector2( 384, -128 )
-_attributes = SubResource( 1 )
+_attributes = SubResource( 4 )

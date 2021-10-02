@@ -24,18 +24,29 @@ export var _max_travel_time = 0.6
 
 export(Size) var _size := Size.MEDIUM setget _set_size
 export(Resource) var _attributes = Attributes.new()
+export var _color := Color.transparent setget _set_color
 
 
 var _being_dragged := false setget _set_being_dragged
 var _token_offset := Vector2.ZERO
 
-onready var _background: Sprite = $Background
-onready var _image: TextureRect = $Image
-onready var _ghost_tween: Tween = $GhostTween
-onready var _movement_tween: Tween = $MovementTween
+var _trail: Trail
+var _background: Sprite
+var _image: TextureRect
+var _ghost_tween: Tween
+var _movement_tween: Tween
+
 
 onready var _ghost: Node2D = Node2D.new()
 
+
+
+func _enter_tree() -> void:
+	_trail = $Node/Trail
+	_background = $Background
+	_image = $Image
+	_ghost_tween = $GhostTween
+	_movement_tween = $MovementTween
 
 
 func _ready() -> void:
@@ -119,6 +130,11 @@ func _set_size(new_size: int) -> void:
 	
 	emit_signal("size_changed", _size)
 
+func _set_color(new_color: Color) -> void:
+	_color = new_color
+	if not _color == Color.transparent:
+		$Node/Trail.set_color(_color)
+		$Background.self_modulate = _color
 
 func _set_being_dragged(new_status: bool) -> void:
 	_being_dragged = new_status

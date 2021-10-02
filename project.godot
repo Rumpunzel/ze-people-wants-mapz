@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Token",
 "language": "GDScript",
 "path": "res://tokens/token.gd"
+}, {
+"base": "Line2D",
+"class": "Trail",
+"language": "GDScript",
+"path": "res://tokens/trail.gd"
 } ]
 _global_script_class_icons={
 "Attributes": "",
 "CustomGradientTexture": "",
 "Die": "",
 "DieSide": "",
-"Token": ""
+"Token": "",
+"Trail": ""
 }
 
 [application]

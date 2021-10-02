@@ -9,9 +9,7 @@
 scale = Vector2( 0.25, 0.25 )
 _size = 1
 _attributes = ExtResource( 2 )
-
-[node name="Trail" parent="Node" index="0"]
-default_color = Color( 0.654902, 0.854902, 1, 1 )
+_color = Color( 0.654902, 0.854902, 1, 1 )
 
 [node name="Background" parent="." index="2"]
 visible = false
@@ -19,6 +17,7 @@ visible = false
 [node name="Image" parent="." index="3"]
 material = null
 texture = ExtResource( 3 )
+flip_h = true
 
 [node name="Light2D" type="Light2D" parent="." index="4"]
 texture = ExtResource( 4 )
