@@ -13,7 +13,6 @@ position = Vector2( 1024, -512 )
 
 [node name="Rolph" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, -128 )
-_color = Color( 1, 1, 1, 0 )
 
 [node name="Osmund" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1408, 128 )

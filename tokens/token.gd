@@ -159,7 +159,7 @@ func _set_being_dragged(new_status: bool) -> void:
 		if not _ghost.visible:
 			_ghost.global_position = global_position
 			_ghost.visible = true
-			ShittySingleton.emit_signal("ruler_started", _ghost.global_position)
+			ShittySingleton.emit_signal("ruler_started", _ghost.global_position, _color)
 	else:
 		if _ghost.visible:
 			_ghost.visible = false

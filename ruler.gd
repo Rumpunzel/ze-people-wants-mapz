@@ -1,8 +1,11 @@
 extends Line2D
 
+
 var _used_manually := false
 
+onready var _default_color := default_color
 onready var _label:Label = $CanvasLayer/Label
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,12 +18,12 @@ func _ready() -> void:
 	ShittySingleton.connect("ruler_ended", self, "_on_ruler_ended")
 	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("ruler_dismissed", self, "_on_ruler_dismissed")
-	
-	_label.add_color_override("font_color", default_color)
+
 
 func _process(_delta: float) -> void:
 	if _used_manually:
 			_on_ruler_ended(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -28,10 +31,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if mouse_event.button_index == BUTTON_RIGHT:
 			if mouse_event.pressed:
 				_used_manually = true
-				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
+				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0), _default_color)
 			else:
 				_used_manually = false
 				_on_ruler_dismissed()
+
 
 
 func _mouse_as_coordinate(grid_snapping := 128.0) -> Vector2:
@@ -42,10 +46,16 @@ func _mouse_as_coordinate(grid_snapping := 128.0) -> Vector2:
 	) + Vector2(128.0, 128.0)
 
 
-func _on_ruler_started(start_position: Vector2) -> void:
+func _on_ruler_started(start_position: Vector2, color: Color) -> void:
+	default_color = color
+	_label.add_color_override("font_color", default_color)
+	var outline_color := Color.white if color.r + color.g + color.b < 1.5 else Color.black
+	_label.add_color_override("font_outline_modulate", outline_color)
+	
 	points[0] = start_position
 	visible = true
 	_label.visible = visible
+
 
 func _on_ruler_ended(end_position: Vector2) -> void:
 	points[1] = end_position
@@ -58,6 +68,7 @@ func _on_ruler_ended(end_position: Vector2) -> void:
 	
 	visible = true
 	_label.visible = visible
+
 
 func _on_ruler_dismissed() -> void:
 	visible = false
