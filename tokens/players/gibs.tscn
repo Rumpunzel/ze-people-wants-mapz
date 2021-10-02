@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/players/gibs.png" type="Texture" id=2]
+[ext_resource path="res://tokens/players/gibs_attributes.tres" type="Resource" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.411765, 0.286275, 0.690196, 0, 0.411765, 0.286275, 0.690196, 1 )
 
 [node name="Gibs" instance=ExtResource( 1 )]
 scale = Vector2( 0.5, 0.5 )
-_size = 2
+_attributes = ExtResource( 3 )
+_color = Color( 0.411765, 0.286275, 0.690196, 1 )
+
+[node name="Trail" parent="Node" index="0"]
+gradient = SubResource( 1 )
+
+[node name="Background" parent="." index="2"]
+modulate = Color( 0.411765, 0.286275, 0.690196, 1 )
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource( 2 )
@@ -13,7 +24,7 @@ texture = ExtResource( 2 )
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
 margin_left = -64.0
 margin_top = -64.0
-margin_right = -3776.0
+margin_right = 64.0
 margin_bottom = -64.0
 rect_pivot_offset = Vector2( 64, 0 )
 

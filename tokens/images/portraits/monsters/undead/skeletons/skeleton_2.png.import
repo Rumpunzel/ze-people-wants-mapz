@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zombie_3.png-63c6696cc4ea28572372ef4e20df414b.stex"
+path="res://.import/skeleton_2.png-6d6a357c00f4b6767f251eb3370a5cf3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/monsters/zombies/zombie_3.png"
-dest_files=[ "res://.import/zombie_3.png-63c6696cc4ea28572372ef4e20df414b.stex" ]
+source_file="res://tokens/images/portraits/monsters/undead/skeletons/skeleton_2.png"
+dest_files=[ "res://.import/skeleton_2.png-6d6a357c00f4b6767f251eb3370a5cf3.stex" ]
 
 [params]
 

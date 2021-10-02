@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
@@ -9,13 +9,16 @@
 [ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=7]
 [ext_resource path="res://tokens/hud_margin.gd" type="Script" id=8]
 [ext_resource path="res://attributes.gd" type="Script" id=9]
+[ext_resource path="res://tokens/image.gd" type="Script" id=10]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 9 )
 level = 1
 hit_die = 8
 roll_hit_points = true
-armor_class = 15
+size = 4
+move_speed = 30
+armor_class = 10
 strength = 10
 dexterity = 10
 constitution = 10
@@ -38,14 +41,14 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="Gradient" id=4]
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=6]
-default_font = SubResource( 5 )
+default_font = SubResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0.431373, 0, 1 )
@@ -96,6 +99,7 @@ mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

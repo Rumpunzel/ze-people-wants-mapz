@@ -24,10 +24,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://die.gd"
 }, {
-"base": "Spatial",
-"class": "DieSide",
+"base": "Reference",
+"class": "FileHelper",
 "language": "GDScript",
-"path": "res://die_side.gd"
+"path": "res://file_helper.gd"
 }, {
 "base": "Area2D",
 "class": "Token",
@@ -43,7 +43,7 @@ _global_script_class_icons={
 "Attributes": "",
 "CustomGradientTexture": "",
 "Die": "",
-"DieSide": "",
+"FileHelper": "",
 "Token": "",
 "Trail": ""
 }
@@ -57,7 +57,6 @@ config/icon="res://icon.png"
 [autoload]
 
 ShittySingleton="*res://shitty_singleton.gd"
-NumberViewport="*res://number_viewport.tscn"
 
 [debug]
 

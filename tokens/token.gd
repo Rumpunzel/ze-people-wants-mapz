@@ -2,15 +2,6 @@ tool
 class_name Token
 extends Area2D
 
-enum Size {
-	TINY = 1,
-	SMALL = 2,
-	MEDIUM = 4,
-	LARGE = 8,
-	HUGE = 16,
-	GARGANTUAN = 32,
-}
-
 
 const SCALE_FACTOR := 0.25
 
@@ -18,15 +9,12 @@ const SCALE_FACTOR := 0.25
 signal size_changed(new_size)
 signal maximum_hit_points_changed(new_hit_points)
 
-
-export var _move_speed := 2.0
-export var _max_travel_time = 0.6
-
-export(Size) var _size := Size.MEDIUM setget _set_size
-export(Resource) var _attributes = Attributes.new()
+export(Resource) var _attributes
 export var _color := Color.transparent setget _set_color
 
 
+var _size: int setget _set_size
+var _max_travel_time = 1.5
 var _being_dragged := false setget _set_being_dragged
 var _token_offset := Vector2.ZERO
 
@@ -53,9 +41,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	_set_size(_size)
-	
-	emit_signal("maximum_hit_points_changed", _attributes.calculate_hit_points())
+	_set_size(_attributes.size)
 	
 	if Engine.editor_hint:
 		return
@@ -71,7 +57,7 @@ func _ready() -> void:
 	
 	_ghost.add_child(ghost_background)
 	
-	var ghost_image := _image.duplicate()
+	var ghost_image: TextureRect = _image.duplicate()
 	_ghost.add_child(ghost_image)
 	
 	_ghost.modulate.a = 0.5
@@ -79,6 +65,9 @@ func _ready() -> void:
 	_ghost.z_index = 5
 	
 	add_child(_ghost)
+	ghost_image.texture = _image.texture
+	
+	emit_signal("maximum_hit_points_changed", _attributes.calculate_hit_points())
 
 
 func _process(_delta: float):
@@ -87,7 +76,7 @@ func _process(_delta: float):
 	
 	if _being_dragged:
 		# warning-ignore:return_value_discarded
-		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(128.0 if _size == Size.TINY else 256.0), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(128.0 if _size == Attributes.Size.TINY else 256.0), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		# warning-ignore:return_value_discarded
 		_ghost_tween.start()
 		
@@ -133,11 +122,11 @@ func _set_size(new_size: int) -> void:
 	scale = Vector2.ONE * _size * SCALE_FACTOR
 	
 	match _size:
-		Size.TINY:
+		Attributes.Size.TINY:
 			_token_offset = -Vector2(64.0, 64.0)
-		Size.SMALL, Size.MEDIUM, Size.HUGE:
+		Attributes.Size.SMALL, Attributes.Size.MEDIUM, Attributes.Size.HUGE:
 			_token_offset = Vector2(128.0, 128.0)
-		Size.LARGE, Size.GARGANTUAN:
+		Attributes.Size.LARGE, Attributes.Size.GARGANTUAN:
 			_token_offset = Vector2.ZERO
 	
 	emit_signal("size_changed", _size)
@@ -146,7 +135,7 @@ func _set_color(new_color: Color) -> void:
 	_color = new_color
 	if not _color == Color.transparent:
 		($Node/Trail as Trail).set_color(_color)
-		($Background as Node2D).self_modulate = _color
+		($Background as Node2D).modulate = _color
 
 func _set_being_dragged(new_status: bool) -> void:
 	_being_dragged = new_status
@@ -159,11 +148,25 @@ func _set_being_dragged(new_status: bool) -> void:
 	else:
 		if _ghost.visible:
 			_ghost.visible = false
-			_ghost.global_position = _mouse_as_coordinate(128.0 if _size == Size.TINY else 256.0)
+			_ghost.global_position = _mouse_as_coordinate(128.0 if _size == Attributes.Size.TINY else 256.0)
 			ShittySingleton.emit_signal("ruler_dismissed")
 			
-			var travel_time := min(global_position.distance_to(_ghost.global_position) / (_move_speed * 512.0) , _max_travel_time)
+			var start_position := global_position
+			var destination := _ghost.global_position
+			var half_factor := 0.6
+			var move_speed: int = _attributes.move_speed
+			
+			var half_way_point := (start_position + destination) * half_factor
+			var distance := start_position.distance_to(destination)
+			var travel_time := min(distance / (move_speed * 16.0) , (_max_travel_time * 16.0) / move_speed)
+			var half_travel_time := travel_time * half_factor
+			
+			var start_transition := Tween.TRANS_BACK if move_speed > 20 else Tween.TRANS_CIRC
+			var end_transition := Tween.TRANS_BACK if distance > 1536.0 else Tween.TRANS_CIRC
+			
 			# warning-ignore:return_value_discarded
-			_movement_tween.interpolate_property(self, "global_position", null, _ghost.global_position, travel_time, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+			_movement_tween.interpolate_property(self, "global_position", start_position, half_way_point, half_travel_time, start_transition, Tween.EASE_IN)
+			# warning-ignore:return_value_discarded
+			_movement_tween.interpolate_property(self, "global_position", half_way_point, destination, travel_time - half_travel_time, end_transition, Tween.EASE_OUT, half_travel_time)
 			# warning-ignore:return_value_discarded
 			_movement_tween.start()

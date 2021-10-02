@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp_attributes.tres" type="Resource" id=2]
+[ext_resource path="res://tokens/monsters/will_o_wisp_attributes.tres" type="Resource" id=2]
 [ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=3]
 [ext_resource path="res://tokens/images/ghost_shine.tres" type="Texture" id=4]
 
@@ -26,7 +26,6 @@ tracks/0/keys = {
 
 [node name="Will-o-Wisp" instance=ExtResource( 1 )]
 scale = Vector2( 0.25, 0.25 )
-_size = 1
 _attributes = ExtResource( 2 )
 _color = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
 
@@ -35,7 +34,7 @@ width = 150.0
 gradient = SubResource( 3 )
 
 [node name="Background" parent="." index="2"]
-self_modulate = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
+modulate = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
 
 [node name="Token" parent="Background" index="0"]
 visible = false

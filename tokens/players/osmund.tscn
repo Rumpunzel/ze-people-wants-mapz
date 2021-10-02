@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/players/osmund.png" type="Texture" id=2]
+[ext_resource path="res://tokens/players/osmund_attributes.tres" type="Resource" id=3]
 
 [node name="Osmund" instance=ExtResource( 1 )]
+_attributes = ExtResource( 3 )
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource( 2 )

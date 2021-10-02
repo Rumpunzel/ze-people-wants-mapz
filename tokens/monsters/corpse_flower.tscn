@@ -2,7 +2,7 @@
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/monsters/corpse_flower.png" type="Texture" id=2]
-[ext_resource path="res://tokens/images/portraits/monsters/corpse_flower_attributes.tres" type="Resource" id=3]
+[ext_resource path="res://tokens/monsters/corpse_flower_attributes.tres" type="Resource" id=3]
 [ext_resource path="res://tokens/particles/stench_of_death.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tokens/particles/stench_of_death_material.tres" type="Material" id=5]
 
@@ -20,7 +20,7 @@ width = 80.0
 gradient = SubResource( 1 )
 
 [node name="Background" parent="." index="2"]
-self_modulate = Color( 0.439216, 0.266667, 0.0784314, 1 )
+modulate = Color( 0.439216, 0.266667, 0.0784314, 1 )
 
 [node name="Token" parent="Background" index="0"]
 visible = false

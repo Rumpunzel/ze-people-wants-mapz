@@ -4,16 +4,18 @@
 
 [resource]
 script = ExtResource( 1 )
-level = 9
-hit_die = 4
-roll_hit_points = true
-armor_class = 19
-strength = 1
-dexterity = 28
+level = 10
+hit_die = 8
+roll_hit_points = false
+size = 4
+move_speed = 25
+armor_class = 10
+strength = 10
+dexterity = 10
 constitution = 10
-intelligence = 13
-wisdom = 14
-charisma = 11
+intelligence = 10
+wisdom = 10
+charisma = 10
 strength_saving_throw_bonus = 0
 dexterity_saving_throw_bonus = 0
 constitution_saving_throw_bonus = 0

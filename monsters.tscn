@@ -2,7 +2,7 @@
 
 [ext_resource path="res://canvas_modulate.gd" type="Script" id=1]
 [ext_resource path="res://tokens/monsters/stench_zombie.tscn" type="PackedScene" id=2]
-[ext_resource path="res://monsters.gd" type="Script" id=3]
+[ext_resource path="res://monsters.gd" type="Script" id=4]
 [ext_resource path="res://tokens/monsters/corpse_flower.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=9]
 
@@ -15,7 +15,7 @@ background_mode = 2
 background_sky = SubResource( 1 )
 
 [node name="Monsters" type="YSort"]
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -45,7 +45,10 @@ position = Vector2( -1472, -320 )
 position = Vector2( -1024, -256 )
 
 [node name="StenchZombie" parent="." instance=ExtResource( 2 )]
-position = Vector2( -384, -384 )
+position = Vector2( -896, 384 )
 
 [node name="StenchZombie2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -896, 384 )
+position = Vector2( -1664, -128 )
+
+[node name="StenchZombie3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -384, -384 )

@@ -1,12 +1,24 @@
 class_name Attributes
 extends Resource
 
+enum Size {
+	TINY = 1,
+	SMALL = 2,
+	MEDIUM = 4,
+	LARGE = 8,
+	HUGE = 16,
+	GARGANTUAN = 32,
+}
+
 # warning-ignore-all:unused_class_variable
 export var level := 1
 export var hit_die := 8
 export var roll_hit_points := true
 
-export var armor_class := 15
+export(Size) var size := Size.MEDIUM
+export var move_speed := 30
+
+export var armor_class := 10
 
 export var strength := 10
 export var dexterity := 10
