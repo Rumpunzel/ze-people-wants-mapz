@@ -46,7 +46,6 @@ energy = 0.7
 
 [node name="Image" parent="." index="3"]
 material = null
-rect_rotation = 360.0
 texture = ExtResource( 3 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
@@ -65,3 +64,4 @@ margin_right = 91.0
 [node name="AnimationPlayer" parent="." index="7"]
 autoplay = "spin"
 anims/spin = SubResource( 2 )
+_animation_speed_randomness = 0.5

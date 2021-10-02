@@ -26,8 +26,9 @@ var _ghost_tween: Tween
 var _movement_tween: Tween
 
 
-onready var _collision_shape: CircleShape2D = ($CollisionShape2D as CollisionShape2D).shape
-onready var _ghost: Node2D = Node2D.new()
+onready var _collision: CollisionShape2D = $CollisionShape2D
+onready var _collision_shape: CircleShape2D = _collision.shape
+onready var _ghost: Area2D = Area2D.new()
 
 
 
@@ -57,9 +58,14 @@ func _ready() -> void:
 	
 	_ghost.add_child(ghost_background)
 	
+	var ghost_collision: CollisionShape2D = _collision.duplicate()
+	_ghost.add_child(ghost_collision)
+	ghost_collision.scale *= 0.9
+	
 	var ghost_image: TextureRect = _image.duplicate()
 	_ghost.add_child(ghost_image)
 	
+	_ghost.name = "Ghost"
 	_ghost.modulate.a = 0.5
 	_ghost.visible = false
 	_ghost.z_index = 5
@@ -79,6 +85,15 @@ func _process(_delta: float):
 		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(128.0 if _size == Attributes.Size.TINY else 256.0), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		# warning-ignore:return_value_discarded
 		_ghost_tween.start()
+		
+		var ghost_overlapping := _ghost.get_overlapping_areas()
+		var colliding_with_other_tokens := not (ghost_overlapping.size() == 0 or (ghost_overlapping.size() == 1 and ghost_overlapping.has(self)))
+		if colliding_with_other_tokens:
+			_ghost.modulate = Color.red
+		else:
+			_ghost.modulate = Color.white
+		
+		_ghost.modulate.a = 0.5
 		
 		ShittySingleton.emit_signal("ruler_ended", _ghost.global_position)
 

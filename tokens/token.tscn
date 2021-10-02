@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://tokens/hud_margin.gd" type="Script" id=8]
 [ext_resource path="res://attributes.gd" type="Script" id=9]
 [ext_resource path="res://tokens/image.gd" type="Script" id=10]
+[ext_resource path="res://tokens/animation_player.gd" type="Script" id=11]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 9 )
@@ -41,14 +42,14 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="Gradient" id=4]
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=6]
-default_font = SubResource( 8 )
+default_font = SubResource( 5 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0.431373, 0, 1 )
@@ -176,8 +177,10 @@ valign = 1
 [node name="MovementTween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+script = ExtResource( 11 )
 
 [connection signal="maximum_hit_points_changed" from="." to="CanvasLayer/HUDMargin/LifeBar" method="_on_maximum_hit_points_changed"]
 [connection signal="size_changed" from="." to="CanvasLayer/HUDMargin" method="_on_size_changed"]
 [connection signal="changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_changed"]
 [connection signal="value_changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_value_changed"]
+[connection signal="animation_started" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_started"]

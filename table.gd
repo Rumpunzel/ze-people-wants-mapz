@@ -1,4 +1,4 @@
-extends Node2D
+extends YSort
 
 export var grid_size := 256.0
 export var grid_color := Color("c89b0000")
