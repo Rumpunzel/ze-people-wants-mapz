@@ -4,6 +4,8 @@
 [ext_resource path="res://slide_show/slide.tscn" type="PackedScene" id=2]
 
 [node name="DerGeistDesPaten" instance=ExtResource( 2 )]
+visible = true
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="Background" index="0"]
 texture = ExtResource( 1 )

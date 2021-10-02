@@ -1,6 +1,10 @@
 class_name Slide
 extends Control
 
+# warning-ignore-all:unused_signal
+signal faded_in
+signal faded_out
+
 onready var _animation_player: AnimationPlayer = $AnimationPlayer
 onready var _tween: Tween = $Tween
 

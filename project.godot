@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://file_helper.gd"
 }, {
 "base": "Control",
+"class": "Presentation",
+"language": "GDScript",
+"path": "res://slide_show/presentation.gd"
+}, {
+"base": "Control",
 "class": "Slide",
 "language": "GDScript",
 "path": "res://slide_show/slide.gd"
@@ -49,6 +54,7 @@ _global_script_class_icons={
 "CustomGradientTexture": "",
 "Die": "",
 "FileHelper": "",
+"Presentation": "",
 "Slide": "",
 "Token": "",
 "Trail": ""

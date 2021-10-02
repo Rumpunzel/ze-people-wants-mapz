@@ -177,7 +177,7 @@ func _set_being_dragged(new_status: bool) -> void:
 			var half_travel_time := travel_time * half_factor
 			
 			var start_transition := Tween.TRANS_BACK if move_speed > 20 else Tween.TRANS_CIRC
-			var end_transition := Tween.TRANS_BACK if distance > 1536.0 else Tween.TRANS_CIRC
+			var end_transition := Tween.TRANS_CIRC#Tween.TRANS_BACK if distance > 1536.0 else Tween.TRANS_CIRC
 			
 			# warning-ignore:return_value_discarded
 			_movement_tween.interpolate_property(self, "global_position", start_position, half_way_point, half_travel_time, start_transition, Tween.EASE_IN)
