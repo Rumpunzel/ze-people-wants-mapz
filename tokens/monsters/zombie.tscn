@@ -2,20 +2,20 @@
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/monsters/zombie_attributes.tres" type="Resource" id=2]
-[ext_resource path="res://tokens/images/portraits/monsters/undead/skeletons/skeleton_2.png" type="Texture" id=3]
+[ext_resource path="res://tokens/images/portraits/monsters/undead/zombies/zombie_5.png" type="Texture" id=3]
 
 [sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.392157, 0.392157, 0.392157, 0, 0.392157, 0.392157, 0.392157, 1 )
+colors = PoolColorArray( 0.282353, 0.184314, 0.235294, 0, 0.282353, 0.184314, 0.235294, 1 )
 
 [node name="Zombie" instance=ExtResource( 1 )]
-color = Color( 0.392157, 0.392157, 0.392157, 1 )
-_attributes = ExtResource( 2 )
+color = Color( 0.282353, 0.184314, 0.235294, 1 )
+attributes = ExtResource( 2 )
 
 [node name="Trail" parent="Node" index="0"]
 gradient = SubResource( 1 )
 
 [node name="Background" parent="." index="3"]
-modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
+modulate = Color( 0.282353, 0.184314, 0.235294, 1 )
 
 [node name="Image" parent="." index="4"]
 texture = ExtResource( 3 )

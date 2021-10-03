@@ -9,11 +9,12 @@ const SCALE_FACTOR := 0.25
 signal size_changed(new_size)
 signal maximum_hit_points_changed(new_hit_points)
 signal hit_points_changed(new_hit_points)
+signal selected(new_status)
 
 
 export var color := Color.transparent setget set_color
 
-export(Resource) var _attributes
+export(Resource) var attributes
 
 
 var image: TextureRect
@@ -51,7 +52,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	_set_size(_attributes.size)
+	_set_size(attributes.size)
 	
 	if Engine.editor_hint:
 		return
@@ -82,7 +83,7 @@ func _ready() -> void:
 	add_child(_ghost)
 	ghost_image.texture = image.texture
 	
-	set_hit_points(_attributes.calculate_hit_points())
+	set_hit_points(attributes.calculate_hit_points())
 	emit_signal("maximum_hit_points_changed", hit_points)
 
 
@@ -134,7 +135,7 @@ func _input(event: InputEvent) -> void:
 
 
 func roll_initiative() -> Attributes.Initiative:
-	return _attributes.roll_initiative()
+	return attributes.roll_initiative()
 
 
 func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
@@ -153,6 +154,7 @@ func set_hit_points(new_hit_points: int) -> void:
 func set_selected(new_status: bool) -> void:
 	selected = new_status
 	_selection.visible = selected
+	emit_signal("selected", selected)
 
 
 func _set_size(new_size: int) -> void:
@@ -198,7 +200,7 @@ func _set_being_dragged(new_status: bool) -> void:
 			var start_position := global_position
 			var destination := _ghost.global_position
 			var half_factor := 0.6
-			var move_speed: int = _attributes.move_speed
+			var move_speed: int = attributes.move_speed
 			
 			var half_way_point := (start_position + destination) * half_factor
 			var distance := start_position.distance_to(destination)

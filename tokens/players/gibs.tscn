@@ -10,9 +10,8 @@ colors = PoolColorArray( 0.411765, 0.286275, 0.690196, 0, 0.411765, 0.286275, 0.
 [node name="Gibs" groups=[
 "Players",
 ] instance=ExtResource( 1 )]
-scale = Vector2( 0.5, 0.5 )
 color = Color( 0.411765, 0.286275, 0.690196, 1 )
-_attributes = ExtResource( 3 )
+attributes = ExtResource( 3 )
 
 [node name="Trail" parent="Node" index="0"]
 gradient = SubResource( 1 )
@@ -24,16 +23,10 @@ modulate = Color( 0.411765, 0.286275, 0.690196, 1 )
 texture = ExtResource( 2 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
-margin_left = -64.0
-margin_top = -64.0
-margin_right = 64.0
-margin_bottom = -64.0
-rect_pivot_offset = Vector2( 64, 0 )
+margin_top = -128.0
+margin_bottom = -128.0
+rect_pivot_offset = Vector2( 128, 0 )
 
 [node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
 visible = false
-margin_right = 128.0
 margin_bottom = -4.0
-
-[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
-margin_right = 128.0

@@ -7,5 +7,7 @@
 
 [node name="Wizz" parent="." instance=ExtResource( 2 )]
 visible = false
+scale = Vector2( 2, 2 )
 
 [node name="Krall" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )

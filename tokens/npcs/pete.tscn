@@ -9,9 +9,8 @@
 colors = PoolColorArray( 0, 0.835294, 1, 0, 0, 0.835294, 1, 0.588235 )
 
 [node name="Pete" instance=ExtResource( 1 )]
-scale = Vector2( 0.5, 0.5 )
 color = Color( 0, 0.835294, 1, 0.588235 )
-_attributes = ExtResource( 3 )
+attributes = ExtResource( 3 )
 
 [node name="Trail" parent="Node" index="0"]
 gradient = SubResource( 1 )
@@ -27,27 +26,5 @@ energy = 0.5
 [node name="Image" parent="." index="4"]
 texture = ExtResource( 2 )
 
-[node name="HUDMargin" parent="CanvasLayer" index="0"]
-margin_left = -64.0
-margin_top = -65.5
-margin_right = 64.0
-margin_bottom = -62.5
-rect_pivot_offset = Vector2( 64, 1.5 )
-
-[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
-margin_right = 128.0
-
 [node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
 visible = true
-margin_right = 128.0
-
-[node name="Current" parent="CanvasLayer/HUDMargin/LifeDisplay" index="0"]
-margin_right = 53.0
-
-[node name="Of" parent="CanvasLayer/HUDMargin/LifeDisplay" index="1"]
-margin_left = 57.0
-margin_right = 70.0
-
-[node name="Max" parent="CanvasLayer/HUDMargin/LifeDisplay" index="2"]
-margin_left = 74.0
-margin_right = 128.0

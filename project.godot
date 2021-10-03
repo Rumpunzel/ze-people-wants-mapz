@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://file_helper.gd"
 }, {
 "base": "PanelContainer",
+"class": "InitiativeDialog",
+"language": "GDScript",
+"path": "res://hud/initiative_tracker/initiative_dialog.gd"
+}, {
+"base": "PanelContainer",
 "class": "InitiativeEntry",
 "language": "GDScript",
 "path": "res://hud/initiative_tracker/initiative_entry.gd"
@@ -38,6 +43,11 @@ _global_script_classes=[ {
 "class": "Monsters",
 "language": "GDScript",
 "path": "res://monsters.gd"
+}, {
+"base": "PopupPanel",
+"class": "PlayerInitiatives",
+"language": "GDScript",
+"path": "res://hud/initiative_tracker/player_initiatives.gd"
 }, {
 "base": "YSort",
 "class": "Players",
@@ -69,8 +79,10 @@ _global_script_class_icons={
 "CustomGradientTexture": "",
 "Die": "",
 "FileHelper": "",
+"InitiativeDialog": "",
 "InitiativeEntry": "",
 "Monsters": "",
+"PlayerInitiatives": "",
 "Players": "",
 "Presentation": "",
 "Slide": "",

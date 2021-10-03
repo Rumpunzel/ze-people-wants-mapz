@@ -25,9 +25,8 @@ tracks/0/keys = {
 }
 
 [node name="Will-o-Wisp" instance=ExtResource( 1 )]
-scale = Vector2( 0.25, 0.25 )
 color = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
-_attributes = ExtResource( 2 )
+attributes = ExtResource( 2 )
 
 [node name="Trail" parent="Node" index="0"]
 width = 150.0
@@ -47,19 +46,6 @@ energy = 0.7
 [node name="Image" parent="." index="4"]
 material = null
 texture = ExtResource( 3 )
-
-[node name="HUDMargin" parent="CanvasLayer" index="0"]
-margin_left = -32.0
-margin_top = -33.5
-margin_right = 32.0
-margin_bottom = -30.5
-rect_pivot_offset = Vector2( 32, 1.5 )
-
-[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
-margin_right = 64.0
-
-[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
-margin_right = 91.0
 
 [node name="AnimationPlayer" parent="." index="8"]
 autoplay = "spin"

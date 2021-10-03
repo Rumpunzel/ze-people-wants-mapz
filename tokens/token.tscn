@@ -13,7 +13,7 @@
 [ext_resource path="res://tokens/animation_player.gd" type="Script" id=11]
 [ext_resource path="res://tokens/images/utils/select.png" type="Texture" id=12]
 
-[sub_resource type="Resource" id=1]
+[sub_resource type="Resource" id=9]
 script = ExtResource( 9 )
 level = 1
 hit_die = 8
@@ -83,7 +83,7 @@ border_blend = true
 ]]
 collision_layer = 2
 script = ExtResource( 2 )
-_attributes = SubResource( 1 )
+_attributes = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

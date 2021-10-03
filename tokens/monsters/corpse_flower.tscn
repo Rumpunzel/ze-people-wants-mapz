@@ -10,9 +10,8 @@
 colors = PoolColorArray( 0.439216, 0.266667, 0.0784314, 0, 0.439216, 0.266667, 0.0784314, 1 )
 
 [node name="CorpseFlower" instance=ExtResource( 1 )]
-scale = Vector2( 2, 2 )
 color = Color( 0.439216, 0.266667, 0.0784314, 1 )
-_attributes = ExtResource( 3 )
+attributes = ExtResource( 3 )
 
 [node name="Trail" parent="Node" index="0"]
 width = 80.0
@@ -30,19 +29,6 @@ process_material = ExtResource( 5 )
 [node name="Image" parent="." index="5"]
 material = null
 texture = ExtResource( 2 )
-
-[node name="HUDMargin" parent="CanvasLayer" index="0"]
-margin_left = -256.0
-margin_top = -257.5
-margin_right = 256.0
-margin_bottom = -254.5
-rect_pivot_offset = Vector2( 256, 1.5 )
-
-[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
-margin_right = 512.0
-
-[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
-margin_right = 512.0
 
 [node name="Current" parent="CanvasLayer/HUDMargin/LifeDisplay" index="0"]
 margin_right = 245.0

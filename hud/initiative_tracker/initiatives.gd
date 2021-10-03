@@ -12,15 +12,6 @@ var _new_entries := [ ]
 
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		var key_event: InputEventKey = event
-		if key_event.pressed:
-			match(key_event.scancode):
-				KEY_I:
-					_set_up_initiative()
-
-
 func _process(_delta: float) -> void:
 	if _new_entries.empty():
 		set_process(false)
@@ -31,13 +22,12 @@ func _process(_delta: float) -> void:
 
 
 
-func _set_up_initiative() -> void:
+func _set_up_initiative(player_initiatives: Dictionary) -> void:
 	_clear_initiative()
 	
-	var players := get_tree().get_nodes_in_group(Players.PLAYER_GROUP)
-	for player in players:
+	for player in player_initiatives.keys():
 		var token: Token = player
-		var initiative := token.roll_initiative()
+		var initiative: Attributes.Initiative = player_initiatives[token]
 		var new_entry := _initiative_entry_scene.instance() as InitiativeEntry
 		
 		new_entry.setup(initiative, token)

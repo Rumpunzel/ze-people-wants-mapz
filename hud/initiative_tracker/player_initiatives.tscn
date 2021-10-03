@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://hud/initiative_tracker/player_initiatives.gd" type="Script" id=2]
+[ext_resource path="res://hud/initiative_tracker/initiative_dialog.tscn" type="PackedScene" id=3]
+
+[node name="PlayerInitiatives" type="PopupPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -753.0
+margin_top = -458.0
+margin_right = 753.0
+margin_bottom = 458.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContaier" type="GridContainer" parent="MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1482.0
+margin_bottom = 892.0
+columns = 2
+
+[node name="InitiativeDialog" parent="MarginContainer/GridContaier" instance=ExtResource( 3 )]
+margin_right = 731.0
+margin_bottom = 289.0
+
+[node name="InitiativeDialog2" parent="MarginContainer/GridContaier" instance=ExtResource( 3 )]
+margin_left = 735.0
+margin_right = 1466.0
+margin_bottom = 289.0
+
+[node name="InitiativeDialog3" parent="MarginContainer/GridContaier" instance=ExtResource( 3 )]
+margin_top = 293.0
+margin_right = 731.0
+margin_bottom = 582.0
+
+[node name="InitiativeDialog4" parent="MarginContainer/GridContaier" instance=ExtResource( 3 )]
+margin_left = 735.0
+margin_top = 293.0
+margin_right = 1466.0
+margin_bottom = 582.0
+
+[node name="InitiativeDialog5" parent="MarginContainer/GridContaier" instance=ExtResource( 3 )]
+margin_top = 586.0
+margin_right = 731.0
+margin_bottom = 875.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContaier"]
+margin_left = 735.0
+margin_top = 586.0
+margin_right = 1466.0
+margin_bottom = 875.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 24
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 24
+
+[node name="Button" type="Button" parent="MarginContainer/GridContaier/MarginContainer"]
+margin_left = 32.0
+margin_top = 24.0
+margin_right = 699.0
+margin_bottom = 265.0
+text = "Done"
+
+[connection signal="pressed" from="MarginContainer/GridContaier/MarginContainer/Button" to="." method="_on_confirm"]
