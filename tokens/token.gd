@@ -131,7 +131,6 @@ func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
 	) + _token_offset
 
 
-
 func _set_size(new_size: int) -> void:
 	_size = new_size
 	scale = Vector2.ONE * _size * SCALE_FACTOR
@@ -146,11 +145,13 @@ func _set_size(new_size: int) -> void:
 	
 	emit_signal("size_changed", _size)
 
+
 func _set_color(new_color: Color) -> void:
 	_color = new_color
 	if not _color == Color.transparent:
 		($Node/Trail as Trail).set_color(_color)
 		($Background as Node2D).modulate = _color
+
 
 func _set_being_dragged(new_status: bool) -> void:
 	_being_dragged = new_status

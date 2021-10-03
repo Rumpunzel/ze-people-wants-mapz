@@ -10,8 +10,6 @@ onready var _tween: Tween = $Tween
 
 
 func display() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
 	if visible:
 		return
 	
@@ -19,8 +17,6 @@ func display() -> void:
 
 
 func undisplay() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	if not visible:
 		return
 	

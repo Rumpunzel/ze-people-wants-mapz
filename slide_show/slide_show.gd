@@ -7,6 +7,8 @@ var current_presentation_index: int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	var presentations := get_children()
 	if presentations.empty():
 		return
@@ -28,9 +30,11 @@ func _unhandled_input(event: InputEvent) -> void:
 					previous_presentation()
 				
 				KEY_1:
+					Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 					get_current_presentation().display()
 					get_tree().set_input_as_handled()
 				KEY_2:
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 					get_current_presentation().undisplay()
 					get_tree().set_input_as_handled()
 
