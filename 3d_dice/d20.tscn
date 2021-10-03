@@ -90,9 +90,9 @@ cast_to = Vector3( 1, -1, -1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.822243, 0.36915 )
 cast_to = Vector3( 0, 1, 0.33 )
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+[node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="3"]
+[node name="CollisionShape" type="CollisionShape" parent="." index="2"]
 shape = SubResource( 1 )

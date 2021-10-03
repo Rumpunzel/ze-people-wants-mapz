@@ -74,6 +74,15 @@ static func roll(dice_number: int, die_type: int, use_expected_result := false) 
 
 
 
+func delete() -> void:
+	$AnimationPlayer.play("delete")
+
+func _delete() -> void:
+	get_parent().remove_child(self)
+	queue_free()
+
+
+
 func _get_face_up() -> int:
 	for side in _sides:
 		var die_side: RayCast = side

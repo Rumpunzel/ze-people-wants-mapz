@@ -1,7 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://3d_dice/dice_physics_material.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://die.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "delete"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1.2, 1.2, 1.2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_delete"
+} ]
+}
 
 [node name="DieBlueprint" type="RigidBody" groups=[
 "Dice",
@@ -12,5 +42,8 @@ script = ExtResource( 3 )
 [node name="Sides" type="Spatial" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/delete = SubResource( 1 )
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

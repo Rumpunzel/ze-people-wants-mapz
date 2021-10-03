@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://box.tscn" type="PackedScene" id=1]
-[ext_resource path="res://spatial.gd" type="Script" id=2]
+[ext_resource path="res://dice_roller.gd" type="Script" id=2]
 [ext_resource path="res://3d_dice/d6.tscn" type="PackedScene" id=3]
 [ext_resource path="res://spot_light.gd" type="Script" id=4]
 [ext_resource path="res://3d_dice/d100.tscn" type="PackedScene" id=5]
@@ -14,7 +14,15 @@
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 256, 256 )
 
-[node name="3D" type="Spatial"]
+[node name="DiceRoller" type="Spatial"]
+script = ExtResource( 2 )
+d4_scene = ExtResource( 9 )
+d6_scene = ExtResource( 3 )
+d8_scene = ExtResource( 8 )
+d10_scene = ExtResource( 7 )
+d12_scene = ExtResource( 10 )
+d20_scene = ExtResource( 6 )
+d100_scene = ExtResource( 5 )
 
 [node name="Plane" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
@@ -34,13 +42,3 @@ current = true
 fov = 30.0
 
 [node name="Box" parent="." instance=ExtResource( 1 )]
-
-[node name="DiceRoller" type="Spatial" parent="."]
-script = ExtResource( 2 )
-d4_scene = ExtResource( 9 )
-d6_scene = ExtResource( 3 )
-d8_scene = ExtResource( 8 )
-d10_scene = ExtResource( 7 )
-d12_scene = ExtResource( 10 )
-d20_scene = ExtResource( 6 )
-d100_scene = ExtResource( 5 )
