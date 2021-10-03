@@ -41,3 +41,18 @@ static func calculate_modifier(attribute: int) -> int:
 
 func calculate_hit_points() -> int:
 	return Die.roll(level, hit_die, not roll_hit_points) + level * calculate_modifier(constitution)
+
+func roll_initiative() -> Initiative:
+	return Initiative.new(Die.roll(1, Die.DiceTypes.d20), calculate_modifier(dexterity))
+
+
+
+class Initiative:
+	var initiative: int
+	var result: int
+	var modifier: int
+	
+	func _init(rolled_result: int, used_modifier: int) -> void:
+		result = rolled_result
+		modifier = used_modifier
+		initiative = result + modifier

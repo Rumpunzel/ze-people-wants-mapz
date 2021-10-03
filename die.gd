@@ -24,6 +24,7 @@ var side_up := NONE
 
 onready var _sides := $Sides.get_children()
 onready var _tween: Tween = $Tween
+onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 
 
@@ -68,14 +69,14 @@ static func roll(dice_number: int, die_type: int, use_expected_result := false) 
 		result = int(dice_number * (die_type + 1) * 0.5)
 	else:
 		for _i in range(dice_number):
-			result += randi() % die_type
+			result += 1 + randi() % die_type
 	
 	return result
 
 
 
 func delete() -> void:
-	$AnimationPlayer.play("delete")
+	_animation_player.play("delete")
 
 func _delete() -> void:
 	get_parent().remove_child(self)

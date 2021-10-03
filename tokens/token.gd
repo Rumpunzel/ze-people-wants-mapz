@@ -8,9 +8,17 @@ const SCALE_FACTOR := 0.25
 
 signal size_changed(new_size)
 signal maximum_hit_points_changed(new_hit_points)
+signal hit_points_changed(new_hit_points)
+
+
+export var color := Color.transparent setget set_color
 
 export(Resource) var _attributes
-export var _color := Color.transparent setget _set_color
+
+
+var image: TextureRect
+var hit_points: int setget set_hit_points
+var selected := false setget set_selected
 
 
 var _size: int setget _set_size
@@ -21,22 +29,23 @@ var _token_offset := Vector2.ZERO
 var _trail: Trail
 var _background: Node2D
 var _token: Sprite
-var _image: TextureRect
 var _ghost_tween: Tween
 var _movement_tween: Tween
 
 
 onready var _collision: CollisionShape2D = $CollisionShape2D
 onready var _collision_shape: CircleShape2D = _collision.shape
+
+onready var _selection: Sprite = $Selection
 onready var _ghost: Area2D = Area2D.new()
 
 
 
 func _enter_tree() -> void:
+	image = $Image
 	_trail = $Node/Trail
 	_background = $Background
 	_token = $Background/Token
-	_image = $Image
 	_ghost_tween = $GhostTween
 	_movement_tween = $MovementTween
 
@@ -62,7 +71,7 @@ func _ready() -> void:
 	_ghost.add_child(ghost_collision)
 	ghost_collision.scale *= 0.9
 	
-	var ghost_image: TextureRect = _image.duplicate()
+	var ghost_image: TextureRect = image.duplicate()
 	_ghost.add_child(ghost_image)
 	
 	_ghost.name = "Ghost"
@@ -71,9 +80,10 @@ func _ready() -> void:
 	_ghost.z_index = 5
 	
 	add_child(_ghost)
-	ghost_image.texture = _image.texture
+	ghost_image.texture = image.texture
 	
-	emit_signal("maximum_hit_points_changed", _attributes.calculate_hit_points())
+	set_hit_points(_attributes.calculate_hit_points())
+	emit_signal("maximum_hit_points_changed", hit_points)
 
 
 func _process(_delta: float):
@@ -123,12 +133,26 @@ func _input(event: InputEvent) -> void:
 
 
 
+func roll_initiative() -> Attributes.Initiative:
+	return _attributes.roll_initiative()
+
+
 func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
 	var mouse_position := get_global_mouse_position() - _token_offset
 	return Vector2(
 		stepify(mouse_position.x, grid_snapping),
 		stepify(mouse_position.y, grid_snapping)
 	) + _token_offset
+
+
+func set_hit_points(new_hit_points: int) -> void:
+	hit_points = new_hit_points
+	emit_signal("hit_points_changed", hit_points)
+
+
+func set_selected(new_status: bool) -> void:
+	selected = new_status
+	_selection.visible = selected
 
 
 func _set_size(new_size: int) -> void:
@@ -146,11 +170,15 @@ func _set_size(new_size: int) -> void:
 	emit_signal("size_changed", _size)
 
 
-func _set_color(new_color: Color) -> void:
-	_color = new_color
-	if not _color == Color.transparent:
-		($Node/Trail as Trail).set_color(_color)
-		($Background as Node2D).modulate = _color
+func die() -> void:
+	modulate = Color.darkgray
+
+
+func set_color(new_color: Color) -> void:
+	color = new_color
+	if not color == Color.transparent:
+		($Node/Trail as Trail).set_color(color)
+		($Background as Node2D).modulate = color
 
 
 func _set_being_dragged(new_status: bool) -> void:
@@ -160,7 +188,7 @@ func _set_being_dragged(new_status: bool) -> void:
 		if not _ghost.visible:
 			_ghost.global_position = global_position
 			_ghost.visible = true
-			ShittySingleton.emit_signal("ruler_started", _ghost.global_position, _color)
+			ShittySingleton.emit_signal("ruler_started", _ghost.global_position, color)
 	else:
 		if _ghost.visible:
 			_ghost.visible = false

@@ -9,16 +9,16 @@ colors = PoolColorArray( 0.211765, 0.521569, 0.921569, 0, 0.211765, 0.521569, 0.
 
 [node name="WizzKrall" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
+color = Color( 0.211765, 0.521569, 0.921569, 1 )
 _attributes = ExtResource( 3 )
-_color = Color( 0.211765, 0.521569, 0.921569, 1 )
 
 [node name="Trail" parent="Node" index="0"]
 gradient = SubResource( 1 )
 
-[node name="Background" parent="." index="2"]
+[node name="Background" parent="." index="3"]
 modulate = Color( 0.211765, 0.521569, 0.921569, 1 )
 
-[node name="Image" parent="." index="3"]
+[node name="Image" parent="." index="4"]
 texture = ExtResource( 2 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]

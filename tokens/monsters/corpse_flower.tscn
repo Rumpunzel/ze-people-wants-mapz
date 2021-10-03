@@ -11,26 +11,25 @@ colors = PoolColorArray( 0.439216, 0.266667, 0.0784314, 0, 0.439216, 0.266667, 0
 
 [node name="CorpseFlower" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
-_size = 8
+color = Color( 0.439216, 0.266667, 0.0784314, 1 )
 _attributes = ExtResource( 3 )
-_color = Color( 0.439216, 0.266667, 0.0784314, 1 )
 
 [node name="Trail" parent="Node" index="0"]
 width = 80.0
 gradient = SubResource( 1 )
 
-[node name="Background" parent="." index="2"]
+[node name="Background" parent="." index="3"]
 modulate = Color( 0.439216, 0.266667, 0.0784314, 1 )
 
 [node name="Token" parent="Background" index="0"]
 visible = false
 
-[node name="Image" parent="." index="3"]
-material = null
-texture = ExtResource( 2 )
-
 [node name="StenchOfDeath" parent="." index="4" instance=ExtResource( 4 )]
 process_material = ExtResource( 5 )
+
+[node name="Image" parent="." index="5"]
+material = null
+texture = ExtResource( 2 )
 
 [node name="HUDMargin" parent="CanvasLayer" index="0"]
 margin_left = -256.0

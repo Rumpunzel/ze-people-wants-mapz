@@ -47,7 +47,7 @@ func _mouse_as_coordinate(grid_snapping := 128.0) -> Vector2:
 
 
 func _on_ruler_started(start_position: Vector2, color: Color) -> void:
-	default_color = color
+	default_color = color if not color == Color.transparent else _default_color
 	_label.add_color_override("font_color", default_color)
 	
 	var outline_color := Color.slategray if color.r + color.g + color.b > 1.75 else Color.whitesmoke

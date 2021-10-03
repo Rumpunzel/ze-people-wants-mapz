@@ -3,43 +3,7 @@
 [ext_resource path="res://total.gd" type="Script" id=1]
 [ext_resource path="res://dice_spawner.gd" type="Script" id=2]
 [ext_resource path="res://dice_results.gd" type="Script" id=3]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends PopupPanel
-
-
-var _being_dragged := false
-var _offset := Vector2.ZERO
-
-
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		var mouse_event := event as InputEventMouseButton
-		if mouse_event.button_index == BUTTON_LEFT:
-			_being_dragged = mouse_event.pressed
-			
-			if mouse_event.pressed:
-				_offset = get_global_mouse_position() - rect_position
-			
-			get_tree().set_input_as_handled()
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		var key_event: InputEventKey = event
-		if key_event.pressed:
-			match(key_event.scancode):
-				KEY_R:
-					if not visible:
-						popup_centered()
-						#popup_centered_ratio(0.25)
-						get_tree().set_input_as_handled()
-
-
-func _process(_delta: float):
-	if _being_dragged:
-		rect_position = get_global_mouse_position() - _offset
-"
+[ext_resource path="res://hud/dice_rolling/dice_rolling.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxLine" id=2]
 color = Color( 0.141176, 0.470588, 0.647059, 1 )
@@ -54,7 +18,7 @@ margin_left = -125.0
 margin_top = -289.0
 margin_right = 125.0
 margin_bottom = 289.0
-script = SubResource( 1 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
