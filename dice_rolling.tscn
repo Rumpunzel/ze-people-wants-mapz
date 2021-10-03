@@ -5,7 +5,7 @@
 [ext_resource path="res://dice_results.gd" type="Script" id=3]
 [ext_resource path="res://hud/dice_rolling/dice_rolling.gd" type="Script" id=4]
 
-[sub_resource type="StyleBoxLine" id=2]
+[sub_resource type="StyleBoxLine" id=1]
 color = Color( 0.141176, 0.470588, 0.647059, 1 )
 thickness = 2
 
@@ -79,7 +79,7 @@ margin_top = 56.0
 margin_right = 178.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
-custom_styles/separator = SubResource( 2 )
+custom_styles/separator = SubResource( 1 )
 
 [node name="Total" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 92.0

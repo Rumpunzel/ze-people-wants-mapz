@@ -119,7 +119,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mouse_event := event as InputEventMouseButton
 		if mouse_event.button_index == BUTTON_LEFT:
 			if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
-				set_selected(false)
 				return
 			
 			set_selected(true)
@@ -140,8 +139,11 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
 		var mouse_event := event as InputEventMouseButton
-		if mouse_event.button_index == BUTTON_LEFT and not mouse_event.pressed:
-			_set_being_dragged(false)
+		if mouse_event.button_index == BUTTON_LEFT:
+			if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
+				set_selected(false)
+			if not mouse_event.pressed:
+				_set_being_dragged(false)
 
 
 
