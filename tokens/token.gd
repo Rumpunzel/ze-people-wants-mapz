@@ -72,7 +72,7 @@ func _ready() -> void:
 	
 	var ghost_collision: CollisionShape2D = _collision.duplicate()
 	_ghost.add_child(ghost_collision)
-	ghost_collision.scale *= 0.9
+	ghost_collision.scale *= 0.8
 	
 	var ghost_image: TextureRect = image.duplicate()
 	_ghost.add_child(ghost_image)
@@ -121,7 +121,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
 				return
 			
-			set_selected(true)
+			if mouse_event.pressed:
+				set_selected(true)
+			
 			_set_being_dragged(mouse_event.pressed)
 			get_tree().set_input_as_handled()
 	
