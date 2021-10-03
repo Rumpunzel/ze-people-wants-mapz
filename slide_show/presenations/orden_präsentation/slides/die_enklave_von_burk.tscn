@@ -8,7 +8,10 @@
 [node name="TextureRect" parent="Background" index="0"]
 texture = ExtResource( 2 )
 
-[node name="Label" parent="Text" index="0"]
-text = "Die Enklave Von Burk"
-align = 0
-valign = 2
+[node name="Content" parent="Text" index="0"]
+margin_top = 1807.0
+margin_bottom = 2060.0
+size_flags_vertical = 8
+
+[node name="Title" parent="Text/Content" index="0"]
+text = "Die Enklave von Burk"

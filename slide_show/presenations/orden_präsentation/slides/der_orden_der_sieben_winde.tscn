@@ -9,3 +9,11 @@ custom_constants/margin_bottom = -130
 
 [node name="TextureRect" parent="Background" index="0"]
 margin_bottom = 2290.0
+
+[node name="Content" parent="Text" index="0"]
+margin_left = 2246.0
+margin_right = 3680.0
+size_flags_horizontal = 8
+
+[node name="Title" parent="Text/Content" index="0"]
+text = "Der Orden der Sieben Winde"

@@ -1,16 +1,32 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/amatic-sc/AmaticSC-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://slide_show/bilder/fraktionen/der_orden.jpg" type="Texture" id=2]
 [ext_resource path="res://slide_show/slide.gd" type="Script" id=3]
+[ext_resource path="res://skull.tscn" type="PackedScene" id=4]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 200
 use_filter = true
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=2]
-default_font = SubResource( 5 )
+default_font = SubResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "_none"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "fade_in"
@@ -96,7 +112,6 @@ tracks/2/keys = {
 
 [node name="Slide" type="Control"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 2 )
@@ -133,20 +148,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Text"]
+[node name="Content" type="VBoxContainer" parent="Text"]
 margin_left = 160.0
 margin_top = 100.0
-margin_right = 3680.0
-margin_bottom = 2060.0
-size_flags_vertical = 1
+margin_right = 422.0
+margin_bottom = 353.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="Title" type="Label" parent="Text/Content"]
+margin_right = 1434.0
+margin_bottom = 253.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 0
-text = "Der Orden der Sieben Winde"
-align = 2
+text = "Titel"
+
+[node name="Skulls" type="MarginContainer" parent="Text/Content"]
+visible = false
+margin_left = 1202.0
+margin_top = 253.0
+margin_right = 1434.0
+margin_bottom = 317.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+custom_constants/margin_right = 16
+custom_constants/margin_left = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Text/Content/Skulls"]
+margin_left = 16.0
+margin_right = 216.0
+margin_bottom = 64.0
+size_flags_horizontal = 8
+
+[node name="Skull1" parent="Text/Content/Skulls/HBoxContainer" instance=ExtResource( 4 )]
+
+[node name="Skull2" parent="Text/Content/Skulls/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 68.0
+margin_right = 132.0
+
+[node name="Skull3" parent="Text/Content/Skulls/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 136.0
+margin_right = 200.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/_none = SubResource( 5 )
 anims/fade_in = SubResource( 3 )
 anims/fade_out = SubResource( 4 )
 

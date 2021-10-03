@@ -8,6 +8,13 @@
 [node name="TextureRect" parent="Background" index="0"]
 texture = ExtResource( 1 )
 
-[node name="Label" parent="Text" index="0"]
+[node name="Content" parent="Text" index="0"]
+margin_left = 3418.0
+margin_top = 1807.0
+margin_right = 3680.0
+margin_bottom = 2060.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Title" parent="Text/Content" index="0"]
 text = "Die Weiten Akkoras"
-valign = 2

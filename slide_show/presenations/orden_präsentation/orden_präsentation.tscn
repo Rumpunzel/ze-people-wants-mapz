@@ -22,33 +22,25 @@ default_font = SubResource( 1 )
 [node name="OrdenPräsentation" instance=ExtResource( 1 )]
 
 [node name="DerOrdenDerSiebenWinde" parent="." index="0" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="BajuPost" parent="." index="1" instance=ExtResource( 8 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="DieMagickarchäologenialenSchatzmeister" parent="." index="2" instance=ExtResource( 7 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="DieEnklaveVonBurk" parent="." index="3" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="DieWeitenAkkoras" parent="." index="4" instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="DieEmpaten" parent="." index="5" instance=ExtResource( 5 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="DieKlippenreiter" parent="." index="6" instance=ExtResource( 4 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )
 
 [node name="AvasZirkel" parent="." index="7" instance=ExtResource( 9 )]
-modulate = Color( 1, 1, 1, 1 )
 theme = SubResource( 2 )

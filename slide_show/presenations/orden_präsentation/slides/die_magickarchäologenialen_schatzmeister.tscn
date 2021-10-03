@@ -8,6 +8,6 @@
 [node name="TextureRect" parent="Background" index="0"]
 texture = ExtResource( 2 )
 
-[node name="Label" parent="Text" index="0"]
-text = "Die Magickarchäologenialen Schatzmeister"
-align = 0
+[node name="Title" parent="Text/Content" index="0"]
+text = "Die Magickarchäologenialen
+Schatzmeister"
