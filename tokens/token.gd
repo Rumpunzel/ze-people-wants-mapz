@@ -10,6 +10,7 @@ signal size_changed(new_size)
 signal maximum_hit_points_changed(new_hit_points)
 signal hit_points_changed(new_hit_points)
 signal selected(new_status)
+signal died()
 
 
 export var color := Color.transparent setget set_color
@@ -19,7 +20,9 @@ export(Resource) var attributes
 
 var image: TextureRect
 var hit_points: int setget set_hit_points
+var dead := false
 var selected := false setget set_selected
+var is_taking_turn := false setget set_is_taking_turn
 
 
 var _size: int setget _set_size
@@ -36,7 +39,6 @@ var _movement_tween: Tween
 
 onready var _collision: CollisionShape2D = $CollisionShape2D
 onready var _collision_shape: CircleShape2D = _collision.shape
-
 onready var _selection: Sprite = $Selection
 onready var _ghost: Area2D = Area2D.new()
 
@@ -115,12 +117,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
 		var mouse_event := event as InputEventMouseButton
-		if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
-			return
-		
 		if mouse_event.button_index == BUTTON_LEFT:
+			if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
+				set_selected(false)
+				return
+			
+			set_selected(true)
 			_set_being_dragged(mouse_event.pressed)
 			get_tree().set_input_as_handled()
+	
+	elif event is InputEventKey:
+		var key_event: InputEventKey = event
+		match key_event.scancode:
+			KEY_DELETE:
+				if selected:
+					die()
 
 
 func _input(event: InputEvent) -> void:
@@ -151,9 +162,30 @@ func set_hit_points(new_hit_points: int) -> void:
 	emit_signal("hit_points_changed", hit_points)
 
 
+func set_is_taking_turn(new_status: bool) -> void:
+	is_taking_turn = new_status
+	
+	if is_taking_turn and selected:
+		_selection.modulate = Color.white
+	elif is_taking_turn:
+		_selection.modulate = Color.yellow
+	else:
+		_selection.modulate = Color.dodgerblue
+	
+	_selection.visible = is_taking_turn or selected
+
+
 func set_selected(new_status: bool) -> void:
 	selected = new_status
-	_selection.visible = selected
+	
+	if is_taking_turn and selected:
+		_selection.modulate = Color.white
+	elif is_taking_turn:
+		_selection.modulate = Color.gold
+	else:
+		_selection.modulate = Color.dodgerblue
+	
+	_selection.visible = is_taking_turn or selected
 	emit_signal("selected", selected)
 
 
@@ -173,7 +205,13 @@ func _set_size(new_size: int) -> void:
 
 
 func die() -> void:
+	dead = true
 	modulate = Color.darkgray
+	modulate.a = 0.25
+	set_is_taking_turn(false)
+	set_selected(false)
+	_background.visible = false
+	emit_signal("died")
 
 
 func set_color(new_color: Color) -> void:

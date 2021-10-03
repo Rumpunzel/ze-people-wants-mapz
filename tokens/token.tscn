@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
@@ -8,36 +8,14 @@
 [ext_resource path="res://tokens/images/token_background.png" type="Texture" id=6]
 [ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=7]
 [ext_resource path="res://tokens/hud_margin.gd" type="Script" id=8]
-[ext_resource path="res://attributes.gd" type="Script" id=9]
 [ext_resource path="res://tokens/image.gd" type="Script" id=10]
 [ext_resource path="res://tokens/animation_player.gd" type="Script" id=11]
 [ext_resource path="res://tokens/images/utils/select.png" type="Texture" id=12]
 
-[sub_resource type="Resource" id=9]
-script = ExtResource( 9 )
-level = 1
-hit_die = 8
-roll_hit_points = true
-size = 4
-move_speed = 30
-armor_class = 10
-strength = 10
-dexterity = 10
-constitution = 10
-intelligence = 10
-wisdom = 10
-charisma = 10
-strength_saving_throw_bonus = 0
-dexterity_saving_throw_bonus = 0
-constitution_saving_throw_bonus = 0
-intelligence_saving_throw_bonus = 0
-wisdom_saving_throw_bonus = 0
-charisma_saving_throw_bonus = 0
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 128.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "rotate"
 length = 4.0
 loop = true
@@ -83,10 +61,9 @@ border_blend = true
 ]]
 collision_layer = 2
 script = ExtResource( 2 )
-_attributes = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Selection" type="Sprite" parent="."]
 visible = false
@@ -96,7 +73,7 @@ texture = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Selection"]
 autoplay = "rotate"
-anims/rotate = SubResource( 8 )
+anims/rotate = SubResource( 2 )
 
 [node name="Node" type="Node" parent="."]
 

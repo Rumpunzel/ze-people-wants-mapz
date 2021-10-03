@@ -5,7 +5,7 @@
 [ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=3]
 [ext_resource path="res://tokens/images/ghost_shine.tres" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0.913725, 0.964706, 0.329412, 0, 0.913725, 0.964706, 0.329412, 0.588235 )
 
 [sub_resource type="Animation" id=2]
@@ -25,12 +25,13 @@ tracks/0/keys = {
 }
 
 [node name="Will-o-Wisp" instance=ExtResource( 1 )]
+scale = Vector2( 0.25, 0.25 )
 color = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
 attributes = ExtResource( 2 )
 
 [node name="Trail" parent="Node" index="0"]
 width = 150.0
-gradient = SubResource( 1 )
+gradient = SubResource( 3 )
 
 [node name="Background" parent="." index="3"]
 modulate = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
@@ -46,6 +47,19 @@ energy = 0.7
 [node name="Image" parent="." index="4"]
 material = null
 texture = ExtResource( 3 )
+
+[node name="HUDMargin" parent="CanvasLayer" index="0"]
+margin_left = -32.0
+margin_top = -33.5
+margin_right = 32.0
+margin_bottom = -30.5
+rect_pivot_offset = Vector2( 32, 1.5 )
+
+[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
+margin_right = 64.0
+
+[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
+margin_right = 91.0
 
 [node name="AnimationPlayer" parent="." index="8"]
 autoplay = "spin"

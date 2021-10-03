@@ -1,6 +1,7 @@
 class_name InitiativeEntry
 extends PanelContainer
 
+signal token_died(entry)
 
 var initiave: Attributes.Initiative
 var token: Token
@@ -23,6 +24,8 @@ func setup(new_initiaive: Attributes.Initiative, new_token: Token) -> void:
 	if token:
 		# warning-ignore:return_value_discarded
 		token.connect("hit_points_changed", self, "_on_hit_points_changed")
+		# warning-ignore:return_value_discarded
+		token.connect("died", self, "emit_signal", [ "token_died", self ])
 		
 		var image: TextureRect = $MarginContainer/HBoxContainer/Image
 		image.texture = token.image.texture

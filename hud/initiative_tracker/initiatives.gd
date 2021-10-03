@@ -18,7 +18,10 @@ func _process(_delta: float) -> void:
 		_new_initiative()
 		return
 	
-	add_child(_new_entries.pop_front())
+	var new_entry: InitiativeEntry = _new_entries.pop_front()
+	# warning-ignore:return_value_discarded
+	new_entry.connect("token_died", self, "_on_token_died")
+	add_child(new_entry)
 
 
 
@@ -27,6 +30,10 @@ func _set_up_initiative(player_initiatives: Dictionary) -> void:
 	
 	for player in player_initiatives.keys():
 		var token: Token = player
+		
+		if token.dead:
+			continue
+		
 		var initiative: Attributes.Initiative = player_initiatives[token]
 		var new_entry := _initiative_entry_scene.instance() as InitiativeEntry
 		
@@ -36,6 +43,10 @@ func _set_up_initiative(player_initiatives: Dictionary) -> void:
 	var monsters := get_tree().get_nodes_in_group(Monsters.MONSTER_GROUP)
 	for monster in monsters:
 		var token: Token = monster
+		
+		if token.dead:
+			continue
+		
 		var initiative := token.roll_initiative()
 		var new_entry := _initiative_entry_scene.instance() as InitiativeEntry
 		
@@ -87,7 +98,7 @@ func _on_done_pressed() -> void:
 	move_child(old_first, child_count - 1)
 	old_first.moved()
 	if old_first.token:
-		old_first.token.selected = false
+		old_first.token.is_taking_turn = false
 	
 	_new_initiative()
 
@@ -96,15 +107,10 @@ func _new_initiative() -> void:
 	var new_first := get_current_entry()
 	emit_signal("initiative_changed", new_first)
 	if new_first and new_first.token:
-		new_first.token.selected = true
+		new_first.token.is_taking_turn = true
 
 
-func _on_die_pressed() -> void:
-	var current_entry := get_current_entry()
-	if not current_entry:
-		return
-	
-	current_entry.token.die()
-	remove_child(current_entry)
-	current_entry.queue_free()
+func _on_token_died(entry: InitiativeEntry) -> void:
+	remove_child(entry)
+	entry.queue_free()
 	emit_signal("initiative_changed", get_current_entry())
