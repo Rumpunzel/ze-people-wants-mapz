@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://hud/initiative_tracker/initiative_entry.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hud/initiative_tracker/new_round.gd" type="Script" id=2]
 [ext_resource path="res://hud/initiative_tracker/icons/cubes.png" type="Texture" id=3]
 
 [node name="NewRound" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="MarginContainer" parent="." index="0"]
-margin_right = 430.0
+margin_right = 395.0
 
 [node name="HBoxContainer" parent="MarginContainer" index="0"]
-margin_right = 407.0
+margin_right = 372.0
 
 [node name="Initiative" parent="MarginContainer/HBoxContainer" index="0"]
 visible = false
@@ -22,6 +24,5 @@ texture = ExtResource( 3 )
 
 [node name="Name" parent="MarginContainer/HBoxContainer" index="2"]
 margin_left = 144.0
-margin_right = 391.0
-text = "New Round"
-align = 1
+margin_right = 356.0
+text = "Round 1"

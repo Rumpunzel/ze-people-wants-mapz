@@ -19,34 +19,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-anchor_bottom = 1.0
-margin_right = 668.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InitiativeTracker" parent="Control/MarginContainer" instance=ExtResource( 3 )]
-anchor_top = 0.0
-anchor_bottom = 0.0
-margin_top = 2018.0
-margin_right = 502.0
-margin_bottom = 2160.0
-
-[node name="PanelContainer" parent="Control/MarginContainer/InitiativeTracker" index="0"]
-margin_bottom = 142.0
-
-[node name="MarginContainer" parent="Control/MarginContainer/InitiativeTracker/PanelContainer" index="0"]
-margin_bottom = 135.0
-
-[node name="Initiatives" parent="Control/MarginContainer/InitiativeTracker/PanelContainer/MarginContainer" index="0"]
-margin_bottom = 128.0
-
-[node name="MarginContainer" parent="Control/MarginContainer/InitiativeTracker" index="1"]
-margin_top = 0.0
-margin_bottom = 142.0
+[node name="InitiativeTracker" parent="Control" instance=ExtResource( 3 )]
 
 [node name="DiceRolling" parent="Control" instance=ExtResource( 1 )]
-
-[editable path="Control/MarginContainer/InitiativeTracker"]

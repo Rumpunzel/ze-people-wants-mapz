@@ -6,10 +6,10 @@
 [node name="Initiative20" instance=ExtResource( 1 )]
 
 [node name="MarginContainer" parent="." index="0"]
-margin_right = 539.0
+margin_right = 459.0
 
 [node name="HBoxContainer" parent="MarginContainer" index="0"]
-margin_right = 516.0
+margin_right = 436.0
 
 [node name="Initiative" parent="MarginContainer/HBoxContainer" index="0"]
 visible = false
@@ -22,6 +22,5 @@ texture = ExtResource( 2 )
 
 [node name="Name" parent="MarginContainer/HBoxContainer" index="2"]
 margin_left = 144.0
-margin_right = 500.0
+margin_right = 420.0
 text = "Initiative 20"
-align = 1

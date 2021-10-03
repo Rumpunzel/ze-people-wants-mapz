@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	
 	var token: Node2D = owner
 	width = (token.scale.x / 1.0) * _default_width
-	add_point(token.position)
+	add_point(token.global_position)
 	if points.size() > 20:
 		remove_point(0)
 

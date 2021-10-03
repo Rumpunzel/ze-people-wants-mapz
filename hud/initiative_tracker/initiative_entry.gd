@@ -1,13 +1,16 @@
 class_name InitiativeEntry
 extends PanelContainer
 
+
 var initiave: Attributes.Initiative
 var token: Token
+
 
 
 func _exit_tree() -> void:
 	if token:
 		token.disconnect("hit_points_changed", self, "_on_hit_points_changed")
+
 
 
 func setup(new_initiaive: Attributes.Initiative, new_token: Token) -> void:
@@ -29,6 +32,11 @@ func setup(new_initiaive: Attributes.Initiative, new_token: Token) -> void:
 		var font: DynamicFont = name_label.get_font("font").duplicate()
 		font.outline_color = token.color
 		name_label.set("custom_fonts/font", font)
+
+
+func moved() -> void:
+	pass
+
 
 
 func _on_hit_points_changed(new_hit_points: int) -> void:

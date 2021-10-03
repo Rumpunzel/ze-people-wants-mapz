@@ -1,6 +1,10 @@
 extends InitiativeEntry
 
+onready var _name_label: Label = $MarginContainer/HBoxContainer/Name
 
-func _init() -> void:
-	initiave = Attributes.Initiative.new(-INF, -INF)
-	token = null
+var _moved_how_many_times := 1
+
+
+func moved() -> void:
+	_moved_how_many_times += 1
+	_name_label.text = "Round %d" % [ _moved_how_many_times ]

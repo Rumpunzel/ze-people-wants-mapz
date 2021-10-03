@@ -7,7 +7,9 @@
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.411765, 0.286275, 0.690196, 0, 0.411765, 0.286275, 0.690196, 1 )
 
-[node name="Gibs" instance=ExtResource( 1 )]
+[node name="Gibs" groups=[
+"Players",
+] instance=ExtResource( 1 )]
 scale = Vector2( 0.5, 0.5 )
 color = Color( 0.411765, 0.286275, 0.690196, 1 )
 _attributes = ExtResource( 3 )

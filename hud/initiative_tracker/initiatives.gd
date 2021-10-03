@@ -34,6 +34,15 @@ func _process(_delta: float) -> void:
 func _set_up_initiative() -> void:
 	_clear_initiative()
 	
+	var players := get_tree().get_nodes_in_group(Players.PLAYER_GROUP)
+	for player in players:
+		var token: Token = player
+		var initiative := token.roll_initiative()
+		var new_entry := _initiative_entry_scene.instance() as InitiativeEntry
+		
+		new_entry.setup(initiative, token)
+		_new_entries.append(new_entry)
+	
 	var monsters := get_tree().get_nodes_in_group(Monsters.MONSTER_GROUP)
 	for monster in monsters:
 		var token: Token = monster
@@ -50,9 +59,9 @@ func _set_up_initiative() -> void:
 
 func _sort_entries(first_entry: InitiativeEntry, second_entry: InitiativeEntry) -> bool:
 	if first_entry.initiave.initiative == second_entry.initiave.initiative:
-		return first_entry.initiave.modifier <= second_entry.initiave.modifier
+		return first_entry.initiave.modifier >= second_entry.initiave.modifier
 	
-	return first_entry.initiave.initiative <= second_entry.initiave.initiative
+	return first_entry.initiave.initiative >= second_entry.initiave.initiative
 
 
 func _clear_initiative() -> void:
@@ -67,7 +76,7 @@ func _clear_initiative() -> void:
 	_new_entries.append(new_20)
 	
 	var new_round := _new_round_scene.instance() as InitiativeEntry
-	new_round.setup(Attributes.Initiative.new(-INF, 0), null)
+	new_round.setup(Attributes.Initiative.new(1000, 0), null)
 	_new_entries.append(new_round)
 
 
@@ -76,7 +85,7 @@ func get_current_entry() -> InitiativeEntry:
 	if child_count <= 0:
 		return null
 	
-	return get_child(child_count - 1) as InitiativeEntry
+	return get_child(0) as InitiativeEntry
 
 
 func _on_done_pressed() -> void:
@@ -85,7 +94,8 @@ func _on_done_pressed() -> void:
 		return
 	
 	var old_first := get_current_entry()
-	move_child(old_first, 0)
+	move_child(old_first, child_count - 1)
+	old_first.moved()
 	if old_first.token:
 		old_first.token.selected = false
 	
