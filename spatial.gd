@@ -38,6 +38,12 @@ func _process(_delta: float) -> void:
 				new_die = d20_scene.instance()
 			Die.DiceTypes.d100:
 				new_die = d100_scene.instance()
+			
+			0:
+				return
+			_:
+				ShittySingleton.display_result(null, 1 + randi() % dice_to_spawn)
+				return
 		
 		var spawn_position = Die.random_vector3() * 10.0
 		
