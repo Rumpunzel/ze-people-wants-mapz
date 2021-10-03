@@ -49,7 +49,8 @@ func _mouse_as_coordinate(grid_snapping := 128.0) -> Vector2:
 func _on_ruler_started(start_position: Vector2, color: Color) -> void:
 	default_color = color
 	_label.add_color_override("font_color", default_color)
-	var outline_color := Color.white if color.r + color.g + color.b < 1.5 else Color.black
+	
+	var outline_color := Color.slategray if color.r + color.g + color.b > 1.75 else Color.whitesmoke
 	_label.add_color_override("font_outline_modulate", outline_color)
 	
 	points[0] = start_position

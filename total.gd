@@ -1,20 +1,19 @@
 extends Label
 
 
-var total := 0
+var total := 0 setget set_total
 
 
 func _enter_tree() -> void:
 	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("new_result", self, "_count_result")
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("ui_cancel"):
-		total = 0
-		text = "Total: %d" % total
-
 
 func _count_result(_die: Die, result: int) -> void:
 	if result > 0:
-		total += result
-		text = "Total: %d" % total
+		set_total(total + result)
+
+
+func set_total(new_total: int) -> void:
+	total = new_total
+	text = "%d" % total

@@ -5,6 +5,7 @@
 [ext_resource path="res://slide_show/slide_show.gd" type="Script" id=9]
 
 [node name="SlideShow" type="CanvasLayer"]
+pause_mode = 2
 layer = 100
 script = ExtResource( 9 )
 
