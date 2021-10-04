@@ -47,8 +47,9 @@ scale = Vector2( 2, 2 )
 
 [node name="StenchZombie" parent="." instance=ExtResource( 2 )]
 position = Vector2( -896, 384 )
-scale = Vector2( 4, 4 )
+
+[node name="StenchZombie2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -384, -384 )
 
 [node name="StenchZombie3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -384, -384 )
-scale = Vector2( 4, 4 )
+position = Vector2( -1408, -128 )

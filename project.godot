@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://attack.gd"
+}, {
+"base": "Resource",
 "class": "Attributes",
 "language": "GDScript",
 "path": "res://attributes.gd"
@@ -75,6 +80,7 @@ _global_script_classes=[ {
 "path": "res://tokens/trail.gd"
 } ]
 _global_script_class_icons={
+"Attack": "",
 "Attributes": "",
 "CustomGradientTexture": "",
 "Die": "",

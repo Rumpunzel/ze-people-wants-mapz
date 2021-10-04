@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://tokens/images/token_background.png" type="Texture" id=6]
 [ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=7]
 [ext_resource path="res://tokens/hud_margin.gd" type="Script" id=8]
+[ext_resource path="res://tokens/animations/damaged.tres" type="Animation" id=9]
 [ext_resource path="res://tokens/image.gd" type="Script" id=10]
 [ext_resource path="res://tokens/animation_player.gd" type="Script" id=11]
 [ext_resource path="res://tokens/images/utils/select.png" type="Texture" id=12]
@@ -182,8 +183,10 @@ valign = 1
 [node name="MovementTween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/damaged = ExtResource( 9 )
 script = ExtResource( 11 )
 
+[connection signal="hit_points_changed" from="." to="CanvasLayer/HUDMargin/LifeBar" method="set_value"]
 [connection signal="maximum_hit_points_changed" from="." to="CanvasLayer/HUDMargin/LifeBar" method="_on_maximum_hit_points_changed"]
 [connection signal="size_changed" from="." to="CanvasLayer/HUDMargin" method="_on_size_changed"]
 [connection signal="changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_changed"]

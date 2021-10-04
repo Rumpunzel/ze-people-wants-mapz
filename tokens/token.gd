@@ -40,6 +40,8 @@ var _movement_tween: Tween
 onready var _collision: CollisionShape2D = $CollisionShape2D
 onready var _collision_shape: CircleShape2D = _collision.shape
 onready var _selection: Sprite = $Selection
+onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
 onready var _ghost: Area2D = Area2D.new()
 
 
@@ -55,6 +57,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	_set_size(attributes.size)
+	image.rect_pivot_offset = image.rect_size * 0.5
 	
 	if Engine.editor_hint:
 		return
@@ -156,6 +159,18 @@ func _input(event: InputEvent) -> void:
 func roll_initiative() -> Attributes.Initiative:
 	return attributes.roll_initiative()
 
+func damage(amount: int, magical: bool, damage_type: int, damage_type_string: String) -> void:
+	set_hit_points(hit_points - amount)
+	
+	print("Hit %s by %d with %s %s damage!" % [ name, amount, "magical" if magical else "non-magical", damage_type_string ])
+	
+	var previous_animation := _animation_player.current_animation
+	_animation_player.play("damaged")
+	if not previous_animation.empty():
+		yield(_animation_player, "animation_finished")
+		_animation_player.play(previous_animation)
+
+
 
 func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
 	var mouse_position := get_global_mouse_position() - _token_offset
@@ -168,6 +183,11 @@ func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
 func set_hit_points(new_hit_points: int) -> void:
 	hit_points = new_hit_points
 	emit_signal("hit_points_changed", hit_points)
+	
+	if hit_points <= 0:
+		modulate = Color.darkgray
+	else:
+		modulate = Color.white
 
 
 func set_is_taking_turn(new_status: bool) -> void:
