@@ -75,19 +75,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSplitContainer" type="VSplitContainer" parent="InitiativeHUD"]
+[node name="ScrollContainer" type="ScrollContainer" parent="InitiativeHUD"]
 margin_left = 332.0
 margin_right = 346.0
 margin_bottom = 2160.0
-grow_horizontal = 0
-mouse_filter = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InitiativeTracker" type="ScrollContainer" parent="InitiativeHUD/VSplitContainer"]
-margin_right = 14.0
-margin_bottom = 1074.0
 grow_horizontal = 0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
@@ -95,36 +86,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="InitiativeHUD/VSplitContainer/InitiativeTracker"]
+[node name="PanelContainer" type="PanelContainer" parent="InitiativeHUD/ScrollContainer"]
 margin_right = 14.0
 margin_bottom = 14.0
 grow_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="InitiativeHUD/VSplitContainer/InitiativeTracker/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="InitiativeHUD/ScrollContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 7.0
 margin_bottom = 7.0
 grow_horizontal = 0
 
-[node name="Initiatives" type="VBoxContainer" parent="InitiativeHUD/VSplitContainer/InitiativeTracker/PanelContainer/MarginContainer"]
+[node name="Initiatives" type="VBoxContainer" parent="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer"]
 grow_horizontal = 0
 script = ExtResource( 4 )
 _initiative_entry_scene = ExtResource( 2 )
 _initiative_20_scene = ExtResource( 8 )
 _new_round_scene = ExtResource( 7 )
 
-[node name="Control" type="Control" parent="InitiativeHUD/VSplitContainer"]
-margin_top = 1086.0
-margin_right = 14.0
-margin_bottom = 2160.0
-mouse_filter = 2
-size_flags_vertical = 3
-
 [node name="PlayerInitiatives" parent="." instance=ExtResource( 6 )]
 
-[connection signal="pressed" from="InitiativeHUD/MarginContainer/HBoxContainer/Done" to="InitiativeHUD/VSplitContainer/InitiativeTracker/PanelContainer/MarginContainer/Initiatives" method="_on_done_pressed"]
-[connection signal="initiative_changed" from="InitiativeHUD/VSplitContainer/InitiativeTracker/PanelContainer/MarginContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Done" method="_on_initiative_changed"]
-[connection signal="initiative_changed" from="InitiativeHUD/VSplitContainer/InitiativeTracker/PanelContainer/MarginContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Attack" method="_on_initiative_changed"]
+[connection signal="pressed" from="InitiativeHUD/MarginContainer/HBoxContainer/Done" to="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" method="_on_done_pressed"]
+[connection signal="initiative_changed" from="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Done" method="_on_initiative_changed"]
+[connection signal="initiative_changed" from="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Attack" method="_on_initiative_changed"]
 [connection signal="initiatives_confirmed" from="PlayerInitiatives" to="InitiativeHUD" method="_on_initiatives_confirmed"]
-[connection signal="initiatives_confirmed" from="PlayerInitiatives" to="InitiativeHUD/VSplitContainer/InitiativeTracker/PanelContainer/MarginContainer/Initiatives" method="_set_up_initiative"]
+[connection signal="initiatives_confirmed" from="PlayerInitiatives" to="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" method="_set_up_initiative"]

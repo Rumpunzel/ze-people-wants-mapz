@@ -5,9 +5,16 @@
 
 [node name="WizzKrall" type="Node2D"]
 
-[node name="Wizz" parent="." instance=ExtResource( 2 )]
-visible = false
-scale = Vector2( 2, 2 )
-
 [node name="Krall" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
+
+[node name="Wizz" parent="Krall" instance=ExtResource( 2 )]
+visible = false
+
+[node name="CollisionShape2D" parent="Krall/Wizz" index="0"]
+disabled = true
+
+[node name="HUDMargin" parent="Krall/Wizz/CanvasLayer" index="0"]
+visible = false
+
+[editable path="Krall/Wizz"]

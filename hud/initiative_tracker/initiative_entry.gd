@@ -1,6 +1,7 @@
 class_name InitiativeEntry
 extends PanelContainer
 
+# warning-ignore:unused_signal
 signal token_died(entry)
 
 var initiave: Attributes.Initiative

@@ -112,7 +112,7 @@ func _process(_delta: float):
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Engine.editor_hint:
+	if Engine.editor_hint or not visible:
 		return
 	
 	if event is InputEventMouseButton:
