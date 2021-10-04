@@ -49,7 +49,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if side_up == NONE and linear_velocity.abs().length_squared() < 0.1:
 		side_up = _get_face_up()
-		emit_signal("side_changed", self, side_up)
+		emit_signal("side_changed", dice_type, side_up)
 		
 		if not side_up == NONE:
 			sleeping = true

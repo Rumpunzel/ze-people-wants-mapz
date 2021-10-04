@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 			0:
 				return
 			_:
-				ShittySingleton.display_result(null, Die.roll(1, dice_to_spawn))
+				ShittySingleton.display_result(dice_to_spawn, Die.roll(1, dice_to_spawn))
 				return
 		
 		var spawn_position = Die.random_vector3() * 10.0

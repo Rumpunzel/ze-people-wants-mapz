@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://total.gd" type="Script" id=1]
 [ext_resource path="res://dice_spawner.gd" type="Script" id=2]
 [ext_resource path="res://dice_results.gd" type="Script" id=3]
 [ext_resource path="res://hud/dice_rolling/dice_rolling.gd" type="Script" id=4]
-
-[sub_resource type="StyleBoxLine" id=1]
-color = Color( 0.141176, 0.470588, 0.647059, 1 )
-thickness = 2
 
 [node name="DiceRolling" type="PopupPanel"]
 anchor_left = 0.5
@@ -31,25 +27,17 @@ margin_bottom = 574.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 32
-custom_constants/margin_top = 24
-custom_constants/margin_left = 32
-custom_constants/margin_bottom = 24
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 32.0
-margin_top = 24.0
-margin_right = 210.0
-margin_bottom = 546.0
-custom_constants/separation = 32
+margin_right = 242.0
+margin_bottom = 570.0
 
 [node name="Roll" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 178.0
+margin_right = 242.0
 margin_bottom = 24.0
-custom_constants/separation = 32
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Roll"]
 margin_top = 5.0
@@ -58,8 +46,8 @@ margin_bottom = 19.0
 text = "Roll:"
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Roll"]
-margin_left = 60.0
-margin_right = 118.0
+margin_left = 32.0
+margin_right = 210.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 align = 2
@@ -69,37 +57,36 @@ caret_blink_speed = 0.5
 script = ExtResource( 2 )
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer/Roll"]
-margin_left = 150.0
-margin_right = 178.0
+margin_left = 214.0
+margin_right = 242.0
 margin_bottom = 24.0
 text = " X "
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 178.0
-margin_bottom = 60.0
+margin_top = 28.0
+margin_right = 242.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
-custom_styles/separator = SubResource( 1 )
 
 [node name="Total" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 92.0
-margin_right = 178.0
-margin_bottom = 522.0
+margin_top = 36.0
+margin_right = 242.0
+margin_bottom = 570.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 32
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Total"]
-margin_right = 178.0
+margin_right = 242.0
 margin_bottom = 22.0
 custom_constants/margin_right = 16
 custom_constants/margin_top = 8
 custom_constants/margin_left = 16
+custom_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Total/MarginContainer"]
 margin_left = 16.0
 margin_top = 8.0
-margin_right = 162.0
+margin_right = 226.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 
@@ -110,7 +97,7 @@ text = "Total:"
 
 [node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Total/MarginContainer/HBoxContainer"]
 margin_left = 39.0
-margin_right = 146.0
+margin_right = 210.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
@@ -120,9 +107,9 @@ align = 2
 script = ExtResource( 1 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/Total"]
-margin_top = 54.0
-margin_right = 178.0
-margin_bottom = 430.0
+margin_top = 26.0
+margin_right = 242.0
+margin_bottom = 534.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 border_color = Color( 0.141176, 0.470588, 0.647059, 1 )
@@ -134,19 +121,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 32
-custom_constants/margin_top = 24
-custom_constants/margin_left = 32
-custom_constants/margin_bottom = 24
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DiceResults" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Total/ReferenceRect/MarginContainer"]
-margin_left = 32.0
-margin_top = 24.0
-margin_right = 146.0
-margin_bottom = 352.0
+margin_right = 242.0
+margin_bottom = 508.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true

@@ -25,10 +25,12 @@ visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -350.0
+margin_left = -354.0
+margin_bottom = -1560.0
 grow_horizontal = 0
 mouse_filter = 2
 size_flags_vertical = 3
+custom_constants/separation = 0
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,9 +78,9 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="InitiativeHUD"]
-margin_left = 332.0
-margin_right = 346.0
-margin_bottom = 2160.0
+margin_left = 328.0
+margin_right = 342.0
+margin_bottom = 600.0
 grow_horizontal = 0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
@@ -91,15 +93,13 @@ margin_right = 14.0
 margin_bottom = 14.0
 grow_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="InitiativeHUD/ScrollContainer/PanelContainer"]
+[node name="Initiatives" type="VBoxContainer" parent="InitiativeHUD/ScrollContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 7.0
 margin_bottom = 7.0
 grow_horizontal = 0
-
-[node name="Initiatives" type="VBoxContainer" parent="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer"]
-grow_horizontal = 0
+custom_constants/separation = 0
 script = ExtResource( 4 )
 _initiative_entry_scene = ExtResource( 2 )
 _initiative_20_scene = ExtResource( 8 )
@@ -107,8 +107,8 @@ _new_round_scene = ExtResource( 7 )
 
 [node name="PlayerInitiatives" parent="." instance=ExtResource( 6 )]
 
-[connection signal="pressed" from="InitiativeHUD/MarginContainer/HBoxContainer/Done" to="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" method="_on_done_pressed"]
-[connection signal="initiative_changed" from="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Done" method="_on_initiative_changed"]
-[connection signal="initiative_changed" from="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Attack" method="_on_initiative_changed"]
+[connection signal="pressed" from="InitiativeHUD/MarginContainer/HBoxContainer/Done" to="InitiativeHUD/ScrollContainer/PanelContainer/Initiatives" method="_on_done_pressed"]
+[connection signal="initiative_changed" from="InitiativeHUD/ScrollContainer/PanelContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Done" method="_on_initiative_changed"]
+[connection signal="initiative_changed" from="InitiativeHUD/ScrollContainer/PanelContainer/Initiatives" to="InitiativeHUD/MarginContainer/HBoxContainer/Attack" method="_on_initiative_changed"]
 [connection signal="initiatives_confirmed" from="PlayerInitiatives" to="InitiativeHUD" method="_on_initiatives_confirmed"]
-[connection signal="initiatives_confirmed" from="PlayerInitiatives" to="InitiativeHUD/ScrollContainer/PanelContainer/MarginContainer/Initiatives" method="_set_up_initiative"]
+[connection signal="initiatives_confirmed" from="PlayerInitiatives" to="InitiativeHUD/ScrollContainer/PanelContainer/Initiatives" method="_set_up_initiative"]

@@ -10,10 +10,10 @@ func _enter_tree() -> void:
 	ShittySingleton.connect("new_result", self, "_display_result")
 
 
-func _display_result(die: Die, result: int) -> void:
+func _display_result(die: int, result: int) -> void:
 	if result > 0:
-		var special_result := result == die.dice_type or result == 1 if die else false
-		var color_begin := "[color=#%s]" % [ _crit_color.to_html() if result == die.dice_type else _crit_miss.to_html() ] if special_result else ""
+		var special_result := result == die or result == 1
+		var color_begin := "[color=#%s]" % [ _crit_color.to_html() if result == die else _crit_miss.to_html() ] if special_result else ""
 		var color_end := "[/color]" if special_result else ""
 		var prefix :=  "" if text.empty() else ", "
 		

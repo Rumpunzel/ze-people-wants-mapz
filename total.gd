@@ -9,7 +9,7 @@ func _enter_tree() -> void:
 	ShittySingleton.connect("new_result", self, "_count_result")
 
 
-func _count_result(_die: Die, result: int) -> void:
+func _count_result(_die: int, result: int) -> void:
 	if result > 0:
 		set_total(total + result)
 

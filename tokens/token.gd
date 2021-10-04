@@ -129,10 +129,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	elif event is InputEventKey:
 		var key_event: InputEventKey = event
-		match key_event.scancode:
-			KEY_DELETE:
-				if selected:
+		if selected and not key_event.pressed:
+			match key_event.scancode:
+				KEY_A:
+					ShittySingleton.emit_signal("single_target_dialog_openend", self)
+				
+				KEY_DELETE:
 					die()
+					get_tree().set_input_as_handled()
 
 
 func _input(event: InputEvent) -> void:

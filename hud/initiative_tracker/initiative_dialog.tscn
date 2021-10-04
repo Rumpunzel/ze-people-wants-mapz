@@ -48,21 +48,17 @@ margin_left = 178.0
 margin_right = 1428.0
 margin_bottom = 913.0
 size_flags_horizontal = 3
+custom_constants/separation = 8
 
 [node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 margin_right = 1250.0
-margin_bottom = 450.0
+margin_bottom = 452.0
 size_flags_vertical = 3
 text = "Name"
 valign = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 454.0
-margin_right = 1250.0
-margin_bottom = 458.0
-
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 462.0
+margin_top = 460.0
 margin_right = 1250.0
 margin_bottom = 913.0
 size_flags_vertical = 3
