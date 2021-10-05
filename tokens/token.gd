@@ -160,7 +160,16 @@ func _input(event: InputEvent) -> void:
 func roll_initiative() -> Attributes.Initiative:
 	return attributes.roll_initiative()
 
-func damage(amount: int, magical: bool, damage_type: int, damage_type_string: String) -> void:
+func damage(amount: int, magical: bool, damage_type: int, damage_type_string: String, dc: int, saving_throw_to_make: int, to_take: int) -> void:
+	if saving_throw_to_make >= Attributes.Stats.STRENGTH:
+		if attributes.saving_throw(saving_throw_to_make, dc) >= 0:
+			print("%s made the saving throw!")
+			match to_take:
+				ToTake.HALF_DAMAGE:
+					amount /= 2
+				ToTake.NO_DAMAGE:
+					return
+	
 	set_hit_points(hit_points - amount)
 	
 	print("Hit %s by %d with %s %s damage!" % [ name, amount, "magical" if magical else "non-magical", damage_type_string ])

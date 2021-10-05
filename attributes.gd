@@ -1,6 +1,15 @@
 class_name Attributes
 extends Resource
 
+enum Stats {
+	STRENGTH = 1,
+	DEXTERITY = 2,
+	CONSTITUTION = 4,
+	INTELLIGENCE = 8,
+	WISDOM = 16,
+	CHARISMA = 32,
+}
+
 enum Size {
 	TINY = 1,
 	SMALL = 2,
@@ -9,6 +18,7 @@ enum Size {
 	HUGE = 16,
 	GARGANTUAN = 32,
 }
+
 
 # warning-ignore-all:unused_class_variable
 export var level := 1
@@ -35,6 +45,7 @@ export var wisdom_saving_throw_bonus := 0
 export var charisma_saving_throw_bonus := 0
 
 
+
 static func calculate_modifier(attribute: int) -> int:
 	return int(attribute * 0.5) - 5
 
@@ -44,6 +55,12 @@ func calculate_hit_points() -> int:
 
 func roll_initiative() -> Initiative:
 	return Initiative.new(Die.roll(1, Die.DiceTypes.d20), calculate_modifier(dexterity))
+
+func saving_throw(stat: int, dc: int) -> int:
+	return (Die.roll(1, Die.DiceTypes.d20) + calculate_saving_throw_modifier(stat)) - dc
+
+func calculate_saving_throw_modifier(attribute: int) -> int:
+	return calculate_modifier(attribute) + (get("%s_saving_throw_bonus" % Stats.keys()[ Stats.values().find(attribute) ].to_lower()))
 
 
 

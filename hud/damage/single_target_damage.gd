@@ -11,6 +11,9 @@ onready var _image: TextureRect = $MarginContainer/VBoxContainer/HBoxContainer/I
 onready var _damage: LineEdit = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Damage
 onready var _magical: CheckButton = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Magical
 onready var _damage_type: OptionButton = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/DamageType
+onready var _dc: LineEdit = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/DC
+onready var _saving_throw: OptionButton = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SavingThrow
+onready var _to_take: ToTake = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ToTake
 
 
 
@@ -43,7 +46,7 @@ func _on_single_target_dialog_openend(token: Token) -> void:
 	_token = token
 	_image.texture = _token.image.texture
 	
-	popup_centered_ratio(0.3)
+	popup_centered_ratio(0.4)
 	_damage.grab_click_focus()
 	_damage.grab_focus()
 
@@ -53,5 +56,8 @@ func _on_done_pressed(_text_entered: String = "") -> void:
 	var magical := _magical.pressed
 	var damage_type := _damage_type.get_selected_id()
 	var damage_type_string := _damage_type.get_item_text(_damage_type.get_item_index(damage_type))
+	var dc := int(_dc.text)
+	var saving_throw_to_make := _saving_throw.get_selected_id()
+	var to_take := _to_take.get_selected_id()
 	
-	_token.damage(amount, magical, damage_type, damage_type_string)
+	_token.damage(amount, magical, damage_type, damage_type_string, dc, saving_throw_to_make, to_take)

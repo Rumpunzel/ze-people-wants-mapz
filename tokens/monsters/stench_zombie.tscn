@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://tokens/images/portraits/monsters/undead/skeletons/skeleton_10.png" type="Texture" id=1]
+[ext_resource path="res://tokens/images/portraits/monsters/undead/zombies/zombie_3.png" type="Texture" id=1]
 [ext_resource path="res://tokens/monsters/zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tokens/particles/stench_of_death.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=6]
