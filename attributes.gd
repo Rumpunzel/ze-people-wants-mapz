@@ -120,6 +120,31 @@ export(
 ) var magical_vulnerabilties := 0
 
 
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing"
+) var non_magical_damage_absorbtion := 0
+
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing",
+	"Acid",
+	"Cold",
+	"Fire",
+	"Force",
+	"Lightning",
+	"Necrotic",
+	"Poison",
+	"Psychic",
+	"Radiant",
+	"Thunder"
+) var magical_damage_absorbtion := 0
+
+
 
 func calculate_modifier(attribute: int) -> int:
 	return int(attribute * 0.5) - 5
@@ -140,6 +165,8 @@ func get_modified_damage(amount: int, damage_type: int, magical: bool) -> int:
 	if magical:
 		if damage_type & magical_immunities:
 			return 0
+		elif damage_type & magical_damage_absorbtion:
+			return -amount
 		elif damage_type & magical_resistances:
 			return int(amount / 2.0)
 		elif damage_type & magical_vulnerabilties:
@@ -147,6 +174,8 @@ func get_modified_damage(amount: int, damage_type: int, magical: bool) -> int:
 	else:
 		if damage_type & non_magical_immunities:
 			return 0
+		elif damage_type & non_magical_damage_absorbtion:
+			return -amount
 		elif damage_type & non_magical_resistances:
 			return int(amount / 2.0)
 		elif damage_type & non_magical_vulnerabilties:

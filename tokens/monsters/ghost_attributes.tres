@@ -28,3 +28,5 @@ non_magical_immunities = 0
 magical_immunities = 784
 non_magical_vulnerabilties = 0
 magical_vulnerabilties = 0
+non_magical_damage_absorbtion = 0
+magical_damage_absorbtion = 0

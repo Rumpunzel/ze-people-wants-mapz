@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	var token: Node2D = owner
 	
 	# warning-ignore:unsafe_property_access
-	visible = token.is_visible_in_tree() and not token.dead
+	#visible = token.is_visible_in_tree() and not token.dead
 	
 	width = (token.scale.x / 1.0) * _default_width
 	add_point(token.global_position)

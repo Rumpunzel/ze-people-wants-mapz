@@ -39,7 +39,7 @@ var _movement_tween: Tween
 
 onready var _collision: CollisionShape2D = $CollisionShape2D
 onready var _collision_shape: CircleShape2D = _collision.shape
-onready var _selection: Sprite = $Selection
+onready var _selection: Sprite = $SelectionNode/Selection
 onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 onready var _ghost: Area2D = Area2D.new()
@@ -48,7 +48,7 @@ onready var _ghost: Area2D = Area2D.new()
 
 func _enter_tree() -> void:
 	image = $Image
-	_trail = $Node/Trail
+	_trail = $TrailNode/Trail
 	_background = $Background
 	_token = $Background/Token
 	_ghost_tween = $GhostTween
@@ -264,7 +264,7 @@ func die() -> void:
 func set_color(new_color: Color) -> void:
 	color = new_color
 	if not color == Color.transparent:
-		($Node/Trail as Trail).set_color(color)
+		($TrailNode/Trail as Trail).set_color(color)
 		($Background as Node2D).modulate = color
 
 
