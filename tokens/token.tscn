@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://tokens/image.gd" type="Script" id=10]
 [ext_resource path="res://tokens/animation_player.gd" type="Script" id=11]
 [ext_resource path="res://tokens/images/utils/select.png" type="Texture" id=12]
+[ext_resource path="res://tokens/life_bar_style.tres" type="StyleBox" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 128.0
@@ -48,14 +49,7 @@ font_data = ExtResource( 1 )
 [sub_resource type="Theme" id=6]
 default_font = SubResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0, 0.431373, 0, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 2
-border_width_bottom = 4
-border_color = Color( 0, 0.25098, 0, 1 )
-border_blend = true
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="Token" type="Area2D" groups=[
 "Token",
@@ -130,17 +124,38 @@ __meta__ = {
 }
 
 [node name="LifeBar" type="ProgressBar" parent="CanvasLayer/HUDMargin"]
+self_modulate = Color( 0, 0.388235, 0, 1 )
 margin_top = -36.0
 margin_right = 256.0
 margin_bottom = -1.0
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 7 )
+custom_styles/fg = ExtResource( 13 )
+custom_styles/bg = SubResource( 9 )
 value = 50.0
 percent_visible = false
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+_health_color = Color( 0, 0.388235, 0, 1 )
+_damaged_color = Color( 0.54902, 0, 0, 1 )
+
+[node name="DamageBar" type="ProgressBar" parent="CanvasLayer/HUDMargin/LifeBar"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/fg = ExtResource( 13 )
+value = 75.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="CanvasLayer/HUDMargin/LifeBar"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Tween" type="Tween" parent="CanvasLayer/HUDMargin/LifeBar"]
 
 [node name="LifeDisplay" type="HBoxContainer" parent="CanvasLayer/HUDMargin"]
 visible = false
@@ -191,4 +206,5 @@ script = ExtResource( 11 )
 [connection signal="size_changed" from="." to="CanvasLayer/HUDMargin" method="_on_size_changed"]
 [connection signal="changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_changed"]
 [connection signal="value_changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_value_changed"]
+[connection signal="timeout" from="CanvasLayer/HUDMargin/LifeBar/Timer" to="CanvasLayer/HUDMargin/LifeBar" method="_on_timeout"]
 [connection signal="animation_started" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_started"]

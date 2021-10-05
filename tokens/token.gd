@@ -88,8 +88,9 @@ func _ready() -> void:
 	add_child(_ghost)
 	ghost_image.texture = image.texture
 	
-	set_hit_points(attributes.calculate_hit_points())
-	emit_signal("maximum_hit_points_changed", hit_points)
+	var new_max_hit_points: int = attributes.calculate_hit_points()
+	emit_signal("maximum_hit_points_changed", new_max_hit_points)
+	set_hit_points(new_max_hit_points)
 
 
 func _process(_delta: float):

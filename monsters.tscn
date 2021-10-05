@@ -43,13 +43,12 @@ position = Vector2( -1472, -320 )
 
 [node name="CorpseFlower" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1024, -256 )
-scale = Vector2( 2, 2 )
 
 [node name="StenchZombie" parent="." instance=ExtResource( 2 )]
-position = Vector2( -896, 384 )
+position = Vector2( -384, -384 )
 
 [node name="StenchZombie2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -384, -384 )
+position = Vector2( -896, 384 )
 
 [node name="StenchZombie3" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1408, -128 )
