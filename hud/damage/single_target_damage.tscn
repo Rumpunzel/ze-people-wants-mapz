@@ -92,7 +92,6 @@ size_flags_vertical = 4
 [node name="Damage" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 128.0
 margin_bottom = 24.0
-align = 1
 placeholder_text = "Damage"
 caret_blink = true
 
@@ -129,7 +128,6 @@ margin_bottom = 100.0
 margin_top = 104.0
 margin_right = 128.0
 margin_bottom = 128.0
-align = 1
 placeholder_text = "DC"
 
 [node name="SavingThrow" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]

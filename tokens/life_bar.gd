@@ -31,7 +31,6 @@ func _on_changed() -> void:
 func _on_maximum_hit_points_changed(new_hit_points: int) -> void:
 	max_value = new_hit_points
 	value = max_value
-	#_set_color()
 	_damage_bar.max_value = max_value
 
 

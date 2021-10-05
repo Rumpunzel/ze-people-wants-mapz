@@ -45,10 +45,84 @@ export var wisdom_saving_throw_bonus := 0
 export var charisma_saving_throw_bonus := 0
 
 
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing"
+) var non_magical_resistances := 0
 
-static func calculate_modifier(attribute: int) -> int:
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing",
+	"Acid",
+	"Cold",
+	"Fire",
+	"Force",
+	"Lightning",
+	"Necrotic",
+	"Poison",
+	"Psychic",
+	"Radiant",
+	"Thunder"
+) var magical_resistances := 0
+
+
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing"
+) var non_magical_immunities := 0
+
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing",
+	"Acid",
+	"Cold",
+	"Fire",
+	"Force",
+	"Lightning",
+	"Necrotic",
+	"Poison",
+	"Psychic",
+	"Radiant",
+	"Thunder"
+) var magical_immunities := 0
+
+
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing"
+) var non_magical_vulnerabilties := 0
+
+export(
+	int, FLAGS,
+	"Bludgeoning",
+	"Piercing",
+	"Slashing",
+	"Acid",
+	"Cold",
+	"Fire",
+	"Force",
+	"Lightning",
+	"Necrotic",
+	"Poison",
+	"Psychic",
+	"Radiant",
+	"Thunder"
+) var magical_vulnerabilties := 0
+
+
+
+func calculate_modifier(attribute: int) -> int:
 	return int(attribute * 0.5) - 5
-
 
 func calculate_hit_points() -> int:
 	return Die.roll(level, hit_die, not roll_hit_points) + level * calculate_modifier(constitution)
@@ -56,12 +130,32 @@ func calculate_hit_points() -> int:
 func roll_initiative() -> Initiative:
 	return Initiative.new(Die.roll(1, Die.DiceTypes.d20), calculate_modifier(dexterity))
 
-func saving_throw(stat: int, dc: int) -> int:
-	return (Die.roll(1, Die.DiceTypes.d20) + calculate_saving_throw_modifier(stat)) - dc
+func saving_throw(stat: int) -> int:
+	return (Die.roll(1, Die.DiceTypes.d20) + calculate_saving_throw_modifier(stat))
 
-func calculate_saving_throw_modifier(attribute: int) -> int:
-	return calculate_modifier(attribute) + (get("%s_saving_throw_bonus" % Stats.keys()[ Stats.values().find(attribute) ].to_lower()))
+func calculate_saving_throw_modifier(attribute_flag: int) -> int:
+	return calculate_modifier(get("%s" % get_attribute_name(attribute_flag))) + get("%s_saving_throw_bonus" % get_attribute_name(attribute_flag))
 
+func get_modified_damage(amount: int, damage_type: int, magical: bool) -> int:
+	if magical:
+		if damage_type & magical_immunities:
+			return 0
+		elif damage_type & magical_resistances:
+			return int(amount / 2.0)
+		elif damage_type & magical_vulnerabilties:
+			return amount * 2
+	else:
+		if damage_type & non_magical_immunities:
+			return 0
+		elif damage_type & non_magical_resistances:
+			return int(amount / 2.0)
+		elif damage_type & non_magical_vulnerabilties:
+			return amount * 2
+	
+	return amount
+
+func get_attribute_name(attribute: int) -> String:
+	return Stats.keys()[ Stats.values().find(attribute) ].to_lower()
 
 
 class Initiative:

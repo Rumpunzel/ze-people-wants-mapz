@@ -162,13 +162,22 @@ func roll_initiative() -> Attributes.Initiative:
 
 func damage(amount: int, magical: bool, damage_type: int, damage_type_string: String, dc: int, saving_throw_to_make: int, to_take: int) -> void:
 	if saving_throw_to_make >= Attributes.Stats.STRENGTH:
-		if attributes.saving_throw(saving_throw_to_make, dc) >= 0:
-			print("%s made the saving throw!")
+		var saving_throw_result: int = attributes.saving_throw(saving_throw_to_make)
+		if saving_throw_result >= dc:
+			print("%s made the saving throw with a %d!" % [ name, saving_throw_result ])
 			match to_take:
 				ToTake.HALF_DAMAGE:
 					amount /= 2
 				ToTake.NO_DAMAGE:
 					return
+		else:
+			print("%s failed the saving throw with a %d!" % [ name, saving_throw_result ])
+	
+	amount = attributes.get_modified_damage(amount, damage_type, magical)
+	
+	if amount == 0:
+		print("%s resisted the attack of type %s!" % [ name, damage_type_string ])
+		return
 	
 	set_hit_points(hit_points - amount)
 	
