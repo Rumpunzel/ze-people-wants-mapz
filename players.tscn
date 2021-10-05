@@ -21,8 +21,6 @@ position = Vector2( 1408, 128 )
 
 [node name="Pete" parent="." instance=ExtResource( 1 )]
 position = Vector2( 896, 128 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="Gibs" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1152, -128 )
-scale = Vector2( 0.5, 0.5 )
