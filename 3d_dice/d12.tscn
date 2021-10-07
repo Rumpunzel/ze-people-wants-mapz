@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/K12_DiceSet_01.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://3d_dice/die_material.tres" type="Material" id=2]
+[ext_resource path="res://3d_dice/materials/default_die_material.tres" type="Material" id=2]
 [ext_resource path="res://3d_dice/die_blueprnt.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape" id=1]
