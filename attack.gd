@@ -26,11 +26,16 @@ enum OtherDamageTypes {
 }
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# warning-ignore-all:unused_class_variable
+export var roll_to_hit := true
+export var to_hit_bonus := 0
+
+export var dice_amount := 1
+export(Die.DiceTypes) var die_type := Die.DiceTypes.d6
+export var damage_bonus := 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+
+func damage_type() -> int:
+	assert(false)
+	return -1

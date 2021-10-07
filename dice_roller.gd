@@ -8,6 +8,21 @@ export(PackedScene) var d12_scene
 export(PackedScene) var d20_scene
 export(PackedScene) var d100_scene
 
+export(Material) var bludgeoning_material
+export(Material) var piercing_material
+export(Material) var slashing_material
+export(Material) var acid_material
+export(Material) var cold_material
+export(Material) var fire_material
+export(Material) var force_material
+export(Material) var lightning_material
+export(Material) var necrotic_material
+export(Material) var poison_material
+export(Material) var psychic_material
+export(Material) var radiant_material
+export(Material) var thunder_material
+
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("ui_cancel"):
@@ -20,10 +35,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	if not ShittySingleton.left_to_spawn.empty():
-		var dice_to_spawn: int = ShittySingleton.left_to_spawn.pop_front()
+		var die_to_spawn: Die.DieToRoll = ShittySingleton.left_to_spawn.pop_front()
 		var new_die: Die
 		
-		match dice_to_spawn:
+		match die_to_spawn.die_type:
 			Die.DiceTypes.d4:
 				new_die = d4_scene.instance()
 			Die.DiceTypes.d6:
@@ -39,15 +54,23 @@ func _process(_delta: float) -> void:
 			Die.DiceTypes.d100:
 				new_die = d100_scene.instance()
 			
-			0:
-				return
 			_:
-				ShittySingleton.display_result(dice_to_spawn, Die.roll(1, dice_to_spawn))
+				ShittySingleton.display_result(die_to_spawn.die_type, Die.roll(1, die_to_spawn.die_type))
 				return
 		
 		var spawn_position = Die.random_vector3() * 10.0
 		
 		spawn_position.y = 10.0 + randf() * 10.0
 		new_die.transform.origin = spawn_position
+		
+		if die_to_spawn.damage_type >= 0:
+			var damage_name := ""
+			
+			if die_to_spawn.damage_type < Attack.PhysicalDamageTypes.SLASHING:
+				damage_name = Attack.PhysicalDamageTypes.keys()[ Attack.PhysicalDamageTypes.values().find(die_to_spawn.damage_type) ].to_lower()
+			else:
+				damage_name = Attack.MagicalDamageTypes.keys()[ Attack.MagicalDamageTypes.values().find(die_to_spawn.damage_type) ].to_lower()
+			
+			new_die.set_material(get("%s_material" % damage_name))
 		
 		add_child(new_die)

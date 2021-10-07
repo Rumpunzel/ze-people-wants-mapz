@@ -75,8 +75,13 @@ static func roll(dice_number: int, die_type: int, use_expected_result := false) 
 
 
 
+func set_material(new_material: Material) -> void:
+	($MeshInstance as MeshInstance).material_override = new_material
+
+
 func delete() -> void:
 	_animation_player.play("delete")
+
 
 func _delete() -> void:
 	get_parent().remove_child(self)
@@ -122,3 +127,13 @@ func _on_sleeping_state_changed() -> void:
 	_tween.interpolate_property(self, "transform:basis", null, to_rotate, 0.3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	# warning-ignore:return_value_discarded
 	_tween.start()
+
+
+
+class DieToRoll:
+	var die_type: int
+	var damage_type: int
+	
+	func _init(new_die_type: int, new_damage_type := -1) -> void:
+		die_type = new_die_type
+		damage_type = new_damage_type

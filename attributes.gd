@@ -145,6 +145,9 @@ export(
 ) var magical_damage_absorbtion := 0
 
 
+export(Array, Resource) var attack := [ ]
+
+
 
 func calculate_modifier(attribute: int) -> int:
 	return int(attribute * 0.5) - 5

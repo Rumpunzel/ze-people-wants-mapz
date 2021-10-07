@@ -5,7 +5,7 @@
 [ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=3]
 [ext_resource path="res://tokens/images/ghost_shine.tres" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0.913725, 0.964706, 0.329412, 0, 0.913725, 0.964706, 0.329412, 0.588235 )
 
 [sub_resource type="Animation" id=2]
@@ -30,7 +30,7 @@ color = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
 attributes = ExtResource( 2 )
 
 [node name="Trail" parent="TrailNode" index="0"]
-gradient = SubResource( 1 )
+gradient = SubResource( 3 )
 
 [node name="Background" parent="." index="3"]
 modulate = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
