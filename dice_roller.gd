@@ -8,6 +8,7 @@ export(PackedScene) var d12_scene
 export(PackedScene) var d20_scene
 export(PackedScene) var d100_scene
 
+# warning-ignore-all:unused_class_variable
 export(Material) var bludgeoning_material
 export(Material) var piercing_material
 export(Material) var slashing_material

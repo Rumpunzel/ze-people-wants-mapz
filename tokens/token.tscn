@@ -50,7 +50,7 @@ font_data = ExtResource( 1 )
 [sub_resource type="Theme" id=6]
 default_font = SubResource( 5 )
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [node name="Token" type="Area2D" groups=[
 "Token",
@@ -134,7 +134,7 @@ margin_right = 256.0
 margin_bottom = -1.0
 size_flags_vertical = 1
 custom_styles/fg = ExtResource( 13 )
-custom_styles/bg = SubResource( 9 )
+custom_styles/bg = SubResource( 7 )
 value = 50.0
 percent_visible = false
 script = ExtResource( 4 )

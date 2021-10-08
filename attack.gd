@@ -36,6 +36,6 @@ export var damage_bonus := 0
 
 
 
-func damage_type() -> int:
+func get_damage_type() -> int:
 	assert(false)
 	return -1
