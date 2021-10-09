@@ -8,6 +8,7 @@
 
 [node name="Table" type="YSort"]
 script = ExtResource( 3 )
+grid_color = Color( 0.607843, 0.607843, 0.607843, 0.784314 )
 
 [node name="TableCamera" type="Camera2D" parent="." groups=[
 "Camera2D",

@@ -257,6 +257,7 @@ func die() -> void:
 		queue_free()
 	else:
 		dead = true
+		_collision.disabled = true
 		modulate = Color.darkgray
 		modulate.a = 0.25
 		set_is_taking_turn(false)
@@ -300,11 +301,11 @@ func _set_being_dragged(new_status: bool) -> void:
 			
 			var start_position := global_position
 			var destination := _ghost.global_position
-			var half_factor := 0.6
+			var half_factor := 0.5
 			var move_speed: int = attributes.move_speed
 			
-			var half_way_point := (start_position + destination) * half_factor
 			var distance := start_position.distance_to(destination)
+			var half_way_point := (start_position + destination) * half_factor + Vector2(randf(), randf()) * distance * 0.16
 			var travel_time := min(distance / (move_speed * 16.0) , (_max_travel_time * 16.0) / move_speed)
 			var half_travel_time := travel_time * half_factor
 			

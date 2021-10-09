@@ -17,8 +17,10 @@ script = ExtResource( 2 )
 [node name="Table" parent="." instance=ExtResource( 1 )]
 
 [node name="Monsters" parent="Table" instance=ExtResource( 5 )]
+position = Vector2( -5120, 0 )
 
 [node name="Players" parent="Table" instance=ExtResource( 6 )]
+position = Vector2( -256, 0 )
 
 [node name="AoE" parent="." instance=ExtResource( 8 )]
 

@@ -30,6 +30,8 @@ color = Color( 0.913725, 0.964706, 0.329412, 0.588235 )
 attributes = ExtResource( 2 )
 
 [node name="Trail" parent="TrailNode" index="0"]
+points = PoolVector2Array( -166.706, -181.272 )
+width = 150.0
 gradient = SubResource( 3 )
 
 [node name="Background" parent="." index="3"]

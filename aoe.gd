@@ -82,6 +82,7 @@ func _on_multi_target_dialog_done(new_amount: int, new_magical: bool, new_damage
 	saving_throw_to_make = new_saving_throw_to_make
 	to_take = new_to_take
 	
+	_collision_shape.disabled = false
 	global_position = get_global_mouse_position()
 	show()
 
@@ -95,6 +96,8 @@ func _on_area_exited(area: Area2D) -> void:
 
 
 func _on_hide() -> void:
+	_collision_shape.disabled = true
+	
 	var tokens := get_overlapping_areas()
 	for area in tokens:
 		if not area is Token:
