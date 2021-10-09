@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wilderness_swamp.jpg-556a219bd0073148d22b73e5af2c1bd5.stex"
+path="res://.import/swamp_colorful.jpg-acbe2eb6ba2e8050b2f02fd51703da60.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/wilderness_swamp.jpg"
-dest_files=[ "res://.import/wilderness_swamp.jpg-556a219bd0073148d22b73e5af2c1bd5.stex" ]
+source_file="res://slide_show/bilder/welten/Session 2/swamp_colorful.jpg"
+dest_files=[ "res://.import/swamp_colorful.jpg-acbe2eb6ba2e8050b2f02fd51703da60.stex" ]
 
 [params]
 
