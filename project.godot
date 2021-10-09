@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://monsters.gd"
 }, {
+"base": "Line2D",
+"class": "PaintLine",
+"language": "GDScript",
+"path": "res://paint_line.gd"
+}, {
 "base": "Attack",
 "class": "PhysicalAttack",
 "language": "GDScript",
@@ -110,6 +115,7 @@ _global_script_class_icons={
 "InitiativeEntry": "",
 "MagicalAttack": "",
 "Monsters": "",
+"PaintLine": "",
 "PhysicalAttack": "",
 "PlayerInitiatives": "",
 "Players": "",

@@ -9,6 +9,10 @@ signal ruler_dismissed()
 
 signal single_target_dialog_openend(token)
 
+signal drawing_started(color)
+signal drawing_ended()
+signal drawing_deleted()
+
 
 # warning-ignore:unused_class_variable
 var left_to_spawn := [ ]
