@@ -139,8 +139,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					ShittySingleton.emit_signal("single_target_dialog_openend", self)
 				
 				KEY_DELETE:
-					die()
 					get_tree().set_input_as_handled()
+					die()
 
 
 func _input(event: InputEvent) -> void:
@@ -179,9 +179,9 @@ func damage(amount: int, magical: bool, damage_type: int, damage_type_string: St
 		print("%s resisted the attack of type %s!" % [ name, damage_type_string ])
 		return
 	
-	set_hit_points(hit_points - amount)
-	
 	print("Hit %s by %d with %s %s damage!" % [ name, amount, "magical" if magical else "non-magical", damage_type_string ])
+	
+	set_hit_points(hit_points - amount)
 	
 	var previous_animation := _animation_player.current_animation
 	_animation_player.play("damaged")
@@ -205,8 +205,9 @@ func set_hit_points(new_hit_points: int) -> void:
 	
 	if hit_points <= 0:
 		modulate = Color.darkgray
-	else:
-		modulate = Color.white
+		print("%s died!" % [ name ])
+#	else:
+#		modulate = Color.white
 
 
 func set_is_taking_turn(new_status: bool) -> void:
@@ -252,13 +253,16 @@ func _set_size(new_size: int) -> void:
 
 
 func die() -> void:
-	dead = true
-	modulate = Color.darkgray
-	modulate.a = 0.25
-	set_is_taking_turn(false)
-	set_selected(false)
-	_background.visible = false
-	emit_signal("died")
+	if dead:
+		queue_free()
+	else:
+		dead = true
+		modulate = Color.darkgray
+		modulate.a = 0.25
+		set_is_taking_turn(false)
+		set_selected(false)
+		_background.visible = false
+		emit_signal("died")
 
 
 func attack() -> void:

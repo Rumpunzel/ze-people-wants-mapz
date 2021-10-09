@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://hud/tokens/token_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=2]
+[ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tokens/monsters/zombie.tscn" type="PackedScene" id=4]
+
+[node name="TokenPanel" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 938.0
+margin_right = 140.0
+margin_bottom = 1222.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Zombie" parent="VBoxContainer" instance=ExtResource( 1 )]
+_token_scene = ExtResource( 4 )
+
+[node name="Will-o-Wisp" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 144.0
+margin_bottom = 284.0
+icon = ExtResource( 2 )
+_token_scene = ExtResource( 3 )

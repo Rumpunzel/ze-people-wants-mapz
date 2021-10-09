@@ -4,7 +4,7 @@ extends Line2D
 var _used_manually := false
 
 onready var _default_color := default_color
-onready var _label:Label = $CanvasLayer/Label
+onready var _label: Label = $CanvasLayer/Label
 
 
 

@@ -12,6 +12,11 @@ var _new_entries := [ ]
 
 
 
+func _ready() -> void:
+	# warning-ignore:return_value_discarded
+	ShittySingleton.connect("token_spawned", self, "_on_token_spawned")
+
+
 func _process(_delta: float) -> void:
 	if _new_entries.empty():
 		set_process(false)
@@ -119,3 +124,25 @@ func _on_token_died(entry: InitiativeEntry) -> void:
 func _on_attack_pressed() -> void:
 	var current_token := get_current_entry().token
 	current_token.attack()
+
+
+func _on_token_spawned(new_token: Token) -> void:
+	var initiative := new_token.roll_initiative()
+	var new_entry := _initiative_entry_scene.instance() as InitiativeEntry
+	
+	new_entry.setup(initiative, new_token)
+	
+	# warning-ignore:return_value_discarded
+	new_entry.connect("token_died", self, "_on_token_died")
+	add_child(new_entry)
+	
+	var children := get_children()
+	for child in children:
+		remove_child(child)
+	
+	children.sort_custom(self, "_sort_entries")
+	
+	for child in children:
+		add_child(child, true)
+	
+	_new_initiative()

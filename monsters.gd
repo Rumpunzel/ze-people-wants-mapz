@@ -9,3 +9,10 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Token:
 			child.add_to_group(MONSTER_GROUP)
+	
+	# warning-ignore:return_value_discarded
+	ShittySingleton.connect("token_spawned", self, "_on_token_spawned")
+
+
+func _on_token_spawned(new_token: Token) -> void:
+	add_child(new_token, true)
