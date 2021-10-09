@@ -27,28 +27,34 @@ script = ExtResource( 1 )
 position = Vector2( -1024, -256 )
 
 [node name="StenchZombie2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -896, 384 )
+position = Vector2( -640, 640 )
 
 [node name="StenchZombie" parent="." instance=ExtResource( 2 )]
-position = Vector2( -384, -384 )
+position = Vector2( -128, -640 )
 
 [node name="StenchZombie3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1408, -128 )
+position = Vector2( -1920, 128 )
+
+[node name="StenchZombie4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -896, -1152 )
+
+[node name="StenchZombie5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 128, 128 )
 
 [node name="Will-o-Wisp" parent="." instance=ExtResource( 9 )]
-position = Vector2( -960, -704 )
+position = Vector2( -1088, -704 )
 
 [node name="Will-o-Wisp2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -576, 64 )
+position = Vector2( -192, 64 )
 
 [node name="Will-o-Wisp3" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1344, -704 )
+position = Vector2( -1728, -960 )
 
 [node name="Will-o-Wisp4" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1344, 192 )
+position = Vector2( -1344, 576 )
 
 [node name="Will-o-Wisp5" parent="." instance=ExtResource( 9 )]
-position = Vector2( -576, -576 )
+position = Vector2( -320, -1216 )
 
 [node name="Will-o-Wisp6" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1472, -320 )
+position = Vector2( -2112, -448 )

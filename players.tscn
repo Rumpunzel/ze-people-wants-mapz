@@ -8,19 +8,20 @@
 [ext_resource path="res://players.gd" type="Script" id=6]
 
 [node name="Players" type="YSort"]
+position = Vector2( 3136, 0 )
 script = ExtResource( 6 )
 
 [node name="WizzKrall" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1024, -512 )
+position = Vector2( 256, -576 )
 
 [node name="Rolph" parent="." instance=ExtResource( 4 )]
-position = Vector2( 640, -128 )
+position = Vector2( -128, -128 )
 
 [node name="Osmund" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1408, 128 )
+position = Vector2( 640, -128 )
 
 [node name="Pete" parent="." instance=ExtResource( 1 )]
-position = Vector2( 896, 128 )
+position = Vector2( 128, 128 )
 
 [node name="Gibs" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1152, -128 )
+position = Vector2( 384, -128 )
