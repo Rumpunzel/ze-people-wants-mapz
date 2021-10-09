@@ -305,7 +305,7 @@ func _set_being_dragged(new_status: bool) -> void:
 			var move_speed: int = attributes.move_speed
 			
 			var distance := start_position.distance_to(destination)
-			var half_way_point := (start_position + destination) * half_factor + Vector2(randf(), randf()) * distance * 0.16
+			var half_way_point := (start_position + destination) * half_factor + Vector2(randf() - 0.5, randf() - 0.5) * distance * 0.25
 			var travel_time := min(distance / (move_speed * 16.0) , (_max_travel_time * 16.0) / move_speed)
 			var half_travel_time := travel_time * half_factor
 			
