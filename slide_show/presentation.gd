@@ -24,7 +24,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		var key_event: InputEventKey = event
-		if key_event.pressed:
+		if visible and key_event.pressed:
 			match(key_event.scancode):
 				KEY_RIGHT:
 					next_slide()
