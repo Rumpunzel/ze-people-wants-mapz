@@ -8,6 +8,9 @@ var dc: int
 var saving_throw_to_make: int
 var to_take: int
 
+var _circle_color: Color
+var _arc_color: Color
+
 onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 onready var _circle_shape: CircleShape2D = _collision_shape.shape
 onready var _label: Label = $Label
@@ -65,12 +68,12 @@ func _process(_delta: float) -> void:
 			continue
 		
 		var token: Token = area
-		token.modulate = Color.cornflower
+		token.modulate = _arc_color
 
 
 func _draw() -> void:
-	draw_circle(Vector2.ZERO, _circle_shape.radius, Color("966394ed"))
-	draw_arc(Vector2.ZERO, _circle_shape.radius, 0.0, TAU, 128, Color.cornflower, 4.0, true)
+	draw_circle(Vector2.ZERO, _circle_shape.radius, _circle_color)
+	draw_arc(Vector2.ZERO, _circle_shape.radius, 0.0, TAU, 128, _arc_color, 4.0, true)
 
 
 func _on_multi_target_dialog_done(new_amount: int, new_magical: bool, new_damage_type: int, new_damage_type_string: String, new_dc: int, new_saving_throw_to_make: int, new_to_take: int) -> void:
@@ -81,6 +84,10 @@ func _on_multi_target_dialog_done(new_amount: int, new_magical: bool, new_damage
 	dc = new_dc
 	saving_throw_to_make = new_saving_throw_to_make
 	to_take = new_to_take
+	
+	_arc_color = Attack.DAMAGE_COLORS[damage_type]
+	_circle_color = _arc_color
+	_circle_color.a = 0.5
 	
 	_collision_shape.disabled = false
 	global_position = get_global_mouse_position()
