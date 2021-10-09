@@ -22,3 +22,4 @@ script = ExtResource( 1 )
 _line_scene = ExtResource( 4 )
 
 [node name="Ruler" parent="." instance=ExtResource( 7 )]
+default_color = Color( 1, 1, 1, 1 )

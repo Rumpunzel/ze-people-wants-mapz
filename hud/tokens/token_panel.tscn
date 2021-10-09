@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://hud/tokens/token_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=2]
 [ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tokens/monsters/zombie.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/tokens/token_panel.gd" type="Script" id=5]
+[ext_resource path="res://tokens/placeholder.tscn" type="PackedScene" id=6]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/hood.png-8c28939838777e2fbbf5f334f1338e5a.stex"
 
 [node name="TokenPanel" type="MarginContainer"]
 visible = false
@@ -32,3 +37,9 @@ margin_top = 144.0
 margin_bottom = 284.0
 icon = ExtResource( 2 )
 _token_scene = ExtResource( 3 )
+
+[node name="Placeholder" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 144.0
+margin_bottom = 284.0
+icon = SubResource( 1 )
+_token_scene = ExtResource( 6 )

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tokens/images/portraits/hood.png" type="Texture" id=1]
+[ext_resource path="res://tokens/token.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tokens/placeholder_attributes.tres" type="Resource" id=3]
+
+[node name="Placeholder" instance=ExtResource( 2 )]
+attributes = ExtResource( 3 )
+
+[node name="Image" parent="." index="4"]
+texture = ExtResource( 1 )

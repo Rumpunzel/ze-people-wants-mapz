@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tokens/npcs/pete.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/players/gibs.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://tokens/players/rolph.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tokens/players/osmund.tscn" type="PackedScene" id=5]
 [ext_resource path="res://players.gd" type="Script" id=6]
+[ext_resource path="res://tokens/players/vincent.tscn" type="PackedScene" id=7]
 
 [node name="Players" type="YSort"]
 position = Vector2( -256, 192 )
@@ -25,3 +26,6 @@ position = Vector2( 128, 128 )
 
 [node name="Gibs" parent="." instance=ExtResource( 2 )]
 position = Vector2( 384, -128 )
+
+[node name="Vincent" parent="." instance=ExtResource( 7 )]
+position = Vector2( -256, 256 )

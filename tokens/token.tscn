@@ -80,6 +80,7 @@ anims/rotate = SubResource( 2 )
 z_index = -10
 width = 240.0
 width_curve = SubResource( 3 )
+default_color = Color( 1, 1, 1, 1 )
 gradient = SubResource( 4 )
 joint_mode = 2
 script = ExtResource( 3 )
