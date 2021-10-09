@@ -26,7 +26,8 @@ var is_taking_turn := false setget set_is_taking_turn
 
 
 var _size: int setget _set_size
-var _max_travel_time = 1.5
+var _min_travel_time = 0.5
+var _max_travel_time = 2.0
 var _being_dragged := false setget _set_being_dragged
 var _token_offset := Vector2.ZERO
 
@@ -306,7 +307,7 @@ func _set_being_dragged(new_status: bool) -> void:
 			
 			var distance := start_position.distance_to(destination)
 			var half_way_point := (start_position + destination) * half_factor + Vector2(randf() - 0.5, randf() - 0.5) * distance * 0.25
-			var travel_time := min(distance / (move_speed * 16.0) , (_max_travel_time * 16.0) / move_speed)
+			var travel_time := max(min(distance / (move_speed * 16.0) , (_max_travel_time * 16.0) / move_speed), _min_travel_time)
 			var half_travel_time := travel_time * half_factor
 			
 			var start_transition := Tween.TRANS_BACK if move_speed > 20 else Tween.TRANS_CIRC
