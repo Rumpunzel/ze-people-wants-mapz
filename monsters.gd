@@ -15,4 +15,5 @@ func _ready() -> void:
 
 
 func _on_token_spawned(new_token: Token) -> void:
+	new_token.add_to_group(MONSTER_GROUP)
 	add_child(new_token, true)

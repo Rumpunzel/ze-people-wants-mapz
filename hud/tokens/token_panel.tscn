@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://hud/tokens/token_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=2]
 [ext_resource path="res://tokens/monsters/will_o_wisp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tokens/monsters/zombie.tscn" type="PackedScene" id=4]
+[ext_resource path="res://hud/tokens/token_panel.gd" type="Script" id=5]
 
 [node name="TokenPanel" type="MarginContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 custom_constants/margin_right = 16
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
