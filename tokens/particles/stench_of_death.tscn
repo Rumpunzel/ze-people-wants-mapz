@@ -223,6 +223,6 @@ modulate = Color( 0.905882, 1, 0.266667, 0.329412 )
 show_behind_parent = true
 scale = Vector2( 4, 4 )
 frames = SubResource( 35 )
-frame = 11
+frame = 25
 playing = true
 flip_h = true

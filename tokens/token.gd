@@ -76,7 +76,7 @@ func _ready() -> void:
 	
 	var ghost_collision: CollisionShape2D = _collision.duplicate()
 	_ghost.add_child(ghost_collision)
-	ghost_collision.scale *= 0.8
+	ghost_collision.scale *= 0.9
 	
 	var ghost_image: TextureRect = image.duplicate()
 	_ghost.add_child(ghost_image)
@@ -106,6 +106,7 @@ func _process(_delta: float):
 		
 		var ghost_overlapping := _ghost.get_overlapping_areas()
 		var colliding_with_other_tokens := not (ghost_overlapping.size() == 0 or (ghost_overlapping.size() == 1 and ghost_overlapping.has(self)))
+		
 		if colliding_with_other_tokens:
 			_ghost.modulate = Color.red
 		else:
@@ -302,13 +303,12 @@ func _set_being_dragged(new_status: bool) -> void:
 			
 			var start_position := global_position
 			var destination := _ghost.global_position
-			var half_factor := 0.5
 			var move_speed: int = attributes.move_speed
 			
 			var distance := start_position.distance_to(destination)
-			var half_way_point := (start_position + destination) * half_factor + Vector2(randf() - 0.5, randf() - 0.5) * distance * 0.25
+			var half_way_point := (start_position + destination) * 0.5 + Vector2(randf() - 0.5, randf() - 0.5) * distance * 0.25
 			var travel_time := max(min(distance / (move_speed * 16.0) , (_max_travel_time * 16.0) / move_speed), _min_travel_time)
-			var half_travel_time := travel_time * half_factor
+			var half_travel_time := travel_time * 0.6
 			
 			var start_transition := Tween.TRANS_BACK if move_speed > 20 else Tween.TRANS_CIRC
 			var end_transition := Tween.TRANS_CIRC#Tween.TRANS_BACK if distance > 1536.0 else Tween.TRANS_CIRC

@@ -7,11 +7,11 @@
 [ext_resource path="res://tokens/particles/stench_of_death_material.tres" type="Material" id=5]
 
 [sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.439216, 0.266667, 0.0784314, 0, 0.439216, 0.266667, 0.0784314, 1 )
+colors = PoolColorArray( 0.423529, 0.811765, 0.227451, 0, 0.423529, 0.811765, 0.227451, 1 )
 
 [node name="CorpseFlower" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
-color = Color( 0.439216, 0.266667, 0.0784314, 1 )
+color = Color( 0.423529, 0.811765, 0.227451, 1 )
 attributes = ExtResource( 3 )
 
 [node name="Trail" parent="TrailNode" index="0"]
@@ -19,7 +19,7 @@ width = 80.0
 gradient = SubResource( 1 )
 
 [node name="Background" parent="." index="3"]
-modulate = Color( 0.439216, 0.266667, 0.0784314, 1 )
+modulate = Color( 0.423529, 0.811765, 0.227451, 1 )
 
 [node name="Token" parent="Background" index="0"]
 visible = false
