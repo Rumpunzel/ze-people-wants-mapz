@@ -32,11 +32,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				KEY_1:
 					start_presentation()
 					get_current_presentation().display()
-					get_tree().set_input_as_handled()
 				KEY_2:
 					end_presentation()
 					get_current_presentation().undisplay()
-					get_tree().set_input_as_handled()
 
 
 

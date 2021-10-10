@@ -32,6 +32,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		for node in dice:
 			var die: Die = node
 			die.delete()
+	
+	if event is InputEventKey:
+		var key_event: InputEventKey = event
+		if key_event.pressed:
+			match(key_event.scancode):
+				KEY_1:
+					visible = false
+				KEY_2:
+					visible = true
 
 
 func _process(_delta: float) -> void:

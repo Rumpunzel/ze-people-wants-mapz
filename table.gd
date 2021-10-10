@@ -21,6 +21,17 @@ func _process(_delta: float) -> void:
 	update()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		var key_event: InputEventKey = event
+		if key_event.pressed:
+			match(key_event.scancode):
+				KEY_1:
+					visible = false
+				KEY_2:
+					visible = true
+
+
 
 func _draw_grid(current_camera: Camera2D, cell_size: Vector2, line_color: Color, line_width: float) -> void:
 	var size := get_viewport().size * current_camera.zoom * 0.5
