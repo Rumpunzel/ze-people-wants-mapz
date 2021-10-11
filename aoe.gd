@@ -67,7 +67,7 @@ func _process(_delta: float) -> void:
 	
 	var tokens := get_overlapping_areas()
 	for area in tokens:
-		if not area is Token:
+		if not area.is_in_group(Monsters.MONSTER_GROUP):
 			continue
 		
 		var token: Token = area
