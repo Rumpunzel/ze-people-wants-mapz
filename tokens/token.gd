@@ -100,7 +100,7 @@ func _process(_delta: float):
 	
 	if _being_dragged:
 		# warning-ignore:return_value_discarded
-		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(128.0 if _size == Attributes.Size.TINY else 256.0), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(Table.GRID_SIZE * (0.5 if _size == Attributes.Size.TINY else 1.0)), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		# warning-ignore:return_value_discarded
 		_ghost_tween.start()
 		
@@ -193,7 +193,7 @@ func damage(amount: int, magical: bool, damage_type: int, damage_type_string: St
 
 
 
-func _mouse_as_coordinate(grid_snapping := 256.0) -> Vector2:
+func _mouse_as_coordinate(grid_snapping := Table.GRID_SIZE) -> Vector2:
 	var mouse_position := get_global_mouse_position() - _token_offset
 	return Vector2(
 		stepify(mouse_position.x, grid_snapping),
@@ -245,9 +245,9 @@ func _set_size(new_size: int) -> void:
 	
 	match _size:
 		Attributes.Size.TINY:
-			_token_offset = -Vector2(64.0, 64.0)
+			_token_offset = -Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.25
 		Attributes.Size.SMALL, Attributes.Size.MEDIUM, Attributes.Size.HUGE:
-			_token_offset = Vector2(128.0, 128.0)
+			_token_offset = Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.5
 		Attributes.Size.LARGE, Attributes.Size.GARGANTUAN:
 			_token_offset = Vector2.ZERO
 	
@@ -298,7 +298,7 @@ func _set_being_dragged(new_status: bool) -> void:
 	else:
 		if _ghost.visible:
 			_ghost.visible = false
-			_ghost.global_position = _mouse_as_coordinate(128.0 if _size == Attributes.Size.TINY else 256.0)
+			_ghost.global_position = _mouse_as_coordinate(Table.GRID_SIZE * (0.5 if _size == Attributes.Size.TINY else 1.0))
 			ShittySingleton.emit_signal("ruler_dismissed")
 			
 			var start_position := global_position

@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 	
 	global_position = get_global_mouse_position()
 	update()
-	_label.text = "%d %s damage\n%0.1fft" % [ amount, damage_type_string, _circle_shape.radius / 256.0 * 5.0 ]
+	_label.text = "%d %s damage\n%0.1fft" % [ amount, damage_type_string, _circle_shape.radius / Table.GRID_SIZE * 5.0 ]
 	
 	var tokens := get_overlapping_areas()
 	for area in tokens:

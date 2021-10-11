@@ -25,6 +25,10 @@ export(Material) var thunder_material
 
 
 
+func _ready() -> void:
+	visible = false
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("ui_cancel"):
 		var dice := get_tree().get_nodes_in_group("Dice")

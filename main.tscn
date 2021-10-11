@@ -13,10 +13,8 @@
 script = ExtResource( 2 )
 
 [node name="DiceRoller" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="Table" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="Monsters" parent="Table" instance=ExtResource( 5 )]
 position = Vector2( -5120, 0 )

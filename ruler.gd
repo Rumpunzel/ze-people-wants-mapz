@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if _used_manually:
-			_on_ruler_ended(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0))
+			_on_ruler_ended(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else Table.GRID_SIZE * 0.5))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -31,19 +31,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		if mouse_event.button_index == BUTTON_RIGHT:
 			if mouse_event.pressed:
 				_used_manually = true
-				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else 128.0), _default_color)
+				_on_ruler_started(_mouse_as_coordinate(0.0 if Input.is_key_pressed(KEY_CONTROL) else Table.GRID_SIZE * 0.5), _default_color)
 			else:
 				_used_manually = false
 				_on_ruler_dismissed()
 
 
 
-func _mouse_as_coordinate(grid_snapping := 128.0) -> Vector2:
-	var mouse_position := get_global_mouse_position() - Vector2(128.0, 128.0)
+func _mouse_as_coordinate(grid_snapping := Table.GRID_SIZE * 0.5) -> Vector2:
+	var mouse_position := get_global_mouse_position() - Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.5
 	return Vector2(
 		stepify(mouse_position.x, grid_snapping),
 		stepify(mouse_position.y, grid_snapping)
-	) + Vector2(128.0, 128.0)
+	) + Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.5
 
 
 func _on_ruler_started(start_position: Vector2, color: Color) -> void:
@@ -60,7 +60,7 @@ func _on_ruler_started(start_position: Vector2, color: Color) -> void:
 
 func _on_ruler_ended(end_position: Vector2) -> void:
 	points[1] = end_position
-	_label.text = "%0.1f ft" % [ points[0].distance_to(points[1]) / 256.0 * 5.0 ]
+	_label.text = "%0.1f ft" % [ points[0].distance_to(points[1]) / Table.GRID_SIZE * 5.0 ]
 	_label.rect_pivot_offset = _label.rect_size * 0.5
 	
 	var current_camera: Camera2D = get_tree().get_nodes_in_group("Camera2D").front()
