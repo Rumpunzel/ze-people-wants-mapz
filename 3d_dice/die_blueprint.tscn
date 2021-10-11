@@ -1,0 +1,75 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://die.gd" type="Script" id=1]
+[ext_resource path="res://3d_dice/materials/poison_die_material.tres" type="Material" id=2]
+[ext_resource path="res://3d_dice/materials/necrotic_die_material.tres" type="Material" id=3]
+[ext_resource path="res://3d_dice/materials/thunder_die_material.tres" type="Material" id=4]
+[ext_resource path="res://3d_dice/materials/bludgeoning_die_material.tres" type="Material" id=5]
+[ext_resource path="res://3d_dice/materials/psychic_die_material.tres" type="Material" id=6]
+[ext_resource path="res://3d_dice/materials/radiant_die_material.tres" type="Material" id=7]
+[ext_resource path="res://3d_dice/materials/fire_die_material.tres" type="Material" id=8]
+[ext_resource path="res://3d_dice/materials/piercing_die_material.tres" type="Material" id=9]
+[ext_resource path="res://3d_dice/materials/lightning_die_material.tres" type="Material" id=10]
+[ext_resource path="res://3d_dice/materials/force_die_material.tres" type="Material" id=11]
+[ext_resource path="res://3d_dice/materials/cold_die_material.tres" type="Material" id=12]
+[ext_resource path="res://3d_dice/materials/acid_die_material.tres" type="Material" id=13]
+[ext_resource path="res://3d_dice/dice_physics_material.tres" type="PhysicsMaterial" id=14]
+[ext_resource path="res://3d_dice/materials/slashing_die_material.tres" type="Material" id=15]
+
+[sub_resource type="Animation" id=1]
+resource_name = "delete"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1.2, 1.2, 1.2 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_delete"
+} ]
+}
+
+[node name="DieBlueprint" type="RigidBody" groups=[
+"Dice",
+]]
+physics_material_override = ExtResource( 14 )
+script = ExtResource( 1 )
+bludgeoning_material = ExtResource( 5 )
+piercing_material = ExtResource( 9 )
+slashing_material = ExtResource( 15 )
+acid_material = ExtResource( 13 )
+cold_material = ExtResource( 12 )
+fire_material = ExtResource( 8 )
+force_material = ExtResource( 11 )
+lightning_material = ExtResource( 10 )
+necrotic_material = ExtResource( 3 )
+poison_material = ExtResource( 2 )
+psychic_material = ExtResource( 6 )
+radiant_material = ExtResource( 7 )
+thunder_material = ExtResource( 4 )
+
+[node name="Sides" type="Spatial" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/delete = SubResource( 1 )
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
