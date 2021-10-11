@@ -55,6 +55,7 @@ expand_to_text_length = true
 caret_blink = true
 caret_blink_speed = 0.5
 script = ExtResource( 2 )
+_use_3d_dice_node_path = NodePath("../../Use3DDice")
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer/Roll"]
 margin_left = 214.0
@@ -68,36 +69,38 @@ margin_right = 242.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 
-[node name="Total" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Use3DDice" type="CheckButton" parent="MarginContainer/VBoxContainer"]
 margin_top = 36.0
+margin_right = 242.0
+margin_bottom = 76.0
+text = "Use 3D Dice"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 242.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+
+[node name="Total" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 88.0
 margin_right = 242.0
 margin_bottom = 570.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Total"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Total"]
 margin_right = 242.0
-margin_bottom = 22.0
-custom_constants/margin_right = 16
-custom_constants/margin_top = 8
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Total/MarginContainer"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 226.0
-margin_bottom = 22.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Total/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Total/HBoxContainer"]
 margin_right = 35.0
 margin_bottom = 14.0
 text = "Total:"
 
-[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Total/MarginContainer/HBoxContainer"]
+[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Total/HBoxContainer"]
 margin_left = 39.0
-margin_right = 210.0
+margin_right = 242.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
@@ -107,9 +110,9 @@ align = 2
 script = ExtResource( 1 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/Total"]
-margin_top = 26.0
+margin_top = 18.0
 margin_right = 242.0
-margin_bottom = 534.0
+margin_bottom = 482.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 border_color = Color( 0.141176, 0.470588, 0.647059, 1 )
@@ -127,7 +130,7 @@ __meta__ = {
 
 [node name="DiceResults" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Total/ReferenceRect/MarginContainer"]
 margin_right = 242.0
-margin_bottom = 508.0
+margin_bottom = 464.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
@@ -138,7 +141,7 @@ __meta__ = {
 }
 
 [connection signal="hide" from="." to="MarginContainer/VBoxContainer/Roll/LineEdit" method="set_text" binds= [ "" ]]
-[connection signal="hide" from="." to="MarginContainer/VBoxContainer/Total/MarginContainer/HBoxContainer/Number" method="set_total" binds= [ 0 ]]
+[connection signal="hide" from="." to="MarginContainer/VBoxContainer/Total/HBoxContainer/Number" method="set_total" binds= [ 0 ]]
 [connection signal="hide" from="." to="MarginContainer/VBoxContainer/Total/ReferenceRect/MarginContainer/DiceResults" method="clear"]
 [connection signal="text_entered" from="MarginContainer/VBoxContainer/Roll/LineEdit" to="MarginContainer/VBoxContainer/Roll/LineEdit" method="_spawn_dice"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Roll/Close" to="." method="hide"]

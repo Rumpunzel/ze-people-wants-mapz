@@ -273,7 +273,7 @@ func attack() -> void:
 	for resource in attacks:
 		var attack: Attack = resource
 		for _i in attack.dice_amount:
-			ShittySingleton.left_to_spawn.append(Die.DieToRoll.new(attack.die_type, attack.get_damage_type()))
+			ShittySingleton.left_to_spawn.append(Die.DieToRoll.new(attack.die_type, true, attack.get_damage_type()))
 
 
 func get_attack() -> Array:

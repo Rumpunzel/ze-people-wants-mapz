@@ -52,25 +52,26 @@ func _process(_delta: float) -> void:
 		var die_to_spawn: Die.DieToRoll = ShittySingleton.left_to_spawn.pop_front()
 		var new_die: Die
 		
-		match die_to_spawn.die_type:
-			Die.DiceTypes.d4:
-				new_die = d4_scene.instance()
-			Die.DiceTypes.d6:
-				new_die = d6_scene.instance()
-			Die.DiceTypes.d8:
-				new_die = d8_scene.instance()
-			Die.DiceTypes.d10:
-				new_die = d10_scene.instance()
-			Die.DiceTypes.d12:
-				new_die = d12_scene.instance()
-			Die.DiceTypes.d20:
-				new_die = d20_scene.instance()
-			Die.DiceTypes.d100:
-				new_die = d100_scene.instance()
+		if die_to_spawn.use_3d_dice:
+			match die_to_spawn.die_type:
+				Die.DiceTypes.d4:
+					new_die = d4_scene.instance()
+				Die.DiceTypes.d6:
+					new_die = d6_scene.instance()
+				Die.DiceTypes.d8:
+					new_die = d8_scene.instance()
+				Die.DiceTypes.d10:
+					new_die = d10_scene.instance()
+				Die.DiceTypes.d12:
+					new_die = d12_scene.instance()
+				Die.DiceTypes.d20:
+					new_die = d20_scene.instance()
+				Die.DiceTypes.d100:
+					new_die = d100_scene.instance()
 			
-			_:
-				ShittySingleton.display_result(die_to_spawn.die_type, Die.roll(1, die_to_spawn.die_type))
-				return
+		if not new_die:
+			ShittySingleton.display_result(die_to_spawn.die_type, Die.roll(1, die_to_spawn.die_type))
+			return
 		
 		var spawn_position = Die.random_vector3() * 10.0
 		

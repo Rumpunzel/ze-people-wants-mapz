@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var amount: int
 var magical: bool
 var damage_type: int
@@ -11,9 +12,11 @@ var to_take: int
 var _circle_color: Color
 var _arc_color: Color
 
+
 onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 onready var _circle_shape: CircleShape2D = _collision_shape.shape
 onready var _label: Label = $Label
+
 
 
 func _ready() -> void:
@@ -46,10 +49,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_tree().set_input_as_handled()
 		
 		elif mouse_event.button_index == BUTTON_WHEEL_UP:
-			_circle_shape.radius = max(_circle_shape.radius - 64.0, 128.0)
+			_circle_shape.radius = max(_circle_shape.radius - Table.GRID_SIZE * 0.25, Table.GRID_SIZE * 0.5)
 			get_tree().set_input_as_handled()
 		elif mouse_event.button_index == BUTTON_WHEEL_DOWN:
-			_circle_shape.radius += 64.0
+			_circle_shape.radius += Table.GRID_SIZE * 0.25
 			get_tree().set_input_as_handled()
 
 
@@ -74,6 +77,7 @@ func _process(_delta: float) -> void:
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, _circle_shape.radius, _circle_color)
 	draw_arc(Vector2.ZERO, _circle_shape.radius, 0.0, TAU, 128, _arc_color, 4.0, true)
+
 
 
 func _on_multi_target_dialog_done(new_amount: int, new_magical: bool, new_damage_type: int, new_damage_type_string: String, new_dc: int, new_saving_throw_to_make: int, new_to_take: int) -> void:

@@ -132,8 +132,10 @@ func _on_sleeping_state_changed() -> void:
 
 class DieToRoll:
 	var die_type: int
+	var use_3d_dice: bool
 	var damage_type: int
 	
-	func _init(new_die_type: int, new_damage_type := -1) -> void:
+	func _init(new_die_type: int, new_use_3d_dice = false, new_damage_type := -1) -> void:
 		die_type = new_die_type
+		use_3d_dice = new_use_3d_dice
 		damage_type = new_damage_type
