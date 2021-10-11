@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice_roller.gd" type="Script" id=2]
@@ -10,17 +10,6 @@
 [ext_resource path="res://3d_dice/d8.tscn" type="PackedScene" id=8]
 [ext_resource path="res://3d_dice/d4.tscn" type="PackedScene" id=9]
 [ext_resource path="res://3d_dice/d12.tscn" type="PackedScene" id=10]
-[ext_resource path="res://3d_dice/materials/bludgeoning_die_material.tres" type="Material" id=11]
-[ext_resource path="res://3d_dice/materials/acid_die_material.tres" type="Material" id=12]
-[ext_resource path="res://3d_dice/materials/radiant_die_material.tres" type="Material" id=13]
-[ext_resource path="res://3d_dice/materials/necrotic_die_material.tres" type="Material" id=14]
-[ext_resource path="res://3d_dice/materials/fire_die_material.tres" type="Material" id=15]
-[ext_resource path="res://3d_dice/materials/lightning_die_material.tres" type="Material" id=16]
-[ext_resource path="res://3d_dice/materials/psychic_die_material.tres" type="Material" id=17]
-[ext_resource path="res://3d_dice/materials/thunder_die_material.tres" type="Material" id=18]
-[ext_resource path="res://3d_dice/materials/force_die_material.tres" type="Material" id=19]
-[ext_resource path="res://3d_dice/materials/cold_die_material.tres" type="Material" id=20]
-[ext_resource path="res://3d_dice/materials/poison_die_material.tres" type="Material" id=21]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.47451, 0.356863, 0.266667, 1 )
@@ -39,19 +28,6 @@ d10_scene = ExtResource( 7 )
 d12_scene = ExtResource( 10 )
 d20_scene = ExtResource( 6 )
 d100_scene = ExtResource( 5 )
-bludgeoning_material = ExtResource( 11 )
-piercing_material = ExtResource( 11 )
-slashing_material = ExtResource( 11 )
-acid_material = ExtResource( 12 )
-cold_material = ExtResource( 20 )
-fire_material = ExtResource( 15 )
-force_material = ExtResource( 19 )
-lightning_material = ExtResource( 16 )
-necrotic_material = ExtResource( 14 )
-poison_material = ExtResource( 21 )
-psychic_material = ExtResource( 17 )
-radiant_material = ExtResource( 13 )
-thunder_material = ExtResource( 18 )
 
 [node name="Plane" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )

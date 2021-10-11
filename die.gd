@@ -4,7 +4,9 @@ extends RigidBody
 
 signal side_changed(die, new_side)
 
+
 const NONE := -1
+
 
 enum DiceTypes {
 	d4 = 4,
@@ -16,11 +18,30 @@ enum DiceTypes {
 	d100 = 100,
 }
 
+
 export(DiceTypes) var dice_type := DiceTypes.d6
 
 export var _ray_cast_length := 0.1
 
+# warning-ignore-all:unused_class_variable
+export(Material) var bludgeoning_material
+export(Material) var piercing_material
+export(Material) var slashing_material
+export(Material) var acid_material
+export(Material) var cold_material
+export(Material) var fire_material
+export(Material) var force_material
+export(Material) var lightning_material
+export(Material) var necrotic_material
+export(Material) var poison_material
+export(Material) var psychic_material
+export(Material) var radiant_material
+export(Material) var thunder_material
+
+
 var side_up := NONE
+var damage_type: int = -1
+
 
 onready var _sides := $Sides.get_children()
 onready var _tween: Tween = $Tween
@@ -75,7 +96,10 @@ static func roll(dice_number: int, die_type: int, use_expected_result := false) 
 
 
 
-func set_material(new_material: Material) -> void:
+func setup(new_damage_type: int, damage_name: String) -> void:
+	damage_type = new_damage_type
+	
+	var new_material: Material = get("%s_material" % damage_name)
 	($MeshInstance as MeshInstance).material_override = new_material
 
 

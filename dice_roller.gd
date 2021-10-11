@@ -8,21 +8,6 @@ export(PackedScene) var d12_scene
 export(PackedScene) var d20_scene
 export(PackedScene) var d100_scene
 
-# warning-ignore-all:unused_class_variable
-export(Material) var bludgeoning_material
-export(Material) var piercing_material
-export(Material) var slashing_material
-export(Material) var acid_material
-export(Material) var cold_material
-export(Material) var fire_material
-export(Material) var force_material
-export(Material) var lightning_material
-export(Material) var necrotic_material
-export(Material) var poison_material
-export(Material) var psychic_material
-export(Material) var radiant_material
-export(Material) var thunder_material
-
 
 
 func _ready() -> void:
@@ -86,6 +71,6 @@ func _process(_delta: float) -> void:
 			else:
 				damage_name = Attack.MagicalDamageTypes.keys()[ Attack.MagicalDamageTypes.values().find(die_to_spawn.damage_type) ].to_lower()
 			
-			new_die.set_material(get("%s_material" % damage_name))
+			new_die.setup(die_to_spawn.damage_type, damage_name)
 		
 		add_child(new_die)
