@@ -127,22 +127,42 @@ func _on_attack_pressed() -> void:
 
 
 func _on_token_spawned(new_token: Token) -> void:
+	if not is_visible_in_tree():
+		return
+	
 	var initiative := new_token.roll_initiative()
 	var new_entry := _initiative_entry_scene.instance() as InitiativeEntry
 	
-	new_entry.setup(initiative, new_token)
-	
 	# warning-ignore:return_value_discarded
 	new_entry.connect("token_died", self, "_on_token_died")
-	add_child(new_entry)
+	new_entry.setup(initiative, new_token)
 	
 	var children := get_children()
-	for child in children:
-		remove_child(child)
+	var child_count := get_child_count()
+	var add_at := 0
 	
-	children.sort_custom(self, "_sort_entries")
+	for index in range(child_count):
+		var current_initiative := initiative.initiative
+		
+		var previous_initiative := 1000
+		var previous_entry: InitiativeEntry = null
+		
+		if index - 1 >= 0:
+			previous_entry = children[index - 1]
+			previous_initiative = previous_entry.initiave.initiative
+		
+		var next_initiative := -1000
+		var next_entry: InitiativeEntry = null
+		
+		if index + 1 < child_count:
+			next_entry = children[index + 1]
+			next_initiative = next_entry.initiave.initiative
+		
+		if previous_initiative > current_initiative and next_initiative < current_initiative:
+			add_at = index
+			break
 	
-	for child in children:
-		add_child(child, true)
+	add_child(new_entry, true)
+	move_child(new_entry, add_at)
 	
 	_new_initiative()
