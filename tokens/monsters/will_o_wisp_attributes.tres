@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://attributes.gd" type="Script" id=1]
+[ext_resource path="res://tokens/attributes/attributes.gd" type="Script" id=1]
 [ext_resource path="res://tokens/monsters/will_o_wisp_shock.tres" type="Resource" id=2]
 
 [resource]

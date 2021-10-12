@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/harry-potter-skull.png-e6638aac62f68019cbdd224b80a0515c.stex"
+path="res://.import/harry-potter-skull.png-b5e3e5f2e981c6d442b04db2ee6b4525.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://harry-potter-skull.png"
-dest_files=[ "res://.import/harry-potter-skull.png-e6638aac62f68019cbdd224b80a0515c.stex" ]
+source_file="res://slide_show/harry-potter-skull.png"
+dest_files=[ "res://.import/harry-potter-skull.png-b5e3e5f2e981c6d442b04db2ee6b4525.stex" ]
 
 [params]
 
