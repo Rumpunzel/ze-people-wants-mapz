@@ -54,10 +54,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://tokens/attributes/magical_attack.gd"
 }, {
-"base": "YSort",
+"base": "Reference",
 "class": "Monsters",
 "language": "GDScript",
-"path": "res://table/monsters.gd"
+"path": "res://encounters/monsters.gd"
 }, {
 "base": "Line2D",
 "class": "PaintLine",
