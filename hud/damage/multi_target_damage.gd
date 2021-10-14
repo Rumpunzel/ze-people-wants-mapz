@@ -5,12 +5,12 @@ var _being_dragged := false
 var _offset := Vector2.ZERO
 
 
-onready var _damage: LineEdit = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Damage
-onready var _magical: CheckButton = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Magical
-onready var _damage_type: OptionButton = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/DamageType
-onready var _dc: LineEdit = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/DC
-onready var _saving_throw: OptionButton = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SavingThrow
-onready var _to_take: ToTake = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ToTake
+onready var _damage: LineEdit = $MarginContainer/VBoxContainer/VBoxContainer/Damage
+onready var _magical: CheckButton = $MarginContainer/VBoxContainer/VBoxContainer/Magical
+onready var _damage_type: OptionButton = $MarginContainer/VBoxContainer/VBoxContainer/DamageType
+onready var _dc: LineEdit = $MarginContainer/VBoxContainer/VBoxContainer/DC
+onready var _saving_throw: OptionButton = $MarginContainer/VBoxContainer/VBoxContainer/SavingThrow
+onready var _to_take: ToTake = $MarginContainer/VBoxContainer/VBoxContainer/ToTake
 
 
 
@@ -34,7 +34,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				KEY_M:
 					if not visible:
 						set_as_minsize()
-						popup_centered()
+						popup()
+						
 						_damage.grab_click_focus()
 						_damage.grab_focus()
 					else:

@@ -1,24 +1,22 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://hud/damage/single_target_damage.gd" type="Script" id=1]
-[ext_resource path="res://tokens/images/portraits/grung.jpg" type="Texture" id=2]
 [ext_resource path="res://hud/damage/magical.gd" type="Script" id=3]
 [ext_resource path="res://hud/damage/icons/magical.png" type="Texture" id=4]
 [ext_resource path="res://hud/damage/damage_type.gd" type="Script" id=5]
 [ext_resource path="res://hud/damage/to_take.gd" type="Script" id=6]
 [ext_resource path="res://hud/damage/icons/battered-axe.png" type="Texture" id=7]
 [ext_resource path="res://hud/damage/saving_throw.gd" type="Script" id=8]
-[ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=9]
 
 [node name="SingleTargetDamage" type="PopupPanel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -470.0
-margin_top = -420.0
-margin_right = 470.0
-margin_bottom = 420.0
+margin_left = -88.5
+margin_top = -124.0
+margin_right = 88.5
+margin_bottom = 124.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -37,66 +35,47 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 932.0
-margin_bottom = 832.0
+margin_right = 169.0
+margin_bottom = 240.0
 
 [node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 932.0
+margin_right = 169.0
 margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Header"]
 margin_top = 3.0
-margin_right = 900.0
+margin_right = 137.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Single Target Damage"
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer/Header"]
-margin_left = 904.0
-margin_right = 932.0
+margin_left = 141.0
+margin_right = 169.0
 margin_bottom = 20.0
 text = " X "
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 margin_top = 24.0
-margin_right = 932.0
+margin_right = 169.0
 margin_bottom = 28.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 32.0
-margin_right = 932.0
-margin_bottom = 832.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Image" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-material = ExtResource( 9 )
-margin_right = 800.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 800, 800 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 6
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 804.0
-margin_top = 296.0
-margin_right = 932.0
-margin_bottom = 504.0
+margin_right = 169.0
+margin_bottom = 240.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Damage" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 128.0
+[node name="Damage" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_right = 169.0
 margin_bottom = 24.0
 placeholder_text = "Damage"
 caret_blink = true
 
-[node name="Magical" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Magical" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 28.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 68.0
 pressed = true
 text = "Magical"
@@ -107,9 +86,9 @@ script = ExtResource( 3 )
 _magical_icon = ExtResource( 4 )
 _non_magical_icon = ExtResource( 7 )
 
-[node name="DamageType" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="DamageType" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 72.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 92.0
 custom_constants/hseparation = 32
 flat = true
@@ -118,20 +97,20 @@ expand_icon = true
 script = ExtResource( 5 )
 _damage_icons_directory = "res://damage_icons"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 96.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 100.0
 
-[node name="DC" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="DC" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 104.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 128.0
 placeholder_text = "DC"
 
-[node name="SavingThrow" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="SavingThrow" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 132.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 152.0
 flat = true
 align = 1
@@ -139,27 +118,27 @@ expand_icon = true
 script = ExtResource( 8 )
 _stat_icons_directory = "res://stat_icons"
 
-[node name="ToTake" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ToTake" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 156.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 176.0
 text = "Half Damage"
 flat = true
 align = 1
 script = ExtResource( 6 )
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 180.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 184.0
 
-[node name="Done" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Done" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 188.0
-margin_right = 128.0
+margin_right = 169.0
 margin_bottom = 208.0
 text = "Done"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Header/Close" to="." method="hide"]
-[connection signal="text_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Damage" to="." method="_on_done_pressed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Magical" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Magical" method="_on_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="text_entered" from="MarginContainer/VBoxContainer/VBoxContainer/Damage" to="." method="_on_done_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/Magical" to="MarginContainer/VBoxContainer/VBoxContainer/Magical" method="_on_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
