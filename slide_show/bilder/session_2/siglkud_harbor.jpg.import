@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/desert.jpg-232a9a0c64fe82d1bbfd1f6697777968.stex"
+path="res://.import/siglkud_harbor.jpg-f02f900344f4dbbc01fd3cb1ec4860ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 1/desert.jpg"
-dest_files=[ "res://.import/desert.jpg-232a9a0c64fe82d1bbfd1f6697777968.stex" ]
+source_file="res://slide_show/bilder/session_2/siglkud_harbor.jpg"
+dest_files=[ "res://.import/siglkud_harbor.jpg-f02f900344f4dbbc01fd3cb1ec4860ca.stex" ]
 
 [params]
 

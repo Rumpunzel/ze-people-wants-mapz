@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://slide_show/bilder/welten/Session 2/swamp_colorful.jpg" type="Texture" id=1]
+[ext_resource path="res://slide_show/bilder/session_2/swamp_colorful.jpg" type="Texture" id=1]
 [ext_resource path="res://slide_show/slide.tscn" type="PackedScene" id=2]
 
 [node name="SurvivingTheSwamp" instance=ExtResource( 2 )]

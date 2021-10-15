@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monument_desert.png-0254dce8f01e2666a09a832fd3526ebb.stex"
+path="res://.import/der_schweigende_einsiedler.jpg-820c25c6d310c63548fffd64902ee03c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 1/monument_desert.png"
-dest_files=[ "res://.import/monument_desert.png-0254dce8f01e2666a09a832fd3526ebb.stex" ]
+source_file="res://slide_show/bilder/session_0/der_schweigende_einsiedler.jpg"
+dest_files=[ "res://.import/der_schweigende_einsiedler.jpg-820c25c6d310c63548fffd64902ee03c.stex" ]
 
 [params]
 

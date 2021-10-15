@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/der_geist_des_paten.jpg-100d147650664df662099c8204335d67.stex"
+path="res://.import/swamp_temple.jpg-62f4bd9eef2f8f809a273d7dc621a7fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 0/der_geist_des_paten.jpg"
-dest_files=[ "res://.import/der_geist_des_paten.jpg-100d147650664df662099c8204335d67.stex" ]
+source_file="res://slide_show/bilder/session_2/swamp_temple.jpg"
+dest_files=[ "res://.import/swamp_temple.jpg-62f4bd9eef2f8f809a273d7dc621a7fa.stex" ]
 
 [params]
 

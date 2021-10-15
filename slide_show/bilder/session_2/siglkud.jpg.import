@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/die_glaskaravane.jpg-800ed4def89d8b9a09ec8d6122c4624f.stex"
+path="res://.import/siglkud.jpg-c9585044d83c7227ef2d116e4fd6d21d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 0/die_glaskaravane.jpg"
-dest_files=[ "res://.import/die_glaskaravane.jpg-800ed4def89d8b9a09ec8d6122c4624f.stex" ]
+source_file="res://slide_show/bilder/session_2/siglkud.jpg"
+dest_files=[ "res://.import/siglkud.jpg-c9585044d83c7227ef2d116e4fd6d21d.stex" ]
 
 [params]
 
