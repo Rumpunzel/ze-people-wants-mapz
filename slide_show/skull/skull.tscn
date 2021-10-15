@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://slide_show/harry-potter-skull.png" type="Texture" id=1]
+[ext_resource path="res://slide_show/skull/harry-potter-skull.png" type="Texture" id=1]
 
 [node name="Skull" type="TextureRect"]
 margin_right = 64.0
