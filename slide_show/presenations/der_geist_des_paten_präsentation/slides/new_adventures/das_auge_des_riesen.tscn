@@ -13,10 +13,10 @@ margin_left = -600.0
 texture = ExtResource( 2 )
 
 [node name="Content" parent="Text" index="0"]
-margin_top = 1743.0
-margin_right = 1176.0
-margin_bottom = 2060.0
-size_flags_vertical = 8
+margin_left = 2664.0
+margin_right = 3680.0
+margin_bottom = 417.0
+size_flags_horizontal = 8
 
 [node name="Title" parent="Text/Content" index="0"]
 margin_right = 1016.0
