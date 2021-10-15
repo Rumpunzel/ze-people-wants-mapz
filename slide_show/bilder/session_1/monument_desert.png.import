@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/swamp_temple.jpg-824244bbbe9c1144bb33d9a68a67b2f7.stex"
+path="res://.import/monument_desert.png-cc3f9a0c1751d7da99b35923f413538d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 2/swamp_temple.jpg"
-dest_files=[ "res://.import/swamp_temple.jpg-824244bbbe9c1144bb33d9a68a67b2f7.stex" ]
+source_file="res://slide_show/bilder/session_1/monument_desert.png"
+dest_files=[ "res://.import/monument_desert.png-cc3f9a0c1751d7da99b35923f413538d.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/twin_status.jpg-8503a805d3d812d086d674252e91551d.stex"
+path="res://.import/halloween_farm.jpg-0fe86473c2a6c45f77730505b72c0392.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 2/twin_status.jpg"
-dest_files=[ "res://.import/twin_status.jpg-8503a805d3d812d086d674252e91551d.stex" ]
+source_file="res://slide_show/bilder/session_2/halloween_farm.jpg"
+dest_files=[ "res://.import/halloween_farm.jpg-0fe86473c2a6c45f77730505b72c0392.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/der_schweigende_einsiedler.jpg-934eebd87cb03fe3b653e3e89cb5d3bc.stex"
+path="res://.import/swamp_colorful.jpg-247efd9fb796ca61148530ae57d87f0e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 0/der_schweigende_einsiedler.jpg"
-dest_files=[ "res://.import/der_schweigende_einsiedler.jpg-934eebd87cb03fe3b653e3e89cb5d3bc.stex" ]
+source_file="res://slide_show/bilder/session_2/swamp_colorful.jpg"
+dest_files=[ "res://.import/swamp_colorful.jpg-247efd9fb796ca61148530ae57d87f0e.stex" ]
 
 [params]
 

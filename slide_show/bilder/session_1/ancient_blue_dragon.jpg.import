@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/siglkud_harbor.jpg-2246c87f0a822b9dd76625d58e13dd0c.stex"
+path="res://.import/ancient_blue_dragon.jpg-5532af4cb4fa5788f384f232808b65bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 2/siglkud_harbor.jpg"
-dest_files=[ "res://.import/siglkud_harbor.jpg-2246c87f0a822b9dd76625d58e13dd0c.stex" ]
+source_file="res://slide_show/bilder/session_1/ancient_blue_dragon.jpg"
+dest_files=[ "res://.import/ancient_blue_dragon.jpg-5532af4cb4fa5788f384f232808b65bd.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/swamp_colorful.jpg-acbe2eb6ba2e8050b2f02fd51703da60.stex"
+path="res://.import/twin_status.jpg-25f87889caf1c2eccc7bd1e6ed0b1953.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slide_show/bilder/welten/Session 2/swamp_colorful.jpg"
-dest_files=[ "res://.import/swamp_colorful.jpg-acbe2eb6ba2e8050b2f02fd51703da60.stex" ]
+source_file="res://slide_show/bilder/session_2/twin_status.jpg"
+dest_files=[ "res://.import/twin_status.jpg-25f87889caf1c2eccc7bd1e6ed0b1953.stex" ]
 
 [params]
 
