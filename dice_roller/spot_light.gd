@@ -1,18 +1,19 @@
 extends SpotLight
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var sky: ProceduralSky = get_world().environment.background_sky
-	if sky:
-		light_color = sky.sun_color
+	var world := get_world()
+	if not world:
+		return
+	
+	var environment := world.environment
+	if not environment:
+		return
+	
+	var sky: ProceduralSky = environment.background_sky
+	if not sky:
+		return
+	
+	light_color = sky.sun_color
