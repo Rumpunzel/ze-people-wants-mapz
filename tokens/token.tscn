@@ -221,4 +221,5 @@ script = ExtResource( 17 )
 [connection signal="value_changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_value_changed"]
 [connection signal="timeout" from="CanvasLayer/HUDMargin/LifeBar/Timer" to="CanvasLayer/HUDMargin/LifeBar" method="_on_timeout"]
 [connection signal="animation_started" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_started"]
+[connection signal="id_pressed" from="ContextMenu/SizeMenu" to="." method="set_size"]
 [connection signal="visibility_changed" from="ContextMenu/SizeMenu" to="ContextMenu/SizeMenu" method="_on_visibility_changed"]
