@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tokens/images/portraits/players/gibs.png" type="Texture" id=2]
+[ext_resource path="res://tokens/images/portraits/players/new_gibs.png" type="Texture" id=2]
 [ext_resource path="res://tokens/players/gibs_attributes.tres" type="Resource" id=3]
 
 [sub_resource type="Gradient" id=1]
