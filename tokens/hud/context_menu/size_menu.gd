@@ -3,12 +3,11 @@ extends PopupMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_radio_check_item("Tiny", Attributes.Size.TINY)
-	add_radio_check_item("Small", Attributes.Size.SMALL)
-	add_radio_check_item("Medium", Attributes.Size.MEDIUM)
-	add_radio_check_item("Large", Attributes.Size.LARGE)
-	add_radio_check_item("Huge", Attributes.Size.HUGE)
-	add_radio_check_item("Gargantuan", Attributes.Size.GARGANTUAN)
+	for value in Attributes.Size.keys():
+		var size: String = value
+		var flag_value: int = Attributes.Size[size]
+		
+		add_radio_check_item(size.capitalize(), flag_value)
 	
 	yield(get_tree(), "idle_frame")
 	
