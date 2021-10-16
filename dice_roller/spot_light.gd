@@ -13,4 +13,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	light_color = (get_world().environment.background_sky as ProceduralSky).sun_color
+	var sky: ProceduralSky = get_world().environment.background_sky
+	if sky:
+		light_color = sky.sun_color
