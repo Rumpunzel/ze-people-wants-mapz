@@ -23,9 +23,9 @@ var hit_points: int setget set_hit_points
 var dead := false
 var selected := false setget set_selected
 var is_taking_turn := false setget set_is_taking_turn
+var size: int setget set_size
 
 
-var _size: int setget _set_size
 var _min_travel_time = 0.5
 var _max_travel_time = 2.0
 var _being_dragged := false setget _set_being_dragged
@@ -36,6 +36,7 @@ var _background: Node2D
 var _token: Sprite
 var _ghost_tween: Tween
 var _movement_tween: Tween
+var _context_menu: ContextMenu
 
 
 onready var _collision: CollisionShape2D = $CollisionShape2D
@@ -54,10 +55,11 @@ func _enter_tree() -> void:
 	_token = $Background/Token
 	_ghost_tween = $GhostTween
 	_movement_tween = $MovementTween
+	_context_menu = $ContextMenu
 
 
 func _ready() -> void:
-	_set_size(attributes.size)
+	set_size(attributes.size)
 	image.rect_pivot_offset = image.rect_size * 0.5
 	
 	if Engine.editor_hint:
@@ -100,7 +102,7 @@ func _process(_delta: float):
 	
 	if _being_dragged:
 		# warning-ignore:return_value_discarded
-		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(Table.GRID_SIZE * (0.5 if _size == Attributes.Size.TINY else 1.0)), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		_ghost_tween.interpolate_property(_ghost, "global_position", null, _mouse_as_coordinate(Table.GRID_SIZE * (0.5 if size == Attributes.Size.TINY else 1.0)), 0.1, Tween.TRANS_QUAD, Tween.EASE_OUT)
 		# warning-ignore:return_value_discarded
 		_ghost_tween.start()
 		
@@ -122,16 +124,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event is InputEventMouseButton:
+		if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
+			return
+		
 		var mouse_event := event as InputEventMouseButton
 		if mouse_event.button_index == BUTTON_LEFT:
-			if get_global_mouse_position().distance_to(global_position) > _collision_shape.radius * scale.x:
-				return
-			
 			if mouse_event.pressed:
 				set_selected(true)
 			
 			_set_being_dragged(mouse_event.pressed)
 			get_tree().set_input_as_handled()
+		
+		elif mouse_event.button_index == BUTTON_RIGHT:
+			if not mouse_event.pressed:
+				_context_menu.popup_menu()
+			
+			get_tree().set_input_as_handled()
+	
 	
 	elif event is InputEventKey:
 		var key_event: InputEventKey = event
@@ -239,11 +248,11 @@ func set_selected(new_status: bool) -> void:
 	emit_signal("selected", selected)
 
 
-func _set_size(new_size: int) -> void:
-	_size = new_size
-	scale = Vector2.ONE * _size * SCALE_FACTOR
+func set_size(new_size: int) -> void:
+	size = new_size
+	scale = Vector2.ONE * size * SCALE_FACTOR
 	
-	match _size:
+	match size:
 		Attributes.Size.TINY:
 			_token_offset = -Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.25
 		Attributes.Size.SMALL, Attributes.Size.MEDIUM, Attributes.Size.HUGE:
@@ -251,7 +260,7 @@ func _set_size(new_size: int) -> void:
 		Attributes.Size.LARGE, Attributes.Size.GARGANTUAN:
 			_token_offset = Vector2.ZERO
 	
-	emit_signal("size_changed", _size)
+	emit_signal("size_changed", size)
 
 
 func die() -> void:
@@ -298,7 +307,7 @@ func _set_being_dragged(new_status: bool) -> void:
 	else:
 		if _ghost.visible:
 			_ghost.visible = false
-			_ghost.global_position = _mouse_as_coordinate(Table.GRID_SIZE * (0.5 if _size == Attributes.Size.TINY else 1.0))
+			_ghost.global_position = _mouse_as_coordinate(Table.GRID_SIZE * (0.5 if size == Attributes.Size.TINY else 1.0))
 			ShittySingleton.emit_signal("ruler_dismissed")
 			
 			var start_position := global_position

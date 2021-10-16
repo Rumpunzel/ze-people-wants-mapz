@@ -1,19 +1,22 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://fonts/rudelsberg/Rudelsberg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://tokens/hud/token_theme.tres" type="Theme" id=1]
 [ext_resource path="res://tokens/token.gd" type="Script" id=2]
 [ext_resource path="res://tokens/trail.gd" type="Script" id=3]
-[ext_resource path="res://tokens/life_bar.gd" type="Script" id=4]
+[ext_resource path="res://tokens/hud/life_bar.gd" type="Script" id=4]
 [ext_resource path="res://tokens/images/portraits/grung.jpg" type="Texture" id=5]
 [ext_resource path="res://tokens/images/token_background.png" type="Texture" id=6]
 [ext_resource path="res://tokens/portrait_mask.tres" type="Material" id=7]
-[ext_resource path="res://tokens/hud_margin.gd" type="Script" id=8]
+[ext_resource path="res://tokens/hud/hud_margin.gd" type="Script" id=8]
 [ext_resource path="res://tokens/animations/damaged.tres" type="Animation" id=9]
 [ext_resource path="res://tokens/image.gd" type="Script" id=10]
 [ext_resource path="res://tokens/animation_player.gd" type="Script" id=11]
 [ext_resource path="res://tokens/images/utils/select.png" type="Texture" id=12]
-[ext_resource path="res://tokens/life_bar_style.tres" type="StyleBox" id=13]
-[ext_resource path="res://tokens/selection.gd" type="Script" id=14]
+[ext_resource path="res://tokens/hud/life_bar_style.tres" type="StyleBox" id=13]
+[ext_resource path="res://tokens/hud/selection.gd" type="Script" id=14]
+[ext_resource path="res://tokens/hud/context_menu/context_menu.gd" type="Script" id=15]
+[ext_resource path="res://hud/hud_theme.tres" type="Theme" id=16]
+[ext_resource path="res://tokens/hud/context_menu/size_menu.gd" type="Script" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 128.0
@@ -41,16 +44,7 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="Gradient" id=4]
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 32
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="Theme" id=6]
-default_font = SubResource( 5 )
-
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [node name="Token" type="Area2D" groups=[
 "Token",
@@ -120,7 +114,7 @@ margin_bottom = -126.5
 grow_horizontal = 2
 grow_vertical = 0
 rect_pivot_offset = Vector2( 128, 1.5 )
-theme = SubResource( 6 )
+theme = ExtResource( 1 )
 custom_constants/margin_top = -36
 custom_constants/margin_bottom = 4
 script = ExtResource( 8 )
@@ -135,7 +129,7 @@ margin_right = 256.0
 margin_bottom = -1.0
 size_flags_vertical = 1
 custom_styles/fg = ExtResource( 13 )
-custom_styles/bg = SubResource( 7 )
+custom_styles/bg = SubResource( 5 )
 value = 50.0
 percent_visible = false
 script = ExtResource( 4 )
@@ -206,6 +200,20 @@ valign = 1
 anims/damaged = ExtResource( 9 )
 script = ExtResource( 11 )
 
+[node name="ContextMenu" type="PopupMenu" parent="."]
+margin_left = 1910.0
+margin_top = 1070.0
+margin_right = 1930.0
+margin_bottom = 1090.0
+theme = ExtResource( 16 )
+script = ExtResource( 15 )
+
+[node name="SizeMenu" type="PopupMenu" parent="ContextMenu"]
+margin_right = 245.0
+margin_bottom = 255.0
+theme = ExtResource( 16 )
+script = ExtResource( 17 )
+
 [connection signal="hit_points_changed" from="." to="CanvasLayer/HUDMargin/LifeBar" method="set_value"]
 [connection signal="maximum_hit_points_changed" from="." to="CanvasLayer/HUDMargin/LifeBar" method="_on_maximum_hit_points_changed"]
 [connection signal="size_changed" from="." to="CanvasLayer/HUDMargin" method="_on_size_changed"]
@@ -213,3 +221,4 @@ script = ExtResource( 11 )
 [connection signal="value_changed" from="CanvasLayer/HUDMargin/LifeBar" to="CanvasLayer/HUDMargin/LifeBar" method="_on_value_changed"]
 [connection signal="timeout" from="CanvasLayer/HUDMargin/LifeBar/Timer" to="CanvasLayer/HUDMargin/LifeBar" method="_on_timeout"]
 [connection signal="animation_started" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_started"]
+[connection signal="visibility_changed" from="ContextMenu/SizeMenu" to="ContextMenu/SizeMenu" method="_on_visibility_changed"]
