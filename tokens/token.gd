@@ -255,9 +255,9 @@ func set_size(new_size: int) -> void:
 	match size:
 		Attributes.Size.TINY:
 			_token_offset = -Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.25
-		Attributes.Size.SMALL, Attributes.Size.MEDIUM, Attributes.Size.HUGE:
+		Attributes.Size.SMALL, Attributes.Size.MEDIUM:
 			_token_offset = Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.5
-		Attributes.Size.LARGE, Attributes.Size.GARGANTUAN:
+		Attributes.Size.LARGE, Attributes.Size.HUGE, Attributes.Size.GARGANTUAN:
 			_token_offset = Vector2.ZERO
 	
 	emit_signal("size_changed", size)
