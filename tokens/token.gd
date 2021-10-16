@@ -250,7 +250,10 @@ func set_selected(new_status: bool) -> void:
 
 func set_size(new_size: int) -> void:
 	size = new_size
-	scale = Vector2.ONE * size * SCALE_FACTOR
+	# warning-ignore:return_value_discarded
+	_movement_tween.interpolate_property(self, "scale", null, Vector2.ONE * size * SCALE_FACTOR, 0.2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	# warning-ignore:return_value_discarded
+	_movement_tween.start()
 	
 	match size:
 		Attributes.Size.TINY:
