@@ -17,7 +17,7 @@ var _arc_color: Color
 onready var _parent: Node = get_parent()
 onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 onready var _circle_shape: CircleShape2D = _collision_shape.shape
-onready var _label: Label = $Label
+onready var _label: Label = $CanvasLayer/Label
 
 onready var _fire_vfx: Particles2D = _fire_vfx_scene.instance()
 
@@ -77,7 +77,13 @@ func _process(_delta: float) -> void:
 	
 	global_position = get_global_mouse_position()
 	update()
+	
 	_label.text = "%d %s damage\n%0.1fft" % [ amount, damage_type_string, _circle_shape.radius / Table.GRID_SIZE * 5.0 ]
+	_label.rect_pivot_offset = _label.rect_size * 0.5
+	
+	var current_camera: Camera2D = get_tree().get_nodes_in_group("Camera2D").front()
+	var viewport_offset: Vector2 = get_viewport().size * 0.5
+	_label.rect_position = (global_position - current_camera.position) / current_camera.zoom.x + viewport_offset - _label.rect_pivot_offset
 	
 	var tokens := get_overlapping_areas()
 	for area in tokens:
@@ -109,6 +115,7 @@ func _on_multi_target_dialog_done(new_amount: int, new_magical: bool, new_damage
 	
 	_collision_shape.disabled = false
 	global_position = get_global_mouse_position()
+	_label.visible = true
 	show()
 
 
@@ -122,6 +129,7 @@ func _on_area_exited(area: Area2D) -> void:
 
 func _on_hide() -> void:
 	_collision_shape.disabled = true
+	_label.visible = false
 	
 	var tokens := get_overlapping_areas()
 	for area in tokens:
