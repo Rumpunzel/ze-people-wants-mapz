@@ -215,7 +215,6 @@ visibility_rect = Rect2( -4096, -4096, 8192, 8192 )
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 1 )
-normal_map = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -223,6 +222,6 @@ modulate = Color( 0.905882, 1, 0.266667, 0.329412 )
 show_behind_parent = true
 scale = Vector2( 4, 4 )
 frames = SubResource( 35 )
-frame = 25
+frame = 17
 playing = true
 flip_h = true
