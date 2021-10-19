@@ -1,5 +1,6 @@
 extends Area2D
 
+export(PackedScene) var _fire_vfx_scene: PackedScene
 
 var amount: int
 var magical: bool
@@ -13,15 +14,22 @@ var _circle_color: Color
 var _arc_color: Color
 
 
+onready var _parent: Node = get_parent()
 onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 onready var _circle_shape: CircleShape2D = _collision_shape.shape
 onready var _label: Label = $Label
+
+onready var _fire_vfx: Particles2D = _fire_vfx_scene.instance()
 
 
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	ShittySingleton.connect("multi_target_dialog_done", self, "_on_multi_target_dialog_done")
+	
+	yield(get_tree(), "idle_frame")
+	
+	_parent.add_child(_fire_vfx)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -39,6 +47,12 @@ func _unhandled_input(event: InputEvent) -> void:
 					
 					var token: Token = area
 					token.damage(amount, magical, damage_type, damage_type_string, dc, saving_throw_to_make, to_take)
+				
+				match damage_type:
+					Attack.MagicalDamageTypes.FIRE:
+						_fire_vfx.scale = Vector2.ONE * _circle_shape.radius / Table.GRID_SIZE
+						_fire_vfx.emitting = true
+						_fire_vfx.global_position = global_position
 				
 				hide()
 				get_tree().set_input_as_handled()
