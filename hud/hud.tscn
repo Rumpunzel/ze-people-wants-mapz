@@ -33,4 +33,3 @@ visible = false
 [node name="SingleTargetDamage" parent="Control" instance=ExtResource( 4 )]
 
 [node name="MultiTargetDamage" parent="Control" instance=ExtResource( 6 )]
-visible = false

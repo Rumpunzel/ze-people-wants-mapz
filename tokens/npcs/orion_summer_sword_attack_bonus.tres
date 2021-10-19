@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://tokens/attributes/magical_attack.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+roll_to_hit = true
+to_hit_bonus = 0
+dice_amount = 1
+die_type = 8
+damage_bonus = 0
+damage_type = 32

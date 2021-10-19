@@ -15,7 +15,7 @@ color = Color( 0.411765, 0.286275, 0.690196, 1 )
 attributes = ExtResource( 3 )
 
 [node name="Trail" parent="TrailNode" index="0"]
-width = 150.0
+width = 128.0
 gradient = SubResource( 1 )
 
 [node name="Background" parent="." index="3"]

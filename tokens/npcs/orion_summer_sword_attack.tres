@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://tokens/attributes/physical_attack.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+roll_to_hit = true
+to_hit_bonus = 11
+dice_amount = 2
+die_type = 10
+damage_bonus = 7
+damage_type = 4
