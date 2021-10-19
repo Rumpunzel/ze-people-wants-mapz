@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://tokens/attributes/attributes.gd" type="Script" id=1]
+[ext_resource path="res://tokens/monsters/shadow_strength_drain_attack.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+level = 3
+hit_die = 8
+roll_hit_points = true
+size = 4
+move_speed = 40
+armor_class = 12
+strength = 6
+dexterity = 14
+constitution = 13
+intelligence = 6
+wisdom = 10
+charisma = 8
+strength_saving_throw_bonus = 0
+dexterity_saving_throw_bonus = 0
+constitution_saving_throw_bonus = 0
+intelligence_saving_throw_bonus = 0
+wisdom_saving_throw_bonus = 0
+charisma_saving_throw_bonus = 0
+non_magical_resistances = 7
+magical_resistances = 4280
+non_magical_immunities = 0
+magical_immunities = 768
+non_magical_vulnerabilties = 0
+magical_vulnerabilties = 0
+non_magical_damage_absorbtion = 0
+magical_damage_absorbtion = 0
+attack = [ ExtResource( 2 ) ]

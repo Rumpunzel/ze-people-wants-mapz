@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tokens/images/portraits/npcs/elf_shadow.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.168627, 0.168627, 0.168627, 0, 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="ElfShadow" instance=ExtResource( 1 )]
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="Trail" parent="TrailNode" index="0"]
+gradient = SubResource( 1 )
+
+[node name="Background" parent="." index="3"]
+modulate = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="Image" parent="." index="4"]
+texture = ExtResource( 2 )
