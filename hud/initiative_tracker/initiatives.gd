@@ -41,7 +41,7 @@ func _set_up_initiative(player_initiatives: Dictionary) -> void:
 	for player in player_initiatives.keys():
 		var token: Token = player
 		
-		if token.dead:
+		if token.dead or not token.attributes.add_to_initiative:
 			continue
 		
 		var initiative: Attributes.Initiative = player_initiatives[token]
@@ -134,7 +134,7 @@ func _on_attack_pressed() -> void:
 
 
 func _on_token_spawned(new_token: Token) -> void:
-	if not is_visible_in_tree():
+	if not is_visible_in_tree() or not new_token.attributes.add_to_initiative:
 		return
 	
 	var initiative := new_token.roll_initiative()
