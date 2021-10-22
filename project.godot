@@ -142,7 +142,8 @@ _global_script_class_icons={
 
 config/name="Maps"
 run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+config/icon="res://map.png"
+config/windows_native_icon="res://map.ico"
 
 [autoload]
 
