@@ -5,7 +5,7 @@ extends YSort
 const GRID_SIZE := 256.0
 
 export var grid_color := Color("c89b0000")
-export var line_thickness := 5.0
+export var line_thickness := 8.0
 
 
 

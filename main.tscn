@@ -16,6 +16,7 @@ _run_as_session = false
 [node name="DiceRoller" parent="." instance=ExtResource( 3 )]
 
 [node name="Table" parent="." instance=ExtResource( 1 )]
+grid_color = Color( 0.607843, 0, 0, 0.784314 )
 
 [node name="OrionEncounter" parent="Table" instance=ExtResource( 5 )]
 position = Vector2( -2176, 128 )
