@@ -1,5 +1,7 @@
 extends PopupMenu
 
+var _currently_checked_index: int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +14,8 @@ func _ready() -> void:
 	yield(get_tree(), "idle_frame")
 	
 	var token: Token = owner
-	set_item_checked(get_item_index(token.size), true)
+	_currently_checked_index = get_item_index(token.size)
+	set_item_checked(_currently_checked_index, true)
 
 
 func _on_visibility_changed() -> void:
@@ -26,3 +29,9 @@ func _on_visibility_changed() -> void:
 			parent.rect_global_position.y
 		)
 		modulate.a = 1.0
+
+
+func _on_id_pressed(id: int) -> void:
+	set_item_checked(_currently_checked_index, false)
+	_currently_checked_index = get_item_index(id)
+	set_item_checked(_currently_checked_index, true)
