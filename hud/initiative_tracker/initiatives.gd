@@ -41,6 +41,7 @@ func _set_up_initiative(player_initiatives: Dictionary) -> void:
 	for player in player_initiatives.keys():
 		var token: Token = player
 		
+		# warning-ignore:unsafe_property_access
 		if token.dead or not token.attributes.add_to_initiative:
 			continue
 		
@@ -134,6 +135,7 @@ func _on_attack_pressed() -> void:
 
 
 func _on_token_spawned(new_token: Token) -> void:
+	# warning-ignore:unsafe_property_access
 	if not is_visible_in_tree() or not new_token.attributes.add_to_initiative:
 		return
 	
