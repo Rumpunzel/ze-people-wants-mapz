@@ -1,22 +1,22 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://hud/initiative_tracker/icons/spinning_sword.png" type="Texture" id=1]
-[ext_resource path="res://hud/initiative_tracker/initiative_entry.tscn" type="PackedScene" id=2]
-[ext_resource path="res://hud/initiative_tracker/initiative_tracker.gd" type="Script" id=3]
+[ext_resource path="res://hud/initiative_tracker/attack_button.gd" type="Script" id=1]
+[ext_resource path="res://hud/initiative_tracker/initiative_tracker.gd" type="Script" id=2]
+[ext_resource path="res://hud/initiative_tracker/initiative_button.gd" type="Script" id=3]
 [ext_resource path="res://hud/initiative_tracker/initiatives.gd" type="Script" id=4]
-[ext_resource path="res://hud/initiative_tracker/icons/overhead.png" type="Texture" id=5]
-[ext_resource path="res://hud/initiative_tracker/player_initiatives.tscn" type="PackedScene" id=6]
-[ext_resource path="res://hud/initiative_tracker/new_round.tscn" type="PackedScene" id=7]
-[ext_resource path="res://hud/initiative_tracker/initiative_20.tscn" type="PackedScene" id=8]
-[ext_resource path="res://hud/initiative_tracker/initiative_button.gd" type="Script" id=9]
-[ext_resource path="res://hud/initiative_tracker/initiative_hud.gd" type="Script" id=10]
-[ext_resource path="res://hud/initiative_tracker/attack_button.gd" type="Script" id=11]
+[ext_resource path="res://hud/initiative_tracker/initiative_hud.gd" type="Script" id=5]
+[ext_resource path="res://hud/initiative_tracker/icons/spinning_sword.png" type="Texture" id=6]
+[ext_resource path="res://hud/initiative_tracker/icons/overhead.png" type="Texture" id=7]
+[ext_resource path="res://hud/initiative_tracker/player_initiatives.tscn" type="PackedScene" id=8]
+[ext_resource path="res://hud/initiative_tracker/initiative_entry.tscn" type="PackedScene" id=9]
+[ext_resource path="res://hud/initiative_tracker/new_round.tscn" type="PackedScene" id=10]
+[ext_resource path="res://hud/initiative_tracker/initiative_20.tscn" type="PackedScene" id=11]
 
 [node name="InitiativeTracker" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,7 +32,7 @@ grow_horizontal = 0
 mouse_filter = 2
 size_flags_vertical = 3
 custom_constants/separation = 0
-script = ExtResource( 10 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,8 +59,8 @@ margin_right = 140.0
 margin_bottom = 134.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-icon = ExtResource( 5 )
-script = ExtResource( 9 )
+icon = ExtResource( 7 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,8 +72,8 @@ margin_right = 296.0
 margin_bottom = 134.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-icon = ExtResource( 1 )
-script = ExtResource( 11 )
+icon = ExtResource( 6 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -102,11 +102,11 @@ margin_bottom = 7.0
 grow_horizontal = 0
 custom_constants/separation = 0
 script = ExtResource( 4 )
-_initiative_entry_scene = ExtResource( 2 )
-_initiative_20_scene = ExtResource( 8 )
-_new_round_scene = ExtResource( 7 )
+_initiative_entry_scene = ExtResource( 9 )
+_initiative_20_scene = ExtResource( 11 )
+_new_round_scene = ExtResource( 10 )
 
-[node name="PlayerInitiatives" parent="." instance=ExtResource( 6 )]
+[node name="PlayerInitiatives" parent="." instance=ExtResource( 8 )]
 
 [connection signal="pressed" from="InitiativeHUD/MarginContainer/HBoxContainer/Done" to="InitiativeHUD/ScrollContainer/PanelContainer/Initiatives" method="_on_done_pressed"]
 [connection signal="pressed" from="InitiativeHUD/MarginContainer/HBoxContainer/Attack" to="InitiativeHUD/ScrollContainer/PanelContainer/Initiatives" method="_on_attack_pressed"]

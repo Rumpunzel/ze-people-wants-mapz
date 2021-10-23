@@ -5,9 +5,9 @@
 [ext_resource path="res://dice_roller/dice_roller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://encounters/session_3/orion_encounter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://table/players.tscn" type="PackedScene" id=6]
+[ext_resource path="res://table/players/players.tscn" type="PackedScene" id=6]
 [ext_resource path="res://slide_show/slide_show.tscn" type="PackedScene" id=7]
-[ext_resource path="res://table/aoe.tscn" type="PackedScene" id=8]
+[ext_resource path="res://table/aoe/aoe.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )

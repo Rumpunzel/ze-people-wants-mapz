@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://table/painter.gd" type="Script" id=1]
+[ext_resource path="res://table/painter/painter.gd" type="Script" id=1]
 [ext_resource path="res://dice_roller/table_camera.gd" type="Script" id=2]
 [ext_resource path="res://table/table.gd" type="Script" id=3]
-[ext_resource path="res://table/paint_line.tscn" type="PackedScene" id=4]
-[ext_resource path="res://table/ruler.tscn" type="PackedScene" id=7]
+[ext_resource path="res://table/painter/paint_line.tscn" type="PackedScene" id=4]
+[ext_resource path="res://table/ruler/ruler.tscn" type="PackedScene" id=7]
 
 [node name="Table" type="YSort"]
 script = ExtResource( 3 )
