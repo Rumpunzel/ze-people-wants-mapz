@@ -59,7 +59,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	set_size(attributes.size)
+	set_size(attributes.size, true)
 	image.rect_pivot_offset = image.rect_size * 0.5
 	
 	if Engine.editor_hint:
@@ -255,7 +255,7 @@ func set_selected(new_status: bool) -> void:
 	emit_signal("selected", selected)
 
 
-func set_size(new_size: int) -> void:
+func set_size(new_size: int, skip_repositioning := false) -> void:
 	size = new_size
 	# warning-ignore:return_value_discarded
 	_movement_tween.interpolate_property(self, "scale", null, Vector2.ONE * size * SCALE_FACTOR, 0.2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -270,10 +270,11 @@ func set_size(new_size: int) -> void:
 		Attributes.Size.LARGE, Attributes.Size.HUGE, Attributes.Size.GARGANTUAN:
 			_token_offset = Vector2.ZERO
 	
-	# warning-ignore:return_value_discarded
-	_movement_tween.interpolate_property(self, "global_position", null, _as_coordinate(global_position), 0.2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-	# warning-ignore:return_value_discarded
-	_movement_tween.start()
+	if not skip_repositioning:
+		# warning-ignore:return_value_discarded
+		_movement_tween.interpolate_property(self, "global_position", null, _as_coordinate(global_position), 0.2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+		# warning-ignore:return_value_discarded
+		_movement_tween.start()
 	
 	emit_signal("size_changed", size)
 

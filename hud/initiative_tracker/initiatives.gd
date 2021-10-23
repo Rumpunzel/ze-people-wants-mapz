@@ -134,7 +134,7 @@ func _on_attack_pressed() -> void:
 	current_token.attack()
 
 
-func _on_token_spawned(new_token: Token) -> void:
+func _on_token_spawned(new_token: Token, _at_position: Vector2) -> void:
 	# warning-ignore:unsafe_property_access
 	if not is_visible_in_tree() or not new_token.attributes.add_to_initiative:
 		return

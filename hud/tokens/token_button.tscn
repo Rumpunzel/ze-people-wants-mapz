@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://hud/tokens/token_buttpon.gd" type="Script" id=1]
+[ext_resource path="res://hud/tokens/token_button.gd" type="Script" id=1]
 [ext_resource path="res://tokens/images/portraits/monsters/undead/zombies/zombie_1.png" type="Texture" id=2]
 
 [node name="TokenButton" type="Button"]

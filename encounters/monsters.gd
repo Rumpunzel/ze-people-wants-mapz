@@ -14,6 +14,7 @@ func _ready() -> void:
 	ShittySingleton.connect("token_spawned", self, "_on_token_spawned")
 
 
-func _on_token_spawned(new_token: Token) -> void:
+func _on_token_spawned(new_token: Token, at_position: Vector2) -> void:
 	new_token.add_to_group(MONSTER_GROUP)
 	add_child(new_token, true)
+	new_token.global_position = at_position

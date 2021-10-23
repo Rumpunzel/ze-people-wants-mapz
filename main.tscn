@@ -19,7 +19,7 @@ _run_as_session = false
 grid_color = Color( 0.607843, 0, 0, 0.784314 )
 
 [node name="OrionEncounter" parent="Table" instance=ExtResource( 5 )]
-position = Vector2( -2176, 128 )
+position = Vector2( -2304, 0 )
 
 [node name="Players" parent="Table" instance=ExtResource( 6 )]
 position = Vector2( -256, 256 )

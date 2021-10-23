@@ -25,3 +25,4 @@ color = Color( 1, 0.909804, 0.847059, 1 )
 [node name="Transformation" parent="." index="2" instance=ExtResource( 7 )]
 
 [node name="Orion" parent="." index="3" instance=ExtResource( 1 )]
+position = Vector2( 128, 128 )

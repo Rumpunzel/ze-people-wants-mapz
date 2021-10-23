@@ -18,70 +18,29 @@ func _unhandled_input(event: InputEvent) -> void:
 				return
 			
 			match(key_event.scancode):
-				
 				KEY_7:
-					var new_orion: Token = _spring.instance()
-					var orion_position := _orion.global_position
-					
-					remove_child(_orion)
-					_orion.queue_free()
-					_orion = new_orion
-					
-					_transformation.global_position = orion_position
-					_transformation.emitting = true
-					
-					ShittySingleton.emit_signal("token_spawned", _orion)
-					_orion.global_position = orion_position
-					
-					get_tree().set_input_as_handled()
-				
+					_spawn_new_orion(_spring.instance())
 				
 				KEY_8:
-					var new_orion: Token = _summer.instance()
-					var orion_position := _orion.global_position
-					
-					remove_child(_orion)
-					_orion.queue_free()
-					_orion = new_orion
-					
-					_transformation.global_position = orion_position
-					_transformation.emitting = true
-					
-					ShittySingleton.emit_signal("token_spawned", _orion)
-					_orion.global_position = orion_position
-					
-					get_tree().set_input_as_handled()
-				
+					_spawn_new_orion(_summer.instance())
 				
 				KEY_9:
-					var new_orion: Token = _autumn.instance()
-					var orion_position := _orion.global_position
-					
-					remove_child(_orion)
-					_orion.queue_free()
-					_orion = new_orion
-					
-					_transformation.global_position = orion_position
-					_transformation.emitting = true
-					
-					ShittySingleton.emit_signal("token_spawned", _orion)
-					_orion.global_position = orion_position
-					
-					get_tree().set_input_as_handled()
-				
+					_spawn_new_orion(_autumn.instance())
 				
 				KEY_0:
-					var new_orion: Token = _winter.instance()
-					var orion_position := _orion.global_position
-					
-					remove_child(_orion)
-					_orion.queue_free()
-					_orion = new_orion
-					
-					_transformation.global_position = orion_position
-					_transformation.emitting = true
-					
-					ShittySingleton.emit_signal("token_spawned", _orion)
-					_orion.global_position = orion_position
-					
-					get_tree().set_input_as_handled()
+					_spawn_new_orion(_winter.instance())
+
+
+func _spawn_new_orion(new_orion: Token) -> void:
+	var orion_position := _orion.global_position
+	
+	remove_child(_orion)
+	_orion.queue_free()
+	_orion = new_orion
+	
+	_transformation.global_position = orion_position
+	_transformation.emitting = true
+	
+	ShittySingleton.emit_signal("token_spawned", _orion, orion_position)
+	
+	get_tree().set_input_as_handled()
