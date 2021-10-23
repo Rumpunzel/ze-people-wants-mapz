@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 level = 17
-hit_die = 10
+hit_die = 8
 roll_hit_points = false
 size = 4
 move_speed = 30
