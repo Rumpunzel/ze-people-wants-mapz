@@ -29,7 +29,7 @@ var size: int setget set_size
 var _min_travel_time = 0.5
 var _max_travel_time = 2.0
 var _being_dragged := false setget _set_being_dragged
-var _token_offset := Vector2.ZERO
+var _token_offset := Vector2(Table.GRID_SIZE, Table.GRID_SIZE) * 0.5
 
 var _trail: Trail
 var _background: Node2D
@@ -202,19 +202,18 @@ func damage(amount: int, magical: bool, damage_type: int, damage_type_string: St
 		_animation_player.play(previous_animation)
 
 
-
-func _mouse_as_coordinate() -> Vector2:
-	return _as_coordinate(get_global_mouse_position())
-
-
-func _as_coordinate(world_position: Vector2) -> Vector2:
+func as_coordinate(world_position: Vector2) -> Vector2:
 	world_position -= _token_offset
 	var grid_snapping := Table.GRID_SIZE * (0.5 if size == Attributes.Size.TINY else 1.0)
+	
 	return Vector2(
 		stepify(world_position.x, grid_snapping),
 		stepify(world_position.y, grid_snapping)
 	) + _token_offset
 
+
+func _mouse_as_coordinate() -> Vector2:
+	return as_coordinate(get_global_mouse_position())
 
 
 func set_hit_points(new_hit_points: int) -> void:
@@ -272,7 +271,7 @@ func set_size(new_size: int, skip_repositioning := false) -> void:
 	
 	if not skip_repositioning:
 		# warning-ignore:return_value_discarded
-		_movement_tween.interpolate_property(self, "global_position", null, _as_coordinate(global_position), 0.2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+		_movement_tween.interpolate_property(self, "global_position", null, as_coordinate(global_position), 0.2, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 		# warning-ignore:return_value_discarded
 		_movement_tween.start()
 	
