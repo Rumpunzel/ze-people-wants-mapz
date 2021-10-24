@@ -15,7 +15,7 @@ color = Color( 0.411765, 0.286275, 0.690196, 1 )
 attributes = ExtResource( 3 )
 
 [node name="Trail" parent="TrailNode" index="0"]
-width = 150.0
+width = 80.0
 gradient = SubResource( 1 )
 
 [node name="Background" parent="." index="3"]
@@ -40,3 +40,5 @@ margin_bottom = -4.0
 
 [node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
 margin_right = 128.0
+
+[connection signal="id_pressed" from="ContextMenu/SizeMenu" to="ContextMenu/SizeMenu" method="_on_id_pressed"]

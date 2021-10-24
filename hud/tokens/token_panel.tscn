@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://hud/tokens/token_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tokens/images/portraits/monsters/will_o_wisp.png" type="Texture" id=2]
@@ -6,13 +6,16 @@
 [ext_resource path="res://tokens/monsters/zombie.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/tokens/token_panel.gd" type="Script" id=5]
 [ext_resource path="res://tokens/placeholder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tokens/npcs/elf_shadow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tokens/images/portraits/npcs/elf_shadow.png" type="Texture" id=8]
+[ext_resource path="res://tokens/monsters/rakshasa.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tokens/images/token_background.png" type="Texture" id=10]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/hood.png-8c28939838777e2fbbf5f334f1338e5a.stex"
 
 [node name="TokenPanel" type="MarginContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -23,23 +26,35 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_top = 938.0
+margin_top = 722.0
 margin_right = 140.0
-margin_bottom = 1222.0
+margin_bottom = 1438.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
+[node name="ElfShadow" parent="VBoxContainer" instance=ExtResource( 1 )]
+icon = ExtResource( 8 )
+_token_scene = ExtResource( 7 )
+
 [node name="Zombie" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 144.0
+margin_bottom = 284.0
 _token_scene = ExtResource( 4 )
 
 [node name="Will-o-Wisp" parent="VBoxContainer" instance=ExtResource( 1 )]
-margin_top = 144.0
-margin_bottom = 284.0
+margin_top = 288.0
+margin_bottom = 428.0
 icon = ExtResource( 2 )
 _token_scene = ExtResource( 3 )
 
 [node name="Placeholder" parent="VBoxContainer" instance=ExtResource( 1 )]
-margin_top = 144.0
-margin_bottom = 284.0
+margin_top = 432.0
+margin_bottom = 572.0
 icon = SubResource( 1 )
 _token_scene = ExtResource( 6 )
+
+[node name="Rakshasa" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 576.0
+margin_bottom = 716.0
+icon = ExtResource( 10 )
+_token_scene = ExtResource( 9 )

@@ -49,6 +49,7 @@ tracks/1/keys = {
 [node name="DieBlueprint" type="RigidBody" groups=[
 "Dice",
 ]]
+mass = 2.0
 physics_material_override = ExtResource( 14 )
 script = ExtResource( 1 )
 bludgeoning_material = ExtResource( 5 )

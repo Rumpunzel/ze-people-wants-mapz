@@ -63,8 +63,8 @@ func _ready() -> void:
 	
 	transform.basis = random_vector3()
 	
-	apply_torque_impulse(random_vector3() * 8.0)
-	apply_central_impulse(random_vector3() * 32.0)
+	apply_torque_impulse(random_vector3() * 4.0)
+	apply_central_impulse(random_vector3() * 16.0)
 
 
 func _physics_process(_delta: float) -> void:

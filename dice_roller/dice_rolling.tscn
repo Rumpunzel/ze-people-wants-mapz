@@ -73,6 +73,7 @@ size_flags_horizontal = 3
 margin_top = 36.0
 margin_right = 242.0
 margin_bottom = 76.0
+pressed = true
 text = "Use 3D Dice"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
@@ -146,9 +147,6 @@ margin_right = 242.0
 margin_bottom = 992.0
 text = "Reset"
 
-[connection signal="hide" from="." to="MarginContainer/VBoxContainer/Roll/LineEdit" method="set_text" binds= [ "" ]]
-[connection signal="hide" from="." to="MarginContainer/VBoxContainer/Total/HBoxContainer/Number" method="set_total" binds= [ 0 ]]
-[connection signal="hide" from="." to="MarginContainer/VBoxContainer/Total/ReferenceRect/MarginContainer/DiceResults" method="clear"]
 [connection signal="text_entered" from="MarginContainer/VBoxContainer/Roll/LineEdit" to="MarginContainer/VBoxContainer/Roll/LineEdit" method="_spawn_dice"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Roll/Close" to="." method="hide"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Reset" to="MarginContainer/VBoxContainer/Roll/LineEdit" method="grab_focus"]

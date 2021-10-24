@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://tokens/attributes/attributes.gd" type="Script" id=1]
+[ext_resource path="res://tokens/npcs/orion_autumn_sword_attack.tres" type="Resource" id=2]
+[ext_resource path="res://tokens/npcs/orion_autumn_sword_attack_bonus.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+level = 17
+hit_die = 8
+roll_hit_points = false
+size = 4
+move_speed = 30
+add_to_initiative = true
+armor_class = 19
+strength = 12
+dexterity = 16
+constitution = 16
+intelligence = 14
+wisdom = 17
+charisma = 18
+strength_saving_throw_bonus = 4
+dexterity_saving_throw_bonus = 4
+constitution_saving_throw_bonus = 4
+intelligence_saving_throw_bonus = 4
+wisdom_saving_throw_bonus = 10
+charisma_saving_throw_bonus = 10
+non_magical_resistances = 7
+magical_resistances = 0
+non_magical_immunities = 0
+magical_immunities = 0
+non_magical_vulnerabilties = 0
+magical_vulnerabilties = 0
+non_magical_damage_absorbtion = 0
+magical_damage_absorbtion = 0
+attack = [ ExtResource( 2 ), ExtResource( 3 ) ]

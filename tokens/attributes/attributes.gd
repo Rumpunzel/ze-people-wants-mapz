@@ -28,6 +28,8 @@ export var roll_hit_points := true
 export(Size) var size := Size.MEDIUM
 export var move_speed := 30
 
+export var add_to_initiative := true
+
 export var armor_class := 10
 
 export var strength := 10

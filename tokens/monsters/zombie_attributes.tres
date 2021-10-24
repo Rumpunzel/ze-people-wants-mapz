@@ -10,6 +10,7 @@ hit_die = 8
 roll_hit_points = true
 size = 4
 move_speed = 20
+add_to_initiative = true
 armor_class = 8
 strength = 13
 dexterity = 6

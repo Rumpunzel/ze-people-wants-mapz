@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://tokens/npcs/orion_spring.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tokens/npcs/orion_autumn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://encounters/_base_encounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tokens/npcs/orion_summer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tokens/npcs/orion_winter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://encounters/session_3/orion_encounter.gd" type="Script" id=6]
+[ext_resource path="res://vfx/transformation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://encounters/session_3/orion_encounter_environment.tres" type="Environment" id=8]
+
+[node name="OrionEncounter" instance=ExtResource( 3 )]
+script = ExtResource( 6 )
+_spring = ExtResource( 1 )
+_summer = ExtResource( 4 )
+_autumn = ExtResource( 2 )
+_winter = ExtResource( 5 )
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = ExtResource( 8 )
+
+[node name="CanvasModulate" parent="." index="1"]
+color = Color( 1, 0.909804, 0.847059, 1 )
+
+[node name="Transformation" parent="." index="2" instance=ExtResource( 7 )]
+
+[node name="Orion" parent="." index="3" instance=ExtResource( 1 )]
+position = Vector2( 128, 128 )

@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/maujoe.custom_gradient_texture/custom_gradient_texture.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody",
 "class": "Die",
 "language": "GDScript",
 "path": "res://dice_roller/die.gd"
@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Line2D",
 "class": "PaintLine",
 "language": "GDScript",
-"path": "res://table/paint_line.gd"
+"path": "res://table/painter/paint_line.gd"
 }, {
 "base": "Attack",
 "class": "PhysicalAttack",
@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "YSort",
 "class": "Players",
 "language": "GDScript",
-"path": "res://table/players.gd"
+"path": "res://table/players/players.gd"
 }, {
 "base": "Control",
 "class": "Presentation",
@@ -142,7 +142,8 @@ _global_script_class_icons={
 
 config/name="Maps"
 run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+config/icon="res://map.png"
+config/windows_native_icon="res://map.ico"
 
 [autoload]
 

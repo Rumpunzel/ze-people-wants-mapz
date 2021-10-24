@@ -26,6 +26,11 @@ func _process(_delta: float) -> void:
 	var new_entry: InitiativeEntry = _new_entries.pop_front()
 	# warning-ignore:return_value_discarded
 	new_entry.connect("token_died", self, "_on_token_died")
+	
+	if new_entry.token:
+		# warning-ignore:return_value_discarded
+		new_entry.token.connect("tree_exited", self, "_on_token_died", [ new_entry ])
+	
 	add_child(new_entry)
 
 
@@ -36,7 +41,8 @@ func _set_up_initiative(player_initiatives: Dictionary) -> void:
 	for player in player_initiatives.keys():
 		var token: Token = player
 		
-		if token.dead:
+		# warning-ignore:unsafe_property_access
+		if token.dead or not token.attributes.add_to_initiative:
 			continue
 		
 		var initiative: Attributes.Initiative = player_initiatives[token]
@@ -102,6 +108,7 @@ func _on_done_pressed() -> void:
 	var old_first := get_current_entry()
 	move_child(old_first, child_count - 1)
 	old_first.moved()
+	
 	if old_first.token:
 		old_first.token.is_taking_turn = false
 	
@@ -111,6 +118,7 @@ func _on_done_pressed() -> void:
 func _new_initiative() -> void:
 	var new_first := get_current_entry()
 	emit_signal("initiative_changed", new_first)
+	
 	if new_first and new_first.token:
 		new_first.token.is_taking_turn = true
 
@@ -126,8 +134,9 @@ func _on_attack_pressed() -> void:
 	current_token.attack()
 
 
-func _on_token_spawned(new_token: Token) -> void:
-	if not is_visible_in_tree():
+func _on_token_spawned(new_token: Token, _at_position: Vector2) -> void:
+	# warning-ignore:unsafe_property_access
+	if not is_visible_in_tree() or not new_token.attributes.add_to_initiative:
 		return
 	
 	var initiative := new_token.roll_initiative()
@@ -161,6 +170,10 @@ func _on_token_spawned(new_token: Token) -> void:
 		if previous_initiative > current_initiative and next_initiative < current_initiative:
 			add_at = index
 			break
+	
+	if new_entry.token:
+		# warning-ignore:return_value_discarded
+		new_entry.token.connect("tree_exited", self, "_on_token_died", [ new_entry ])
 	
 	add_child(new_entry, true)
 	move_child(new_entry, add_at)

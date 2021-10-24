@@ -14,7 +14,7 @@ signal drawing_started(color)
 signal drawing_ended()
 signal drawing_deleted()
 
-signal token_spawned(new_token)
+signal token_spawned(new_token, at_position)
 
 
 # warning-ignore:unused_class_variable

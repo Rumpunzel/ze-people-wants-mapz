@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 		
 		var spawn_position = Die.random_vector3() * 10.0
 		
-		spawn_position.y = 10.0 + randf() * 10.0
+		spawn_position.y = 4.0 + randf() * 4.0
 		new_die.transform.origin = spawn_position
 		
 		if die_to_spawn.damage_type >= 0:

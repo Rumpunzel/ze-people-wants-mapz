@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tokens/images/portraits/npcs/orion_winter.png" type="Texture" id=2]
+[ext_resource path="res://tokens/npcs/orion_winter_attributes.tres" type="Resource" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.282353, 0.780392, 1, 0, 0.282353, 0.780392, 1, 1 )
+
+[node name="Orion" instance=ExtResource( 1 )]
+color = Color( 0.282353, 0.780392, 1, 1 )
+attributes = ExtResource( 3 )
+
+[node name="Trail" parent="TrailNode" index="0"]
+gradient = SubResource( 1 )
+
+[node name="Background" parent="." index="3"]
+modulate = Color( 0.282353, 0.780392, 1, 1 )
+
+[node name="Image" parent="." index="4"]
+texture = ExtResource( 2 )
