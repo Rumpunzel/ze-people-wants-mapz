@@ -124,8 +124,10 @@ func _new_initiative() -> void:
 
 
 func _on_token_died(entry: InitiativeEntry) -> void:
-	remove_child(entry)
-	entry.queue_free()
+	if entry:
+		remove_child(entry)
+		entry.queue_free()
+	
 	emit_signal("initiative_changed", get_current_entry())
 
 
