@@ -90,7 +90,7 @@ static func roll(dice_number: int, die_type: int, use_expected_result := false) 
 		result = int(dice_number * (die_type + 1) * 0.5)
 	else:
 		for _i in range(dice_number):
-			result += 1 + randi() % die_type
+			result += 1 + randi() % int(max(die_type, 1))
 	
 	return result
 
