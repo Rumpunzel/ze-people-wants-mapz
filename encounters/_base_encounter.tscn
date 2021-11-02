@@ -17,4 +17,5 @@ script = ExtResource( 1 )
 environment = SubResource( 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 1, 0.909804, 0.847059, 1 )
 script = ExtResource( 2 )

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tokens/token.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tokens/images/portraits/monsters/yetis/yeti_1.png" type="Texture" id=2]
+[ext_resource path="res://tokens/monsters/yeti_attributes.tres" type="Resource" id=3]
+
+[node name="Yeti" instance=ExtResource( 1 )]
+attributes = ExtResource( 3 )
+
+[node name="Background" parent="." index="3"]
+visible = false
+
+[node name="Image" parent="." index="4"]
+material = null
+texture = ExtResource( 2 )
+_portraits_directory = "res://tokens/images/portraits/monsters/yetis"

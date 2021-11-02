@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://table/table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://dice_roller/dice_roller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://encounters/session_4/yeti_encounter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://table/players/players.tscn" type="PackedScene" id=6]
 [ext_resource path="res://slide_show/slide_show.tscn" type="PackedScene" id=7]
 [ext_resource path="res://table/aoe/aoe.tscn" type="PackedScene" id=8]
@@ -16,6 +17,9 @@ _run_as_session = false
 
 [node name="Table" parent="." instance=ExtResource( 1 )]
 grid_color = Color( 0.607843, 0, 0, 0.784314 )
+
+[node name="YetiEncounter" parent="Table" instance=ExtResource( 5 )]
+position = Vector2( -2560, 0 )
 
 [node name="Players" parent="Table" instance=ExtResource( 6 )]
 

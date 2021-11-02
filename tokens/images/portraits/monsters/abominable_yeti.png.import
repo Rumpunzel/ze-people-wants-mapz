@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/yeti_4.png-812dc03790edac71a52af15822273ac4.stex"
+path="res://.import/abominable_yeti.png-ae39fa4db53d2a4589a357acfb44de6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tokens/images/portraits/monsters/yetis/yeti_4.png"
-dest_files=[ "res://.import/yeti_4.png-812dc03790edac71a52af15822273ac4.stex" ]
+source_file="res://tokens/images/portraits/monsters/abominable_yeti.png"
+dest_files=[ "res://.import/abominable_yeti.png-ae39fa4db53d2a4589a357acfb44de6c.stex" ]
 
 [params]
 
