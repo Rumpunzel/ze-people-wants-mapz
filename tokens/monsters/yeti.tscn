@@ -5,7 +5,11 @@
 [ext_resource path="res://tokens/monsters/yeti_attributes.tres" type="Resource" id=3]
 
 [node name="Yeti" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
 attributes = ExtResource( 3 )
+
+[node name="Trail" parent="TrailNode" index="0"]
+width = 100.0
 
 [node name="Background" parent="." index="3"]
 visible = false
@@ -14,3 +18,16 @@ visible = false
 material = null
 texture = ExtResource( 2 )
 _portraits_directory = "res://tokens/images/portraits/monsters/yetis"
+
+[node name="HUDMargin" parent="CanvasLayer" index="0"]
+margin_left = -256.0
+margin_top = -257.5
+margin_right = 256.0
+margin_bottom = -254.5
+rect_pivot_offset = Vector2( 256, 1.5 )
+
+[node name="LifeBar" parent="CanvasLayer/HUDMargin" index="0"]
+margin_right = 512.0
+
+[node name="LifeDisplay" parent="CanvasLayer/HUDMargin" index="1"]
+margin_right = 512.0

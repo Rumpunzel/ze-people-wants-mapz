@@ -8,6 +8,9 @@
 scale = Vector2( 4, 4 )
 attributes = ExtResource( 3 )
 
+[node name="Trail" parent="TrailNode" index="0"]
+width = 100.0
+
 [node name="Background" parent="." index="3"]
 visible = false
 
