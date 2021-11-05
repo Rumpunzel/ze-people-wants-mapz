@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://tokens/monsters/yeti.tscn" type="PackedScene" id=1]
 [ext_resource path="res://encounters/_base_encounter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://tokens/monsters/abominable_yeti.tscn" type="PackedScene" id=3]
 [ext_resource path="res://vfx/snowflake.png" type="Texture" id=4]
 
 [sub_resource type="ParticlesMaterial" id=1]
@@ -23,39 +21,13 @@ linear_accel_random = 0.5
 scale = 0.05
 scale_random = 0.05
 
-[node name="YetiEncounter" instance=ExtResource( 2 )]
+[node name="MountainEncounter" instance=ExtResource( 2 )]
 
 [node name="Particles2D" type="Particles2D" parent="." index="2"]
 z_index = 100
 amount = 20000
 lifetime = 10.0
+preprocess = 5.0
 visibility_rect = Rect2( -10000, -10000, 20000, 20000 )
 process_material = SubResource( 1 )
 texture = ExtResource( 4 )
-
-[node name="AbominableYeti" parent="." index="3" instance=ExtResource( 3 )]
-scale = Vector2( 4, 4 )
-
-[node name="Yeti" parent="." index="4" instance=ExtResource( 1 )]
-position = Vector2( 1024, -512 )
-scale = Vector2( 2, 2 )
-
-[node name="Yeti2" parent="." index="5" instance=ExtResource( 1 )]
-position = Vector2( -768, -768 )
-scale = Vector2( 2, 2 )
-
-[node name="Yeti3" parent="." index="6" instance=ExtResource( 1 )]
-position = Vector2( -1024, 512 )
-scale = Vector2( 2, 2 )
-
-[node name="Yeti4" parent="." index="7" instance=ExtResource( 1 )]
-position = Vector2( 256, -1024 )
-scale = Vector2( 2, 2 )
-
-[node name="Yeti5" parent="." index="8" instance=ExtResource( 1 )]
-position = Vector2( 768, 768 )
-scale = Vector2( 2, 2 )
-
-[node name="Yeti6" parent="." index="9" instance=ExtResource( 1 )]
-position = Vector2( -256, 1024 )
-scale = Vector2( 2, 2 )
