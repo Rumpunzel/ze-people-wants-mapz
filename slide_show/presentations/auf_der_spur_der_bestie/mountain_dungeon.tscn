@@ -26,3 +26,4 @@ visible = false
 visible = false
 
 [node name="Abtei" parent="." index="5" instance=ExtResource( 7 )]
+visible = false

@@ -13,6 +13,5 @@ script = ExtResource( 9 )
 [node name="OrdenPräsentation" parent="." instance=ExtResource( 1 )]
 
 [node name="AufDerSpurDerBestie" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [node name="MountainDungeon" parent="." instance=ExtResource( 2 )]
