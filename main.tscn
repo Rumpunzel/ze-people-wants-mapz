@@ -18,7 +18,7 @@ _run_as_session = false
 [node name="Table" parent="." instance=ExtResource( 1 )]
 grid_color = Color( 0.607843, 0, 0, 0.784314 )
 
-[node name="YetiEncounter" parent="Table" instance=ExtResource( 5 )]
+[node name="MountainEncounter" parent="Table" instance=ExtResource( 5 )]
 position = Vector2( -2560, 0 )
 
 [node name="Players" parent="Table" instance=ExtResource( 6 )]
