@@ -8,7 +8,7 @@ func _enter_tree() -> void:
 	randomize()
 	
 	if _run_as_session or not OS.is_debug_build():
-		OS.current_screen = OS.get_screen_count() - 1
+		OS.current_screen = 0#OS.get_screen_count() - 1
 		OS.window_fullscreen = true
 
 
