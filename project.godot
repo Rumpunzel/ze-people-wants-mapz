@@ -140,7 +140,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Maps"
+config/name="Der Orden der Sieben Winde"
 run/main_scene="res://main.tscn"
 config/icon="res://map.png"
 config/windows_native_icon="res://map.ico"

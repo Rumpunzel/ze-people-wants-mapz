@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tokens/images/portraits/monsters/remorhaz/remorhaz_1.png" type="Texture" id=1]
+[ext_resource path="res://tokens/token.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tokens/monsters/young_remorhaz_attributes.tres" type="Resource" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0.623529, 1, 0, 0, 0.623529, 1, 1 )
+
+[node name="YoungRemorhaz" instance=ExtResource( 2 )]
+color = Color( 0, 0.623529, 1, 1 )
+attributes = ExtResource( 3 )
+
+[node name="Trail" parent="TrailNode" index="0"]
+gradient = SubResource( 1 )
+
+[node name="Background" parent="." index="3"]
+modulate = Color( 0, 0.623529, 1, 1 )
+
+[node name="Image" parent="." index="4"]
+texture = ExtResource( 1 )
+_portraits_directory = "res://tokens/images/portraits/monsters/remorhaz"
