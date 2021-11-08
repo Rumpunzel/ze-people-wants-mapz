@@ -155,7 +155,9 @@ func calculate_modifier(attribute: int) -> int:
 	return int(attribute * 0.5) - 5
 
 func calculate_hit_points() -> int:
-	return Die.roll(level, hit_die, not roll_hit_points) + level * calculate_modifier(constitution)
+	var roll := Die.roll(level, hit_die, not roll_hit_points)
+	var bonus := level * calculate_modifier(constitution)
+	return roll + bonus
 
 func roll_initiative() -> Initiative:
 	return Initiative.new(Die.roll(1, Die.DiceTypes.d20), calculate_modifier(dexterity))

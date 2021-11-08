@@ -46,9 +46,7 @@ colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[node name="Token" type="Area2D" groups=[
-"Token",
-]]
+[node name="Token" type="Area2D" groups=["Token"]]
 collision_layer = 2
 script = ExtResource( 2 )
 
@@ -136,8 +134,6 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_health_color = Color( 0, 0.388235, 0, 1 )
-_damaged_color = Color( 0.54902, 0, 0, 1 )
 
 [node name="DamageBar" type="ProgressBar" parent="CanvasLayer/HUDMargin/LifeBar"]
 show_behind_parent = true

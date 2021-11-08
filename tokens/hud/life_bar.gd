@@ -1,8 +1,8 @@
 extends ProgressBar
 
 
-export var _health_color := Color.darkgreen
-export var _damaged_color := Color.darkred
+export var _health_color := Color.green
+export var _damaged_color := Color.red
 
 onready var _current: Label = get_node("../LifeDisplay/Current")
 onready var _max: Label = get_node("../LifeDisplay/Max")
