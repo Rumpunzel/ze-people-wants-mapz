@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://tokens/attributes/attributes.gd" type="Script" id=1]
+[ext_resource path="res://tokens/npcs/orvin_sling_attack.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+level = 11
+hit_die = 8
+roll_hit_points = false
+size = 4
+move_speed = 15
+add_to_initiative = true
+armor_class = 11
+strength = 12
+dexterity = 4
+constitution = 14
+intelligence = 14
+wisdom = 18
+charisma = 16
+strength_saving_throw_bonus = 0
+dexterity_saving_throw_bonus = 4
+constitution_saving_throw_bonus = 0
+intelligence_saving_throw_bonus = 4
+wisdom_saving_throw_bonus = 0
+charisma_saving_throw_bonus = 0
+non_magical_resistances = 0
+magical_resistances = 0
+non_magical_immunities = 0
+magical_immunities = 0
+non_magical_vulnerabilties = 0
+magical_vulnerabilties = 0
+non_magical_damage_absorbtion = 0
+magical_damage_absorbtion = 0
+attack = [ ExtResource( 2 ) ]
